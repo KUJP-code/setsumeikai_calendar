@@ -1,13 +1,11 @@
-import Breadcrumb from "./Breadcrumb";
+import { Outlet } from "react-router-dom";
+import ProgressNav from "./components/routing/ProgressNav";
 
 function App() {
   return (
     <>
-      <nav>
-        <Breadcrumb text="School List" to="/school_list" />
-        <Breadcrumb text="Calendar" to="/calendar" />
-        <Breadcrumb text="Form" to="/form" />
-      </nav>
+      <ProgressNav />
+      <Outlet />
     </>
   );
 }

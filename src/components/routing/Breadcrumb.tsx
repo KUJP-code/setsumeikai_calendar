@@ -6,18 +6,21 @@ interface props {
 }
 
 function Breadcrumb({ text, to }: props) {
+  const className =
+    "flex justify-center items-center text-neutral-100 font-semibold p-3";
+
   return (
     <NavLink
       to={to}
       className={({ isActive, isPending }) =>
         isActive
-          ? "p-5 bg-orange-600"
+          ? `bg-ku-orange ${className}`
           : isPending
-          ? "p-5 bg-yellow-300"
-          : "p-5 bg-blue-600"
+          ? `bg-yellow-300 ${className}`
+          : `bg-ku-secondary ${className}`
       }
     >
-      {text}
+      <p>{text}</p>
     </NavLink>
   );
 }
