@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 interface props {
   text: string;
   to: string;
+  currentSelection?: string;
 }
 
-function Breadcrumb({ text, to }: props) {
+export default function Breadcrumb({ currentSelection, text, to }: props) {
   const className =
     "flex justify-center items-center text-neutral-100 font-semibold p-3";
 
@@ -20,9 +21,8 @@ function Breadcrumb({ text, to }: props) {
           : `bg-ku-secondary ${className}`
       }
     >
-      <p>{text}</p>
+      <h5>{text}</h5>
+      {currentSelection ? <p>{currentSelection}</p> : null}
     </NavLink>
   );
 }
-
-export default Breadcrumb;

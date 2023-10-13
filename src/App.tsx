@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import ProgressNav from "./components/routing/ProgressNav";
 
-function App() {
+export default function App() {
   return (
     <>
       <ProgressNav />
@@ -9,5 +9,3 @@ function App() {
     </>
   );
 }
-
-export default App;

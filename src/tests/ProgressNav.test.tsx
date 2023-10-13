@@ -45,8 +45,4 @@ describe("ProgressNav", () => {
 
     expect(hasActiveClass).toBe(true);
   });
-
-  it.todo("shows school once selected", () => {});
-
-  it.todo("shows time slot once selected", () => {});
 });
