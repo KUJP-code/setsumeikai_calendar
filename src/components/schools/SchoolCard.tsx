@@ -10,7 +10,7 @@ export default function SchoolCard({
   nearbyStations,
 }: school) {
   return (
-    <div className="p-3 border border-ku-orange rounded shadow-lg">
+    <article className="p-3 border border-ku-secondary rounded shadow-lg">
       <h5>{name}</h5>
       <p>{address}</p>
       <p>{phone}</p>
@@ -20,6 +20,6 @@ export default function SchoolCard({
       {nearbyStations.length > 0 ? (
         <NearbyStationList stations={nearbyStations} schoolId={id} />
       ) : null}
-    </div>
+    </article>
   );
 }
