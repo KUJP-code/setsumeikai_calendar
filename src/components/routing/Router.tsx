@@ -3,7 +3,7 @@ import App from "../../App";
 import ErrorPage from "../../ErrorPage";
 import Calendar from "../../Calendar";
 import Form from "../../Form";
-import SchoolList from "../../SchoolList";
+import SchoolList from "../schools/SchoolList";
 
 export default function Router() {
   return createHashRouter([
