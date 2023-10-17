@@ -1,85 +1,10 @@
-import { cleanup, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "bun:test";
-import SchoolList from "../components/schools/SchoolList";
-import userEvent from "@testing-library/user-event";
-import { RouterProvider, createMemoryRouter } from "react-router-dom";
-
-const router = createMemoryRouter([
-  {
-    path: "/",
-    element: <SchoolList />,
-    loader: testGetSchools,
-  },
-]);
-
-function renderSchoolList() {
-  render(<RouterProvider router={router} />);
-}
-
-describe("School List", () => {
-  it("displays article for each school in passed list", () => {
-    renderSchoolList();
-    const cardCount = screen.getAllByRole("article").length;
-
-    expect(cardCount).toBe(testGetSchools().length);
-  });
-
-  describe("search", () => {
-    async function searchFor(input: string) {
-      const user = userEvent.setup();
-
-      const searchInput = screen.getByRole("searchbox");
-      user.click(searchInput);
-      user.keyboard(input);
-    }
-
-    afterEach(cleanup);
-
-    it("searches by name", () => {
-      renderSchoolList();
-      searchFor("大森");
-
-      expect(screen.getAllByRole("article").length).toBe(1);
-      expect(screen.findByRole("article", { name: "大森" })).toBeTruthy();
-    });
-
-    it("searches by address", () => {
-      renderSchoolList();
-      searchFor("1F");
-
-      expect(screen.getAllByRole("article").length).toBe(4);
-    });
-
-    it("searches by phone", () => {
-      renderSchoolList();
-      searchFor("1111-111-111");
-
-      expect(screen.getAllByRole("article").length).toBe(2);
-    });
-
-    it("searches by bus area", () => {
-      renderSchoolList();
-      searchFor("目黒区");
-
-      expect(screen.getAllByRole("article").length).toBe(2);
-    });
-
-    it("searches by nearby station", () => {
-      renderSchoolList();
-      searchFor("馬込駅");
-
-      expect(screen.getAllByRole("article").length).toBe(1);
-    });
-  });
-});
-
-function testGetSchools() {
+export default async function getSchools(): Promise<school[]> {
   return [
     {
       id: 1,
       name: "馬込",
       address: "〒143-0021 東京都大田区北馬込2-28-4Compass Magome 3階",
-      phone: "1111-111-111",
+      phone: "0120-378-056",
       busAreas: ["大田区", "品川区"],
       nearbyStations: ["馬込駅"],
     },
@@ -87,7 +12,7 @@ function testGetSchools() {
       id: 2,
       name: "長原",
       address: "〒145-0064 東京都大田区上池台1-14-1明伸ビル1F",
-      phone: "1111-111-111",
+      phone: "0120-378-056",
       busAreas: ["大田区", "品川区", "目黒区"],
       nearbyStations: ["長原駅"],
     },
