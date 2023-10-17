@@ -29,46 +29,46 @@ describe("School List", () => {
       const user = userEvent.setup();
 
       const searchInput = screen.getByRole("searchbox");
-      user.click(searchInput);
-      user.keyboard(input);
+      await user.click(searchInput);
+      await user.keyboard(input);
     }
 
     afterEach(cleanup);
 
-    it("searches by name", () => {
+    it("searches by name", async () => {
       renderSchoolList();
-      searchFor("大森");
+      await searchFor("大森");
 
-      expect(screen.getAllByRole("article").length).toBe(1);
+      expect(screen.queryAllByRole("article").length).toBe(1);
       expect(screen.findByRole("article", { name: "大森" })).toBeTruthy();
     });
 
-    it("searches by address", () => {
+    it("searches by address", async () => {
       renderSchoolList();
-      searchFor("1F");
+      await searchFor("1F");
 
-      expect(screen.getAllByRole("article").length).toBe(4);
+      expect(screen.queryAllByRole("article").length).toBe(4);
     });
 
-    it("searches by phone", () => {
+    it("searches by phone", async () => {
       renderSchoolList();
-      searchFor("1111-111-111");
+      await searchFor("1111-111-111");
 
-      expect(screen.getAllByRole("article").length).toBe(2);
+      expect(screen.queryAllByRole("article").length).toBe(2);
     });
 
-    it("searches by bus area", () => {
+    it("searches by bus area", async () => {
       renderSchoolList();
-      searchFor("目黒区");
+      await searchFor("目黒区");
 
-      expect(screen.getAllByRole("article").length).toBe(2);
+      expect(screen.queryAllByRole("article").length).toBe(2);
     });
 
-    it("searches by nearby station", () => {
+    it("searches by nearby station", async () => {
       renderSchoolList();
-      searchFor("馬込駅");
+      await searchFor("馬込駅");
 
-      expect(screen.getAllByRole("article").length).toBe(1);
+      expect(screen.queryAllByRole("article").length).toBe(1);
     });
   });
 });

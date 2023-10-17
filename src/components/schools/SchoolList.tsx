@@ -1,15 +1,27 @@
-import FilterBox from "./FilterBox";
+import SearchBox from "./SearchBox";
 import SchoolCard from "./SchoolCard";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
 
-interface props {
-  schools: school[];
-}
+export default function SchoolList() {
+  const [query, setQuery] = useState("");
+  const schools: school[] = useLoaderData() as school[];
+  const displayedSchools =
+    query === ""
+      ? schools
+      : schools.filter(
+          (school) =>
+            school.name.includes(query) ||
+            school.address.includes(query) ||
+            school.phone.includes(query) ||
+            school.busAreas.some((area) => area.includes(query)) ||
+            school.nearbyStations.some((station) => station.includes(query))
+        );
 
-export default function SchoolList({ schools }: props) {
   return (
     <main className="flex flex-wrap justify-evenly gap-3 p-3">
-      <FilterBox />
-      {schools.map((school) => {
+      <SearchBox setQuery={setQuery} query={query} />
+      {displayedSchools.map((school) => {
         return <SchoolCard {...school} key={school.id} />;
       })}
     </main>
