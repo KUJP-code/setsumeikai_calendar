@@ -1,6 +1,7 @@
-import { afterAll, afterEach, beforeAll, describe, expect, it } from "bun:test";
+import { beforeAll, describe, expect, it, mock } from "bun:test";
 import SchoolCard from "../components/schools/SchoolCard";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 const testSchool: school = {
   id: 41,
@@ -14,9 +15,14 @@ const testSchool: school = {
 describe("School Card", () => {
   describe("happy path", () => {
     beforeAll(() => {
-      render(<SchoolCard {...testSchool} />);
+      render(
+        <SchoolCard
+          school={testSchool}
+          selected={false}
+          setSchool={mock(() => {})}
+        />
+      );
     });
-    afterAll(cleanup);
 
     it("shows school name, address and phone", () => {
       expect(screen.queryByText(`${testSchool.name}`)).toBeTruthy();
@@ -39,16 +45,51 @@ describe("School Card", () => {
     it.todo("shows loading state if no school", () => {});
   });
 
+  describe("interactivity", () => {
+    it("is outlined when selected", () => {
+      render(
+        <SchoolCard
+          school={testSchool}
+          selected={true}
+          setSchool={mock(() => {})}
+        />
+      );
+
+      const card = screen.getByRole("button");
+      expect(card.classList.contains("outline outline-ku-orange"));
+    });
+
+    it("sets itself as selected school on click", async () => {
+      const setSchoolMock = mock(() => {});
+      render(
+        <SchoolCard
+          school={testSchool}
+          selected={true}
+          setSchool={setSchoolMock}
+        />
+      );
+      const user = userEvent.setup();
+      await user.click(screen.getByRole("button"));
+
+      expect(setSchoolMock.mock.calls.length).toBe(1);
+    });
+  });
+
   describe("details missing", () => {
     const noDetails: school = {
       ...testSchool,
       nearbyStations: [],
       busAreas: [],
     };
-    afterEach(cleanup);
 
     it("doesn't render bus component if no bus areas", () => {
-      render(<SchoolCard {...noDetails} />);
+      render(
+        <SchoolCard
+          school={noDetails}
+          selected={false}
+          setSchool={mock(() => {})}
+        />
+      );
 
       expect(screen.queryByRole("heading", { name: "送迎対象地域" })).toBe(
         null
@@ -56,7 +97,13 @@ describe("School Card", () => {
     });
 
     it("doesn't render nearby station component if no nearby stations", () => {
-      render(<SchoolCard {...noDetails} />);
+      render(
+        <SchoolCard
+          school={noDetails}
+          selected={false}
+          setSchool={mock(() => {})}
+        />
+      );
 
       expect(screen.queryByRole("heading", { name: "最寄駅" })).toBe(null);
     });

@@ -2,6 +2,7 @@ import SearchBox from "./SearchBox";
 import SchoolCard from "./SchoolCard";
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
+import { useSelections } from "../../App";
 
 export default function SchoolList() {
   const [query, setQuery] = useState("");
@@ -17,12 +18,20 @@ export default function SchoolList() {
             school.busAreas.some((area) => area.includes(query)) ||
             school.nearbyStations.some((station) => station.includes(query))
         );
+  const { selectedSchool, setSelectedSchool } = useSelections();
 
   return (
     <main className="flex flex-wrap justify-evenly gap-3 p-3">
       <SearchBox setQuery={setQuery} query={query} />
       {displayedSchools.map((school) => {
-        return <SchoolCard {...school} key={school.id} />;
+        return (
+          <SchoolCard
+            school={school}
+            key={school.id}
+            selected={school.name === selectedSchool}
+            setSchool={setSelectedSchool}
+          />
+        );
       })}
     </main>
   );

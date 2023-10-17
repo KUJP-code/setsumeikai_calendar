@@ -1,25 +1,36 @@
 import BusAreaList from "./BusAreaList";
 import NearbyStationList from "./NearbyStationList";
 
-export default function SchoolCard({
-  id,
-  name,
-  address,
-  phone,
-  busAreas,
-  nearbyStations,
-}: school) {
+interface props {
+  school: school;
+  selected: boolean;
+  setSchool: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function SchoolCard({ school, selected, setSchool }: props) {
+  const className =
+    "p-3 border border-ku-secondary rounded shadow-lg basis-full shrink-0 md:basis-[23vw]";
+
   return (
-    <article className="p-3 border border-ku-secondary rounded shadow-lg basis-full shrink-0 md:basis-[23vw]">
-      <h5 className="font-bold text-lg">{name}</h5>
-      <p>{address}</p>
-      <p>{phone}</p>
-      {busAreas.length > 0 ? (
-        <BusAreaList areas={busAreas} schoolId={id} />
+    <button
+      type="button"
+      className={
+        selected ? className.concat(" outline outline-ku-orange") : className
+      }
+      onClick={() => setSchool(school.name)}
+    >
+      <h5 className="font-bold text-lg">{school.name}</h5>
+      <p>{school.address}</p>
+      <p>{school.phone}</p>
+      {school.busAreas.length > 0 ? (
+        <BusAreaList areas={school.busAreas} schoolId={school.id} />
       ) : null}
-      {nearbyStations.length > 0 ? (
-        <NearbyStationList stations={nearbyStations} schoolId={id} />
+      {school.nearbyStations.length > 0 ? (
+        <NearbyStationList
+          stations={school.nearbyStations}
+          schoolId={school.id}
+        />
       ) : null}
-    </article>
+    </button>
   );
 }

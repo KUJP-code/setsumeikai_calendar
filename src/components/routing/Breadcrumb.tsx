@@ -8,7 +8,7 @@ interface props {
 
 export default function Breadcrumb({ currentSelection, text, to }: props) {
   const className =
-    "flex justify-center items-center text-neutral-100 font-semibold p-3 basis-1/3 rounded";
+    "flex flex-col justify-center items-center gap-1 text-neutral-100 font-semibold p-1 basis-1/3 rounded";
 
   return (
     <NavLink
