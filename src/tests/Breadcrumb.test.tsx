@@ -3,7 +3,11 @@ import { describe, expect, it } from "bun:test";
 import Breadcrumb from "../components/routing/Breadcrumb";
 import { MemoryRouter } from "react-router-dom";
 
-function renderBreadcrumb(text: string, to: string, currentSelection?: string) {
+function renderBreadcrumb(
+  text: string,
+  to?: string,
+  currentSelection?: string
+) {
   render(
     <MemoryRouter>
       <Breadcrumb text={text} to={to} currentSelection={currentSelection} />
@@ -33,10 +37,18 @@ describe("Breadcrumb", () => {
     expect(currentSelectionExists).toBeTruthy();
   });
 
-  it("only shows stage text without current selection", () => {
+  it("only shows specified text when no current selection", () => {
     renderBreadcrumb("test", "/");
 
-    const currentSelectionExists = screen.queryByText("pizza");
+    const currentSelectionExists = screen.queryByRole("link", {
+      name: "pizza",
+    });
     expect(currentSelectionExists).toBe(null);
+  });
+
+  it("becomes heading if no to prop passed", () => {
+    renderBreadcrumb("test");
+
+    expect(screen.queryByRole("heading", { name: "test" }));
   });
 });

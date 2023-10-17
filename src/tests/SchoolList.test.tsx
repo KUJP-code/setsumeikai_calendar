@@ -1,5 +1,5 @@
-import { cleanup, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it, mock } from "bun:test";
+import { render, screen } from "@testing-library/react";
+import { beforeEach, describe, expect, it, mock } from "bun:test";
 import SchoolList from "../components/schools/SchoolList";
 import userEvent from "@testing-library/user-event";
 import { Outlet, RouterProvider, createMemoryRouter } from "react-router-dom";
@@ -38,18 +38,20 @@ describe("School List", () => {
   });
 
   describe("search", () => {
-    async function searchFor(input: string) {
-      const user = userEvent.setup();
+    beforeEach(() => {
+      renderSchoolList();
+    });
 
+    const user = userEvent.setup();
+
+    async function searchFor(input: string) {
       const searchInput = screen.getByRole("searchbox");
+      await user.clear(searchInput);
       await user.click(searchInput);
       await user.keyboard(input);
     }
 
-    afterEach(cleanup);
-
     it("searches by name", async () => {
-      renderSchoolList();
       await searchFor("大森");
 
       expect(screen.queryAllByRole("button").length).toBe(1);
@@ -57,31 +59,28 @@ describe("School List", () => {
     });
 
     it("searches by address", async () => {
-      renderSchoolList();
       await searchFor("1F");
 
       expect(screen.queryAllByRole("button").length).toBe(4);
     });
 
     it("searches by phone", async () => {
-      renderSchoolList();
       await searchFor("1111-111-111");
 
       expect(screen.queryAllByRole("button").length).toBe(2);
     });
 
     it("searches by bus area", async () => {
-      renderSchoolList();
       await searchFor("目黒区");
 
       expect(screen.queryAllByRole("button").length).toBe(2);
     });
 
     it("searches by nearby station", async () => {
-      renderSchoolList();
       await searchFor("馬込駅");
 
       expect(screen.queryAllByRole("button").length).toBe(1);
+      expect(screen.findByRole("button", { name: "馬込" })).toBeTruthy();
     });
   });
 });

@@ -10,7 +10,7 @@ import userEvent from "@testing-library/user-event";
 function renderProgressNav() {
   render(
     <MemoryRouter>
-      <ProgressNav />
+      <ProgressNav school="school" setsumeikai="setsumeikai" />
     </MemoryRouter>
   );
 }
@@ -45,12 +45,4 @@ describe("ProgressNav", () => {
 
     expect(hasActiveClass).toBe(true);
   });
-
-  it.todo("disables date & details if school not selected", () => {});
-
-  it.todo("disables details if school but not date selected", () => {});
-
-  it.todo("enables going back to school from date", () => {});
-
-  it.todo("enables going back to school or date from details", () => {});
 });
