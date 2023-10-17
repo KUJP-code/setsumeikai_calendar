@@ -10,7 +10,7 @@ export default function SchoolCard({
   nearbyStations,
 }: school) {
   return (
-    <article className="p-3 border border-ku-secondary rounded shadow-lg">
+    <article className="p-3 border border-ku-secondary rounded shadow-lg basis-full shrink-0 md:basis-[23vw]">
       <h5>{name}</h5>
       <p>{address}</p>
       <p>{phone}</p>
