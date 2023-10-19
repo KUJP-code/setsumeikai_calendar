@@ -7,16 +7,16 @@ export default function App() {
   const location = useLocation();
   const [selections, setSelections] = useState<selections>({
     schoolName: "",
-    schoolId: 0,
-    setsumeikaiDate: "",
-    setsumeikaiId: 0,
+    schoolId: undefined,
+    setsumeikaiDate: undefined,
+    setsumeikaiId: undefined,
   });
 
   return (
     <>
       <ProgressNav
-        school={selections.schoolName}
-        setsumeikai={selections.setsumeikaiDate}
+        schoolName={selections.schoolName}
+        setsumeikaiDate={selections.setsumeikaiDate}
       />
       <Outlet
         context={
@@ -28,8 +28,8 @@ export default function App() {
       />
       <FooterNav
         currentStep={location.pathname}
-        school={selections.schoolName}
-        setsumeikai={selections.setsumeikaiDate}
+        schoolName={selections.schoolName}
+        setsumeikaiDate={selections.setsumeikaiDate}
       />
     </>
   );

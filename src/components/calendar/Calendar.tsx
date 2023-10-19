@@ -28,7 +28,7 @@ export default function Calendar() {
           setSelections({
             ...selections,
             setsumeikaiId: parseInt(event.id),
-            setsumeikaiDate: event.start.toDateString(),
+            setsumeikaiDate: event.start,
           });
           navigate(`/form/${selections.schoolName}/${event.id}`);
         }

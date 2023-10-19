@@ -1,21 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import jpFormat from "../../helpers/jpFormat";
 
 interface props {
   currentStep: string;
-  school: string;
-  setsumeikai: string;
+  schoolName: string;
+  setsumeikaiDate: Date | undefined;
 }
 
-export default function FooterNav({ currentStep, school, setsumeikai }: props) {
+export default function FooterNav({
+  currentStep,
+  schoolName,
+  setsumeikaiDate,
+}: props) {
   const className =
     " flex justify-center items-center text-neutral-100 font-semibold p-3  basis-1/2 md:basis-1/3 rounded";
 
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    if (currentStep.includes("/school_list") && school === "") {
+    if (currentStep.includes("/school_list") && schoolName === "") {
       e.preventDefault();
     }
-    if (currentStep === "/calendar" && setsumeikai === "") {
+    if (currentStep === "/calendar" && setsumeikaiDate === undefined) {
       e.preventDefault();
     }
   }
@@ -34,7 +39,7 @@ export default function FooterNav({ currentStep, school, setsumeikai }: props) {
         </NavLink>
       ) : (
         <NavLink
-          to={`/calendar/${school}`}
+          to={`/calendar/${schoolName}`}
           className={"bg-ku-secondary".concat(...className)}
         >
           Change Setsumeikai
@@ -46,11 +51,13 @@ export default function FooterNav({ currentStep, school, setsumeikai }: props) {
       {/* Next link */}
       {currentStep.includes("/school_list") ? (
         <NavLink
-          to={`/calendar/${school}`}
+          to={`/calendar/${schoolName}`}
           className={"bg-ku-orange".concat(...className)}
           onClick={(e) => handleClick(e)}
         >
-          {school ? `View calendar for ${school}` : "Select school to continue"}
+          {schoolName
+            ? `View calendar for ${schoolName}`
+            : "Select school to continue"}
         </NavLink>
       ) : currentStep.includes("/calendar") ? (
         <NavLink
@@ -58,8 +65,8 @@ export default function FooterNav({ currentStep, school, setsumeikai }: props) {
           className={"bg-ku-orange".concat(...className)}
           onClick={(e) => handleClick(e)}
         >
-          {setsumeikai
-            ? `Register for setsumeikai on ${setsumeikai}`
+          {setsumeikaiDate
+            ? `Register for setsumeikai on ${jpFormat(setsumeikaiDate)}`
             : "Select setsumeikai to continue"}
         </NavLink>
       ) : null}
