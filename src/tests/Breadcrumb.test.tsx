@@ -46,7 +46,7 @@ describe("Breadcrumb", () => {
     expect(currentSelectionExists).toBe(null);
   });
 
-  it("becomes heading if no to prop passed", () => {
+  it("becomes heading if no 'to' prop passed", () => {
     renderBreadcrumb("test");
 
     expect(screen.queryByRole("heading", { name: "test" }));

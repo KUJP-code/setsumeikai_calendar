@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --ku-orange: #ef8200;
+  --fc-button-bg-color: var(--ku-orange);
+}

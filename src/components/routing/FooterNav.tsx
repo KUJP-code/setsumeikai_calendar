@@ -21,7 +21,7 @@ export default function FooterNav({ currentStep, school, setsumeikai }: props) {
   }
 
   return (
-    <nav className="sticky bottom-0 flex justify-between gap-3 p-3 bg-white border rounded">
+    <nav className="z-50 sticky bottom-0 flex justify-between gap-3 p-3 bg-white border rounded">
       {/* Back link */}
       {currentStep === "/school_list" ? null : currentStep === "/calendar" ? (
         <NavLink

@@ -1,7 +1,7 @@
 import { Navigate, createHashRouter } from "react-router-dom";
 import App from "../../App";
 import ErrorPage from "../../ErrorPage";
-import Calendar from "../../Calendar";
+import Calendar from "../calendar/Calendar";
 import Form from "../../Form";
 import SchoolList from "../schools/SchoolList";
 import getSchools from "../../api/getSchools";
