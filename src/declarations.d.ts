@@ -6,3 +6,8 @@ interface school {
   busAreas: string[];
   nearbyStations: string[];
 }
+
+interface setsumeikai {
+  start: string;
+  end: string;
+}

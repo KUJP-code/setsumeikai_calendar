@@ -5,6 +5,7 @@ import Calendar from "../calendar/Calendar";
 import Form from "../../Form";
 import SchoolList from "../schools/SchoolList";
 import getSchools from "../../api/getSchools";
+import getSchoolEvents from "../../api/getEvents";
 
 export default function Router() {
   return createHashRouter([
@@ -14,7 +15,14 @@ export default function Router() {
       errorElement: <ErrorPage />,
       children: [
         { index: true, element: <Navigate to="/school_list" /> },
-        { path: "/calendar", element: <Calendar /> },
+        {
+          path: "/calendar/:schoolName",
+          element: <Calendar />,
+          loader: ({ params }) =>
+            params.schoolName !== undefined
+              ? getSchoolEvents(params.schoolName)
+              : [],
+        },
         { path: "/form", element: <Form /> },
         { path: "/school_list", element: <SchoolList />, loader: getSchools },
       ],

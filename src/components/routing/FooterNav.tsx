@@ -12,7 +12,7 @@ export default function FooterNav({ currentStep, school, setsumeikai }: props) {
     " flex justify-center items-center text-neutral-100 font-semibold p-3  basis-1/2 md:basis-1/3 rounded";
 
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    if (currentStep === "/school_list" && school === "") {
+    if (currentStep.includes("/school_list") && school === "") {
       e.preventDefault();
     }
     if (currentStep === "/calendar" && setsumeikai === "") {
@@ -23,7 +23,9 @@ export default function FooterNav({ currentStep, school, setsumeikai }: props) {
   return (
     <nav className="z-50 sticky bottom-0 flex justify-between gap-3 p-3 bg-white border rounded">
       {/* Back link */}
-      {currentStep === "/school_list" ? null : currentStep === "/calendar" ? (
+      {currentStep.includes("/school_list") ? null : currentStep.includes(
+          "/calendar"
+        ) ? (
         <NavLink
           to="/school_list"
           className={"bg-ku-secondary".concat(...className)}
@@ -42,15 +44,15 @@ export default function FooterNav({ currentStep, school, setsumeikai }: props) {
       <div className="flex-grow"></div>
 
       {/* Next link */}
-      {currentStep === "/school_list" ? (
+      {currentStep.includes("/school_list") ? (
         <NavLink
-          to="/calendar"
+          to={`/calendar/${school}`}
           className={"bg-ku-orange".concat(...className)}
           onClick={(e) => handleClick(e)}
         >
           {school ? `View calendar for ${school}` : "Select school to continue"}
         </NavLink>
-      ) : currentStep === "/calendar" ? (
+      ) : currentStep.includes("/calendar") ? (
         <NavLink
           to="/form"
           className={"bg-ku-orange".concat(...className)}
