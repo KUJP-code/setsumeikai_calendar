@@ -4,11 +4,11 @@ import SchoolList from "../components/schools/SchoolList";
 import userEvent from "@testing-library/user-event";
 import { Outlet, RouterProvider, createMemoryRouter } from "react-router-dom";
 
-const testSelections = {
+const testSelections: selections = {
   schoolName: "",
-  schoolId: undefined,
+  schoolId: 9,
   setsumeikaiDate: undefined,
-  setsumeikaiId: undefined,
+  setsumeikaiId: 0,
 };
 
 describe("School List", () => {
@@ -18,6 +18,7 @@ describe("School List", () => {
       element: (
         <Outlet
           context={{
+            schools: testGetSchools(),
             selections: testSelections,
             setSelections: mock(() => {}),
           }}

@@ -10,9 +10,9 @@ function responsiveView() {
 }
 
 export default function Calendar() {
+  const { selections, setSelections } = useSelectionContext();
   const events: setsumeikai[] = useLoaderData() as setsumeikai[];
   const navigate = useNavigate();
-  const { selections, setSelections } = useSelectionContext();
 
   return (
     <FullCalendar

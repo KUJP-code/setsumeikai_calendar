@@ -3,10 +3,17 @@ import Breadcrumb from "./Breadcrumb";
 
 interface props {
   schoolName?: string;
+  schoolId: number;
   setsumeikaiDate?: Date;
+  setsumeikaiId: number;
 }
 
-export default function ProgressNav({ schoolName, setsumeikaiDate }: props) {
+export default function ProgressNav({
+  schoolName,
+  schoolId,
+  setsumeikaiDate,
+  setsumeikaiId,
+}: props) {
   return (
     <nav className="flex flex-col md:flex-row p-3 gap-1 justify-evenly">
       <Breadcrumb
@@ -16,12 +23,12 @@ export default function ProgressNav({ schoolName, setsumeikaiDate }: props) {
       />
       <Breadcrumb
         text="Date"
-        to={schoolName ? `/calendar/${schoolName}` : undefined}
+        to={schoolId ? `/calendar/${schoolId}` : undefined}
         currentSelection={setsumeikaiDate ? jpFormat(setsumeikaiDate) : ""}
       />
       <Breadcrumb
         text="Enter Details"
-        to={setsumeikaiDate ? "/form" : undefined}
+        to={setsumeikaiId ? `/form/${schoolId}/${setsumeikaiId}` : undefined}
       />
     </nav>
   );

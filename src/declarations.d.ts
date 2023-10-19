@@ -16,12 +16,13 @@ interface setsumeikai {
 
 interface selections {
   schoolName: string;
-  schoolId: number | undefined;
+  schoolId: number;
   setsumeikaiDate: Date | undefined;
-  setsumeikaiId: number | undefined;
+  setsumeikaiId: number;
 }
 
 interface selectionsContext {
+  schools: school[];
   selections: selections;
   setSelections: React.Dispatch<React.SetStateAction<selections>>;
 }

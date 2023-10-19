@@ -5,13 +5,17 @@ import jpFormat from "../../helpers/jpFormat";
 interface props {
   currentStep: string;
   schoolName: string;
+  schoolId: number;
   setsumeikaiDate: Date | undefined;
+  setsumeikaiId: number;
 }
 
 export default function FooterNav({
   currentStep,
   schoolName,
+  schoolId,
   setsumeikaiDate,
+  setsumeikaiId,
 }: props) {
   const className =
     " flex justify-center items-center text-neutral-100 font-semibold p-3  basis-1/2 md:basis-1/3 rounded";
@@ -39,7 +43,7 @@ export default function FooterNav({
         </NavLink>
       ) : (
         <NavLink
-          to={`/calendar/${schoolName}`}
+          to={`/calendar/${schoolId}`}
           className={"bg-ku-secondary".concat(...className)}
         >
           Change Setsumeikai
@@ -51,7 +55,7 @@ export default function FooterNav({
       {/* Next link */}
       {currentStep.includes("/school_list") ? (
         <NavLink
-          to={`/calendar/${schoolName}`}
+          to={`/calendar/${schoolId}`}
           className={"bg-ku-orange".concat(...className)}
           onClick={(e) => handleClick(e)}
         >
@@ -61,7 +65,7 @@ export default function FooterNav({
         </NavLink>
       ) : currentStep.includes("/calendar") ? (
         <NavLink
-          to="/form"
+          to={`/form/${schoolId}/${setsumeikaiId}`}
           className={"bg-ku-orange".concat(...className)}
           onClick={(e) => handleClick(e)}
         >

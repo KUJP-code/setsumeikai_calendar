@@ -1,12 +1,11 @@
 import SearchBox from "./SearchBox";
 import SchoolCard from "./SchoolCard";
-import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import useSelectionContext from "../../hooks/useSelectionContext";
 
 export default function SchoolList() {
+  const { schools, selections, setSelections } = useSelectionContext();
   const [query, setQuery] = useState("");
-  const schools: school[] = useLoaderData() as school[];
   const displayedSchools =
     query === ""
       ? schools
@@ -18,7 +17,6 @@ export default function SchoolList() {
             school.busAreas.some((area) => area.includes(query)) ||
             school.nearbyStations.some((station) => station.includes(query))
         );
-  const { selections, setSelections } = useSelectionContext();
 
   return (
     <main className="flex flex-wrap justify-evenly gap-3 p-3">
@@ -28,11 +26,11 @@ export default function SchoolList() {
           <SchoolCard
             school={school}
             key={school.id}
-            selected={school.id === selections.schoolId}
+            selected={school.name === selections.schoolName}
             setSchool={() =>
               setSelections({
                 setsumeikaiDate: undefined,
-                setsumeikaiId: undefined,
+                setsumeikaiId: 0,
                 schoolName: school.name,
                 schoolId: school.id,
               })

@@ -1,4 +1,4 @@
-export default async function getSchoolEvents(schoolName: string) {
+export default async function getSchoolEvents(schoolId: number) {
   const testEvents = [];
   const currentDate = new Date();
 
@@ -16,5 +16,5 @@ export default async function getSchoolEvents(schoolName: string) {
     testEvents.push(event);
   }
 
-  if (schoolName) return testEvents;
+  if (schoolId) return testEvents;
 }
