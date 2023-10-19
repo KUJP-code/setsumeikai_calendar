@@ -31,7 +31,8 @@ export default function SchoolList() {
             selected={school.id === selections.schoolId}
             setSchool={() =>
               setSelections({
-                ...selections,
+                setsumeikaiDate: undefined,
+                setsumeikaiId: undefined,
                 schoolName: school.name,
                 schoolId: school.id,
               })
