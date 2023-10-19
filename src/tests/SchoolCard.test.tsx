@@ -2,6 +2,7 @@ import { beforeAll, describe, expect, it, mock } from "bun:test";
 import SchoolCard from "../components/schools/SchoolCard";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
 
 const testSchool: school = {
   id: 41,
@@ -16,11 +17,13 @@ describe("School Card", () => {
   describe("happy path", () => {
     beforeAll(() => {
       render(
-        <SchoolCard
-          school={testSchool}
-          selected={false}
-          setSchool={mock(() => {})}
-        />
+        <MemoryRouter>
+          <SchoolCard
+            school={testSchool}
+            selected={false}
+            setSchool={mock(() => {})}
+          />
+        </MemoryRouter>
       );
     });
 
@@ -48,28 +51,32 @@ describe("School Card", () => {
   describe("interactivity", () => {
     it("is outlined when selected", () => {
       render(
-        <SchoolCard
-          school={testSchool}
-          selected={true}
-          setSchool={mock(() => {})}
-        />
+        <MemoryRouter>
+          <SchoolCard
+            school={testSchool}
+            selected={true}
+            setSchool={mock(() => {})}
+          />
+        </MemoryRouter>
       );
 
-      const card = screen.getByRole("button");
+      const card = screen.getByRole("link");
       expect(card.classList.contains("outline outline-ku-orange"));
     });
 
     it("sets itself as selected school on click", async () => {
       const setSchoolMock = mock(() => {});
       render(
-        <SchoolCard
-          school={testSchool}
-          selected={true}
-          setSchool={setSchoolMock}
-        />
+        <MemoryRouter>
+          <SchoolCard
+            school={testSchool}
+            selected={true}
+            setSchool={setSchoolMock}
+          />
+        </MemoryRouter>
       );
       const user = userEvent.setup();
-      await user.click(screen.getByRole("button"));
+      await user.click(screen.getByRole("link"));
 
       expect(setSchoolMock.mock.calls.length).toBe(1);
     });
@@ -84,11 +91,13 @@ describe("School Card", () => {
 
     it("doesn't render bus component if no bus areas", () => {
       render(
-        <SchoolCard
-          school={noDetails}
-          selected={false}
-          setSchool={mock(() => {})}
-        />
+        <MemoryRouter>
+          <SchoolCard
+            school={noDetails}
+            selected={false}
+            setSchool={mock(() => {})}
+          />
+        </MemoryRouter>
       );
 
       expect(screen.queryByRole("heading", { name: "送迎対象地域" })).toBe(
@@ -98,11 +107,13 @@ describe("School Card", () => {
 
     it("doesn't render nearby station component if no nearby stations", () => {
       render(
-        <SchoolCard
-          school={noDetails}
-          selected={false}
-          setSchool={mock(() => {})}
-        />
+        <MemoryRouter>
+          <SchoolCard
+            school={noDetails}
+            selected={false}
+            setSchool={mock(() => {})}
+          />
+        </MemoryRouter>
       );
 
       expect(screen.queryByRole("heading", { name: "最寄駅" })).toBe(null);

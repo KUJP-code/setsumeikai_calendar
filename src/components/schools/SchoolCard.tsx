@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import BusAreaList from "./BusAreaList";
 import NearbyStationList from "./NearbyStationList";
 
@@ -12,7 +13,8 @@ export default function SchoolCard({ school, selected, setSchool }: props) {
     "p-3 border border-ku-secondary rounded shadow-lg basis-full shrink-0 md:basis-[23vw]";
 
   return (
-    <button
+    <NavLink
+      to={`/calendar/${school.name}`}
       type="button"
       className={
         selected ? className.concat(" outline outline-ku-orange") : className
@@ -31,6 +33,6 @@ export default function SchoolCard({ school, selected, setSchool }: props) {
           schoolId={school.id}
         />
       ) : null}
-    </button>
+    </NavLink>
   );
 }

@@ -10,7 +10,7 @@ import userEvent from "@testing-library/user-event";
 function renderProgressNav() {
   render(
     <MemoryRouter>
-      <ProgressNav school="school" setsumeikai="setsumeikai" />
+      <ProgressNav schoolName="school" setsumeikaiDate={new Date()} />
     </MemoryRouter>
   );
 }

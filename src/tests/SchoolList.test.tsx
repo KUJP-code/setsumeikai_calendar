@@ -4,6 +4,13 @@ import SchoolList from "../components/schools/SchoolList";
 import userEvent from "@testing-library/user-event";
 import { Outlet, RouterProvider, createMemoryRouter } from "react-router-dom";
 
+const testSelections = {
+  schoolName: "",
+  schoolId: undefined,
+  setsumeikaiDate: undefined,
+  setsumeikaiId: undefined,
+};
+
 describe("School List", () => {
   const router = createMemoryRouter([
     {
@@ -11,8 +18,8 @@ describe("School List", () => {
       element: (
         <Outlet
           context={{
-            selectedSchool: "selectedSchool",
-            setSelectedSchool: mock(() => {}),
+            selections: testSelections,
+            setSelections: mock(() => {}),
           }}
         />
       ),
@@ -30,9 +37,9 @@ describe("School List", () => {
     render(<RouterProvider router={router} />);
   }
 
-  it("displays button for each school in passed list", () => {
+  it("displays link for each school in passed list", () => {
     renderSchoolList();
-    const cardCount = screen.getAllByRole("button").length;
+    const cardCount = screen.getAllByRole("link").length;
 
     expect(cardCount).toBe(testGetSchools().length);
   });
@@ -54,33 +61,33 @@ describe("School List", () => {
     it("searches by name", async () => {
       await searchFor("大森");
 
-      expect(screen.queryAllByRole("button").length).toBe(1);
-      expect(screen.findByRole("button", { name: "大森" })).toBeTruthy();
+      expect(screen.queryAllByRole("link").length).toBe(1);
+      expect(screen.findByRole("link", { name: "大森" })).toBeTruthy();
     });
 
     it("searches by address", async () => {
       await searchFor("1F");
 
-      expect(screen.queryAllByRole("button").length).toBe(4);
+      expect(screen.queryAllByRole("link").length).toBe(4);
     });
 
     it("searches by phone", async () => {
       await searchFor("1111-111-111");
 
-      expect(screen.queryAllByRole("button").length).toBe(2);
+      expect(screen.queryAllByRole("link").length).toBe(2);
     });
 
     it("searches by bus area", async () => {
       await searchFor("目黒区");
 
-      expect(screen.queryAllByRole("button").length).toBe(2);
+      expect(screen.queryAllByRole("link").length).toBe(2);
     });
 
     it("searches by nearby station", async () => {
       await searchFor("馬込駅");
 
-      expect(screen.queryAllByRole("button").length).toBe(1);
-      expect(screen.findByRole("button", { name: "馬込" })).toBeTruthy();
+      expect(screen.queryAllByRole("link").length).toBe(1);
+      expect(screen.findByRole("link", { name: "馬込" })).toBeTruthy();
     });
   });
 });
