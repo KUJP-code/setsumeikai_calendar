@@ -23,7 +23,7 @@ export default function Router() {
               ? getSchoolEvents(params.schoolName)
               : [],
         },
-        { path: "/form", element: <Form /> },
+        { path: "/form/:schoolName/:eventId", element: <Form /> },
         { path: "/school_list", element: <SchoolList />, loader: getSchools },
       ],
     },

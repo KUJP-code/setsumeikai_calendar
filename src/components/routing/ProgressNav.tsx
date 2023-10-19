@@ -11,7 +11,7 @@ export default function ProgressNav({ school, setsumeikai }: props) {
       <Breadcrumb text="School" to="/school_list" currentSelection={school} />
       <Breadcrumb
         text="Date"
-        to={school ? "/calendar" : undefined}
+        to={school ? `/calendar/${school}` : undefined}
         currentSelection={setsumeikai}
       />
       <Breadcrumb text="Enter Details" to={setsumeikai ? "/form" : undefined} />

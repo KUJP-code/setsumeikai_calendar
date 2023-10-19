@@ -7,8 +7,10 @@ export default async function getSchoolEvents(schoolName: string) {
     const end = new Date(start.setHours(start.getHours() + 2));
 
     const event: setsumeikai = {
-      start: start.toISOString(),
       end: end.toISOString(),
+      id: i.toString(),
+      start: start.toISOString(),
+      title: "School",
     };
 
     testEvents.push(event);

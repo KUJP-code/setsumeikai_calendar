@@ -34,7 +34,7 @@ export default function FooterNav({ currentStep, school, setsumeikai }: props) {
         </NavLink>
       ) : (
         <NavLink
-          to="/calendar"
+          to={`/calendar/${school}`}
           className={"bg-ku-secondary".concat(...className)}
         >
           Change Setsumeikai

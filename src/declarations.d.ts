@@ -8,6 +8,20 @@ interface school {
 }
 
 interface setsumeikai {
-  start: string;
   end: string;
+  id: string;
+  start: string;
+  title: string;
+}
+
+interface selections {
+  schoolName: string;
+  schoolId: number;
+  setsumeikaiDate: string;
+  setsumeikaiId: number;
+}
+
+interface selectionsContext {
+  selections: selections;
+  setSelections: React.Dispatch<React.SetStateAction<selections>>;
 }
