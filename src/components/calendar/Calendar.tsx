@@ -30,7 +30,7 @@ export default function Calendar() {
             setsumeikaiId: parseInt(event.id),
             setsumeikaiDate: event.start,
           });
-          navigate(`/form/${selections.schoolName}/${event.id}`);
+          navigate(`/form/${selections.schoolId}/${event.id}`);
         }
       }}
       eventDisplay="block"

@@ -15,6 +15,10 @@ export default function Router() {
       errorElement: <ErrorPage />,
       loader: getSchools,
       children: [
+        {
+          path: "*",
+          element: <Navigate to="/school_list" />,
+        },
         { index: true, element: <Navigate to="/school_list" /> },
         {
           path: "/calendar/:schoolId",
