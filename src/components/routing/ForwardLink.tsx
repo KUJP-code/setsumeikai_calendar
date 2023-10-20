@@ -3,19 +3,14 @@ import jpFormat from "../../helpers/jpFormat";
 
 interface ForwardLinkProps {
   currentStep: string;
-  schoolId: number | undefined;
-  schoolName: string;
-  setsumeikaiDate: Date | undefined;
-  setsumeikaiId: number | undefined;
+  selections: selections;
 }
 
 export default function ForwardLink({
   currentStep,
-  schoolId,
-  schoolName,
-  setsumeikaiDate,
-  setsumeikaiId,
+  selections,
 }: ForwardLinkProps) {
+  const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
   const className =
     "bg-ku-orange flex justify-center items-center text-neutral-100 font-semibold p-3  basis-1/2 md:basis-1/3 rounded";
   const noSchool = currentStep.includes("/school_list") && schoolName === "";

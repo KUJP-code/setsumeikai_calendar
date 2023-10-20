@@ -1,5 +1,5 @@
 interface props {
-  schoolId: number;
+  schoolId: string;
   stations: string[];
 }
 

@@ -8,6 +8,7 @@ export default function App() {
   const { schools, setsumeikais }: SchoolsAndEvents =
     useLoaderData() as SchoolsAndEvents;
   const location = useLocation();
+
   const [selections, setSelections] = useState<selections>({
     schoolName: "",
     schoolId: undefined,
@@ -19,12 +20,7 @@ export default function App() {
 
   return (
     <>
-      <ProgressNav
-        schoolName={selections.schoolName}
-        schoolId={selections.schoolId}
-        setsumeikaiDate={selections.setsumeikaiDate}
-        setsumeikaiId={selections.setsumeikaiId}
-      />
+      <ProgressNav {...selections} />
       <Outlet
         context={
           {
@@ -35,13 +31,7 @@ export default function App() {
           } satisfies selectionsContext
         }
       />
-      <FooterNav
-        currentStep={location.pathname}
-        schoolName={selections.schoolName}
-        schoolId={selections.schoolId}
-        setsumeikaiDate={selections.setsumeikaiDate}
-        setsumeikaiId={selections.setsumeikaiId}
-      />
+      <FooterNav currentStep={location.pathname} selections={selections} />
     </>
   );
 }

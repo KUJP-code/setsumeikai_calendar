@@ -11,7 +11,7 @@ interface SchoolsAndEvents {
 }
 
 interface school {
-  id: number;
+  id: string;
   name: string;
   address: string;
   phone: string;
@@ -28,9 +28,9 @@ interface setsumeikai {
 
 interface selections {
   schoolName: string;
-  schoolId: number | undefined;
+  schoolId: string | undefined;
   setsumeikaiDate: Date | undefined;
-  setsumeikaiId: number | undefined;
+  setsumeikaiId: string | undefined;
 }
 
 interface selectionsContext {

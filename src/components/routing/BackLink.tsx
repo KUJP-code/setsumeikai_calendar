@@ -2,15 +2,12 @@ import { NavLink } from "react-router-dom";
 
 interface BackLinkProps {
   currentStep: string;
-  schoolId: number | undefined;
-  setsumeikaiId: number | undefined;
+  selections: selections;
 }
 
-export default function BackLink({
-  currentStep,
-  schoolId,
-  setsumeikaiId,
-}: BackLinkProps) {
+export default function BackLink({ currentStep, selections }: BackLinkProps) {
+  const { schoolId, setsumeikaiId } = selections;
+
   return currentStep.includes("/school_list") ? null : currentStep.includes(
       "/calendar"
     ) ? (

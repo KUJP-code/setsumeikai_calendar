@@ -1,6 +1,6 @@
 interface props {
   areas: string[];
-  schoolId: number;
+  schoolId: string;
 }
 
 export default function BusAreaList({ areas, schoolId }: props) {
