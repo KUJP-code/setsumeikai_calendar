@@ -12,7 +12,10 @@ export default function Form() {
   });
 
   return (
-    <RRForm method="post">
+    <RRForm
+      method="post"
+      className="flex flex-col md:flex-row md:flex-wrap items-center justify-evenly gap-5 p-3 text-center"
+    >
       <SelectionFields {...selections} />
       <InputField
         type="text"
@@ -81,15 +84,20 @@ export default function Form() {
         label="お申し込みのきっかけ"
         name="referrer"
         options={[
-          { name: "flyer", value: "チラシ" },
-          { name: "recommendation", value: "口コミ" },
-          { name: "homepage", value: "ホームページ" },
-          { name: "billboard", value: "看板" },
-          { name: "document", value: "資料" },
-          { name: "other", value: "その他" },
+          { name: "チラシ", value: "flyer" },
+          { name: "口コミ", value: "recommendation" },
+          { name: "ホームページ", value: "homepage" },
+          { name: "看板", value: "billboard" },
+          { name: "資料", value: "document" },
+          { name: "その他", value: "other" },
         ]}
       />
-      <button type="submit">内容の確認へ</button>
+      <button
+        type="submit"
+        className="w-full rounded p-2 bg-ku-orange hover:opacity-90"
+      >
+        内容の確認へ
+      </button>
     </RRForm>
   );
 }

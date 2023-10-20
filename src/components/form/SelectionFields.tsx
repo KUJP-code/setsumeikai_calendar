@@ -1,14 +1,22 @@
 export default function SelectionFields(selections: selections) {
   return (
-    <>
-      <div>
-        <label htmlFor="schoolId">School</label>
-        <input type="text" value={selections.schoolName} disabled />
+    <div className="w-full flex flex-col md:flex-row justify-center items-center gap-3 p-3 border-2 rounded border-ku-orange">
+      <div className="flex flex-col gap-2">
+        <label htmlFor="schoolId" className="font-bold text-lg">
+          School
+        </label>
+        <input
+          type="text"
+          value={selections.schoolName}
+          disabled
+          className="text-center"
+        />
         <input type="hidden" name="schoolId" value={selections.schoolId} />
       </div>
-
-      <div>
-        <label htmlFor="setsumeikaiId">SetsumeikaiDate</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="setsumeikaiId" className="font-bold text-lg">
+          Setsumeikai Date
+        </label>
         <input
           type="datetime-local"
           value={
@@ -19,6 +27,7 @@ export default function SelectionFields(selections: selections) {
               : ""
           }
           disabled
+          className="text-center"
         />
         <input
           type="hidden"
@@ -26,6 +35,6 @@ export default function SelectionFields(selections: selections) {
           value={selections.setsumeikaiId}
         />
       </div>
-    </>
+    </div>
   );
 }
