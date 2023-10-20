@@ -6,6 +6,7 @@ import Form from "../form/Form";
 import SchoolList from "../schools/SchoolList";
 import getSchools from "../../api/getSchools";
 import getSchoolEvents from "../../api/getEvents";
+import createInquiry from "../../api/createInquiry";
 
 export default function Router() {
   return createHashRouter([
@@ -20,6 +21,7 @@ export default function Router() {
           element: <Navigate to="/school_list" />,
         },
         { index: true, element: <Navigate to="/school_list" /> },
+        { path: "/school_list", element: <SchoolList /> },
         {
           path: "/calendar/:schoolId",
           element: <Calendar />,
@@ -29,8 +31,11 @@ export default function Router() {
               : [];
           },
         },
-        { path: "/form/:schoolId/:eventId", element: <Form /> },
-        { path: "/school_list", element: <SchoolList /> },
+        {
+          path: "/form/:schoolId/:eventId",
+          element: <Form />,
+          action: createInquiry,
+        },
       ],
     },
   ]);

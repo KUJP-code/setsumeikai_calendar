@@ -1,3 +1,10 @@
+interface formOption {
+  value: string;
+  name: string;
+}
+
+type inputType = "date" | "email" | "number" | "tel" | "text" | "textarea";
+
 interface school {
   id: number;
   name: string;
