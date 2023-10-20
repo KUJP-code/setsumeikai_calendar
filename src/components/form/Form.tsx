@@ -1,4 +1,4 @@
-import { useFetcher } from "react-router-dom";
+import { Form as RRForm } from "react-router-dom";
 import useSelectionContext from "../../hooks/useSelectionContext";
 import SelectionFields from "./SelectionFields";
 import InputField from "./InputField";
@@ -6,14 +6,13 @@ import SelectField from "./SelectField";
 import RadioField from "./RadioField";
 
 export default function Form() {
-  const fetcher = useFetcher();
   const { schools, selections } = useSelectionContext();
   const schoolOptions: formOption[] = schools.map((s) => {
     return { name: s.name, value: s.id.toString() };
   });
 
   return (
-    <fetcher.Form method="post">
+    <RRForm method="post">
       <SelectionFields {...selections} />
       <InputField
         type="text"
@@ -90,6 +89,7 @@ export default function Form() {
           { name: "other", value: "その他" },
         ]}
       />
-    </fetcher.Form>
+      <button type="submit">内容の確認へ</button>
+    </RRForm>
   );
 }

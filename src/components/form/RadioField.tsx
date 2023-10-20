@@ -10,7 +10,7 @@ export default function RadioField({ label, name, options }: RadioFieldProps) {
       <legend>{label}</legend>
       {options.map((o) => {
         return (
-          <div>
+          <div key={o.name}>
             <label htmlFor={o.name}>{o.name}</label>
             <input type="radio" name={name} id={o.name} value={o.value} />
           </div>

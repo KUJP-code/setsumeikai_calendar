@@ -15,6 +15,10 @@ export default function Router() {
       element: <App />,
       errorElement: <ErrorPage />,
       loader: getSchools,
+      action: ({ params, request }) => {
+        console.log("got here");
+        return createInquiry(params, request);
+      },
       children: [
         {
           path: "*",
@@ -34,7 +38,7 @@ export default function Router() {
         {
           path: "/form/:schoolId/:eventId",
           element: <Form />,
-          action: createInquiry,
+          action: ({ params, request }) => createInquiry(params, request),
         },
       ],
     },
