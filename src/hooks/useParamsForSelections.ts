@@ -18,7 +18,7 @@ export default function useParamsForSelections({
 
   if (selections.schoolId === undefined && paramSchoolId) {
     const paramSchool: school | undefined = schools.find(
-      (s) => s.id === parseInt(paramSchoolId)
+      (s) => s.id === paramSchoolId
     );
 
     if (paramSchool) {
@@ -38,7 +38,7 @@ export default function useParamsForSelections({
     if (paramSetsumeikai) {
       setSelections({
         ...selections,
-        setsumeikaiId: parseInt(paramSetsumeikai.id),
+        setsumeikaiId: paramSetsumeikai.id,
         setsumeikaiDate: new Date(paramSetsumeikai.start),
       });
     }
