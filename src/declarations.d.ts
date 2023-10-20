@@ -28,9 +28,9 @@ interface setsumeikai {
 
 interface selections {
   schoolName: string;
-  schoolId: number;
+  schoolId: number | undefined;
   setsumeikaiDate: Date | undefined;
-  setsumeikaiId: number;
+  setsumeikaiId: number | undefined;
 }
 
 interface selectionsContext {

@@ -21,7 +21,7 @@ export default function Router() {
         },
         { index: true, element: <Navigate to="/school_list" /> },
         { path: "/school_list", element: <SchoolList /> },
-        { path: "/calendar/:schoolId", element: <Calendar /> },
+        { path: "/calendar/:schoolId/:setsumeikaiId", element: <Calendar /> },
         {
           path: "/form/:schoolId/:setsumeikaiId",
           element: <Form />,

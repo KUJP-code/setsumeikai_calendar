@@ -4,9 +4,9 @@ import ForwardLink from "./ForwardLink";
 interface props {
   currentStep: string;
   schoolName: string;
-  schoolId: number;
+  schoolId: number | undefined;
   setsumeikaiDate: Date | undefined;
-  setsumeikaiId: number;
+  setsumeikaiId: number | undefined;
 }
 
 export default function FooterNav({
@@ -18,7 +18,11 @@ export default function FooterNav({
 }: props) {
   return (
     <nav className="z-50 sticky bottom-0 flex justify-between gap-3 p-3 bg-white border rounded">
-      <BackLink currentStep={currentStep} schoolId={schoolId} />
+      <BackLink
+        currentStep={currentStep}
+        schoolId={schoolId}
+        setsumeikaiId={setsumeikaiId}
+      />
       <div className="flex-grow"></div>
       <ForwardLink
         currentStep={currentStep}

@@ -3,9 +3,9 @@ import Breadcrumb from "./Breadcrumb";
 
 interface props {
   schoolName?: string;
-  schoolId: number;
+  schoolId: number | undefined;
   setsumeikaiDate?: Date;
-  setsumeikaiId: number;
+  setsumeikaiId: number | undefined;
 }
 
 export default function ProgressNav({
@@ -23,7 +23,7 @@ export default function ProgressNav({
       />
       <Breadcrumb
         text="Date"
-        to={schoolId ? `/calendar/${schoolId}` : undefined}
+        to={schoolId ? `/calendar/${schoolId}/${setsumeikaiId}` : undefined}
         currentSelection={setsumeikaiDate ? jpFormat(setsumeikaiDate) : ""}
       />
       <Breadcrumb

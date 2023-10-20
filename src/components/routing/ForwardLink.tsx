@@ -3,10 +3,10 @@ import jpFormat from "../../helpers/jpFormat";
 
 interface ForwardLinkProps {
   currentStep: string;
-  schoolId: number;
+  schoolId: number | undefined;
   schoolName: string;
   setsumeikaiDate: Date | undefined;
-  setsumeikaiId: number;
+  setsumeikaiId: number | undefined;
 }
 
 export default function ForwardLink({
@@ -28,7 +28,7 @@ export default function ForwardLink({
 
   return currentStep.includes("/school_list") ? (
     <NavLink
-      to={`/calendar/${schoolId}`}
+      to={`/calendar/${schoolId}/${setsumeikaiId}`}
       className={
         noSchool
           ? className.concat(" cursor-not-allowed opacity-80")
