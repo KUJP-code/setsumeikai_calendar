@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 
 const testSchool: school = {
-  id: 41,
+  id: "41",
   name: "大倉山",
   address: "〒222-0032 神奈川県横浜市港北区大豆戸町80",
   phone: "0120-378-056",

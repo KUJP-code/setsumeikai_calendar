@@ -9,17 +9,19 @@ import userEvent from "@testing-library/user-event";
 
 function renderProgressNav(
   initial: string,
-  schoolId?: number,
-  setsumeikaiId?: number
+  schoolId?: string,
+  setsumeikaiId?: string
 ) {
+  const selections = {
+    schoolName: "school",
+    schoolId: schoolId,
+    setsumeikaiDate: new Date(),
+    setsumeikaiId: setsumeikaiId,
+  };
+
   render(
     <MemoryRouter initialEntries={[initial]}>
-      <ProgressNav
-        schoolName="school"
-        schoolId={schoolId ? schoolId : 0}
-        setsumeikaiDate={new Date()}
-        setsumeikaiId={setsumeikaiId ? setsumeikaiId : 0}
-      />
+      <ProgressNav {...selections} />
     </MemoryRouter>
   );
 }
@@ -38,13 +40,13 @@ describe("ProgressNav", () => {
   });
 
   it("renders form breadcrumb as heading when no setsumeikai", () => {
-    renderProgressNav("/school_list", 36);
+    renderProgressNav("/school_list", "36");
 
     expect(screen.getAllByRole("link").length).toBe(2);
   });
 
   it("renders all breadcrumbs as links when both school and setsumeikai", () => {
-    renderProgressNav("/school_list", 36, 36);
+    renderProgressNav("/school_list", "36", "36");
 
     expect(screen.getAllByRole("link").length).toBe(3);
   });

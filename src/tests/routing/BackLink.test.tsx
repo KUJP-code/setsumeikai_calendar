@@ -4,28 +4,35 @@ import BackLink from "../../components/routing/BackLink";
 import { render, screen } from "@testing-library/react";
 
 describe("BackLink", () => {
-  function renderBackLink(currentStep: string, schoolId: number) {
+  function renderBackLink(currentStep: string, schoolId: string | undefined) {
+    const selections: selections = {
+      schoolId: schoolId,
+      schoolName: "",
+      setsumeikaiDate: undefined,
+      setsumeikaiId: undefined,
+    };
+
     render(
       <MemoryRouter>
-        <BackLink currentStep={currentStep} schoolId={schoolId} />
+        <BackLink currentStep={currentStep} selections={selections} />
       </MemoryRouter>
     );
   }
 
   it("currentStep school list renders nothing", () => {
-    renderBackLink("/school_list", 0);
+    renderBackLink("/school_list", undefined);
 
     expect(screen.queryByRole("link")).toBe(null);
   });
 
   it("currentStep calendar renders link to school list", () => {
-    renderBackLink("/school_list", 0);
+    renderBackLink("/school_list", undefined);
 
     expect(screen.queryByRole("link", { name: "Change School" }));
   });
 
   it("currentStep form renders link to calendar", () => {
-    renderBackLink("/school_list", 12);
+    renderBackLink("/school_list", "12");
 
     expect(screen.queryByRole("link", { name: "Change Setsumeikai" }));
   });

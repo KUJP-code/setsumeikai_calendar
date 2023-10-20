@@ -8,10 +8,12 @@ function renderFooter(step: string) {
     <MemoryRouter>
       <FooterNav
         currentStep={step}
-        schoolName=""
-        schoolId={0}
-        setsumeikaiDate={undefined}
-        setsumeikaiId={0}
+        selections={{
+          schoolName: "",
+          schoolId: undefined,
+          setsumeikaiDate: undefined,
+          setsumeikaiId: undefined,
+        }}
       />
     </MemoryRouter>
   );
