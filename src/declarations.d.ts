@@ -5,6 +5,11 @@ interface formOption {
 
 type inputType = "date" | "email" | "number" | "tel" | "text" | "textarea";
 
+interface SchoolsAndEvents {
+  schools: school[];
+  setsumeikais: event[];
+}
+
 interface school {
   id: number;
   name: string;
@@ -29,6 +34,7 @@ interface selections {
 }
 
 interface selectionsContext {
+  setsumeikais: setsumeikai[];
   schools: school[];
   selections: selections;
   setSelections: React.Dispatch<React.SetStateAction<selections>>;

@@ -2,7 +2,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
 import FullCalendar from "@fullcalendar/react";
 import jaLocale from "@fullcalendar/core/locales/ja";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useSelectionContext from "../../hooks/useSelectionContext";
 
 function responsiveView() {
@@ -10,15 +10,14 @@ function responsiveView() {
 }
 
 export default function Calendar() {
-  const { selections, setSelections } = useSelectionContext();
-  const events: setsumeikai[] = useLoaderData() as setsumeikai[];
+  const { setsumeikais, selections, setSelections } = useSelectionContext();
   const navigate = useNavigate();
 
   return (
     <FullCalendar
       contentHeight={"auto"}
       firstDay={1}
-      events={events}
+      events={setsumeikais}
       eventBackgroundColor="#ef8200"
       eventBorderColor="#ef8200"
       eventClassNames={["cursor-pointer"]}

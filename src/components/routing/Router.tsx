@@ -4,8 +4,7 @@ import ErrorPage from "../../ErrorPage";
 import Calendar from "../calendar/Calendar";
 import Form from "../form/Form";
 import SchoolList from "../schools/SchoolList";
-import getSchools from "../../api/getSchools";
-import getSchoolEvents from "../../api/getEvents";
+import getSchoolsAndEvents from "../../api/getSchoolsAndEvents";
 import createInquiry from "../../api/createInquiry";
 
 export default function Router() {
@@ -14,11 +13,7 @@ export default function Router() {
       path: "/",
       element: <App />,
       errorElement: <ErrorPage />,
-      loader: getSchools,
-      action: ({ params, request }) => {
-        console.log("got here");
-        return createInquiry(params, request);
-      },
+      loader: getSchoolsAndEvents,
       children: [
         {
           path: "*",
@@ -26,17 +21,9 @@ export default function Router() {
         },
         { index: true, element: <Navigate to="/school_list" /> },
         { path: "/school_list", element: <SchoolList /> },
+        { path: "/calendar/:schoolId", element: <Calendar /> },
         {
-          path: "/calendar/:schoolId",
-          element: <Calendar />,
-          loader: ({ params }) => {
-            return params.schoolId !== undefined
-              ? getSchoolEvents(parseInt(params.schoolId))
-              : [];
-          },
-        },
-        {
-          path: "/form/:schoolId/:eventId",
+          path: "/form/:schoolId/:setsumeikaiId",
           element: <Form />,
           action: ({ params, request }) => createInquiry(params, request),
         },
