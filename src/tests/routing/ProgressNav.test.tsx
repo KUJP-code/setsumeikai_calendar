@@ -4,7 +4,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "bun:test";
 import { MemoryRouter } from "react-router-dom";
-import ProgressNav from "../components/routing/ProgressNav";
+import ProgressNav from "../../components/routing/ProgressNav";
 import userEvent from "@testing-library/user-event";
 
 function renderProgressNav(

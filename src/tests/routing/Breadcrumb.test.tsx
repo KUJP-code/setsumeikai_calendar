@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "bun:test";
-import Breadcrumb from "../components/routing/Breadcrumb";
+import Breadcrumb from "../../components/routing/Breadcrumb";
 import { MemoryRouter } from "react-router-dom";
 
 function renderBreadcrumb(

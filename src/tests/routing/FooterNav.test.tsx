@@ -1,12 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "bun:test";
 import { MemoryRouter } from "react-router-dom";
-import FooterNav from "../components/routing/FooterNav";
+import FooterNav from "../../components/routing/FooterNav";
 
 function renderFooter(step: string) {
   render(
     <MemoryRouter>
-      <FooterNav currentStep={step} school="" setsumeikai="" />
+      <FooterNav
+        currentStep={step}
+        schoolName=""
+        schoolId={0}
+        setsumeikaiDate={undefined}
+        setsumeikaiId={0}
+      />
     </MemoryRouter>
   );
 }

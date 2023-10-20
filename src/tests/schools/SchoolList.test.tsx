@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it, mock } from "bun:test";
-import SchoolList from "../components/schools/SchoolList";
+import SchoolList from "../../components/schools/SchoolList";
 import userEvent from "@testing-library/user-event";
 import { Outlet, RouterProvider, createMemoryRouter } from "react-router-dom";
 

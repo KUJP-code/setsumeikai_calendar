@@ -1,5 +1,5 @@
 import { beforeAll, describe, expect, it, mock } from "bun:test";
-import SchoolCard from "../components/schools/SchoolCard";
+import SchoolCard from "../../components/schools/SchoolCard";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
