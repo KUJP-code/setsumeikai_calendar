@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import jpFormat from "../../helpers/jpFormat";
+import jaFormat from "../../helpers/jaFormat";
 
 interface ForwardLinkProps {
   currentStep: string;
@@ -46,7 +46,7 @@ export default function ForwardLink({
       onClick={(e) => handleClick(e)}
     >
       {setsumeikaiDate
-        ? `Register for setsumeikai on ${jpFormat(setsumeikaiDate)}`
+        ? `Register for setsumeikai on ${jaFormat(setsumeikaiDate)}`
         : "Select setsumeikai to continue"}
     </NavLink>
   ) : null;

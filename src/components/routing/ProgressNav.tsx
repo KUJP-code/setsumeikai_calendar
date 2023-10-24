@@ -1,4 +1,4 @@
-import jpFormat from "../../helpers/jpFormat";
+import jaFormat from "../../helpers/jaFormat";
 import Breadcrumb from "./Breadcrumb";
 
 export default function ProgressNav(selections: selections) {
@@ -14,7 +14,7 @@ export default function ProgressNav(selections: selections) {
       <Breadcrumb
         text="Date"
         to={schoolId ? `/calendar/${schoolId}/${setsumeikaiId}` : undefined}
-        currentSelection={setsumeikaiDate ? jpFormat(setsumeikaiDate) : ""}
+        currentSelection={setsumeikaiDate ? jaFormat(setsumeikaiDate) : ""}
       />
       <Breadcrumb
         text="Enter Details"
