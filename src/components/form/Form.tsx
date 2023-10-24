@@ -94,7 +94,7 @@ export default function Form() {
       />
       <button
         type="submit"
-        className="w-full rounded p-2 bg-ku-orange hover:opacity-90"
+        className="w-full rounded p-2 bg-ku-orange font-semibold text-white text-lg hover:opacity-90"
       >
         内容の確認へ
       </button>

@@ -4,14 +4,12 @@ interface props {
   selections: selections;
   setSelections: React.Dispatch<React.SetStateAction<selections>>;
   schools: school[];
-  setsumeikais: setsumeikai[];
 }
 
 export default function useParamsForSelections({
   selections,
   setSelections,
   schools,
-  setsumeikais,
 }: props) {
   const { schoolId: paramSchoolId, setsumeikaiId: paramSetsumeikaiId } =
     useParams();
@@ -27,20 +25,23 @@ export default function useParamsForSelections({
         schoolId: paramSchool.id,
         schoolName: paramSchool.name,
       });
-    }
-  }
 
-  if (selections.setsumeikaiId === undefined && paramSetsumeikaiId) {
-    const paramSetsumeikai: setsumeikai | undefined = setsumeikais.find((s) => {
-      return s.id === paramSetsumeikaiId;
-    });
+      if (selections.setsumeikaiId === undefined && paramSetsumeikaiId) {
+        const paramSetsumeikai: setsumeikai | undefined =
+          paramSchool.setsumeikais.find((s) => {
+            return s.id === paramSetsumeikaiId;
+          });
 
-    if (paramSetsumeikai) {
-      setSelections({
-        ...selections,
-        setsumeikaiId: paramSetsumeikai.id,
-        setsumeikaiDate: new Date(paramSetsumeikai.start),
-      });
+        console.log(paramSetsumeikai);
+
+        if (paramSetsumeikai) {
+          setSelections({
+            ...selections,
+            setsumeikaiId: paramSetsumeikai.id,
+            setsumeikaiDate: new Date(paramSetsumeikai.start),
+          });
+        }
+      }
     }
   }
 }

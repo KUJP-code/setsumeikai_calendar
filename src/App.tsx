@@ -5,8 +5,7 @@ import { useState } from "react";
 import useParamsForSelections from "./hooks/useParamsForSelections";
 
 export default function App() {
-  const { schools, setsumeikais }: SchoolsAndEvents =
-    useLoaderData() as SchoolsAndEvents;
+  const schools: school[] = useLoaderData() as school[];
   const location = useLocation();
 
   const [selections, setSelections] = useState<selections>({
@@ -16,7 +15,7 @@ export default function App() {
     setsumeikaiId: undefined,
   });
 
-  useParamsForSelections({ selections, setSelections, schools, setsumeikais });
+  useParamsForSelections({ selections, setSelections, schools });
 
   return (
     <>
@@ -24,7 +23,6 @@ export default function App() {
       <Outlet
         context={
           {
-            setsumeikais,
             schools,
             selections,
             setSelections,

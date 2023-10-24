@@ -1,12 +1,12 @@
-export default async function getSchools(): Promise<SchoolsAndEvents> {
-  return { schools: schools, setsumeikais: getTestEvents() };
+export default async function getSchools(): Promise<school[]> {
+  return schools;
 }
 
-function getTestEvents() {
+function createTestEvents() {
   const testEvents = [];
   const currentDate = new Date();
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 1; i < 4; i++) {
     const start = new Date(currentDate.setDate(currentDate.getDate() + 1));
     const end = new Date(start.setHours(start.getHours() + 2));
 
@@ -31,6 +31,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["馬込駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "2",
@@ -39,6 +40,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区", "目黒区"],
     nearbyStations: ["長原駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "3",
@@ -47,6 +49,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["大森駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "4",
@@ -55,6 +58,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区"],
     nearbyStations: ["池上駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "5",
@@ -63,6 +67,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区"],
     nearbyStations: ["蒲田駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "6",
@@ -71,6 +76,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["世田谷区", "大田区", "目黒区"],
     nearbyStations: ["多摩川駅", "雪が谷大塚駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "7",
@@ -79,6 +85,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["江東区", "港区"],
     nearbyStations: ["りんかい東雲駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "8",
@@ -87,6 +94,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["大島駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "9",
@@ -95,6 +103,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["門前仲町駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "10",
@@ -103,6 +112,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["東陽町駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "11",
@@ -111,6 +121,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["大井駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "12",
@@ -119,6 +130,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["北品川駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "13",
@@ -127,6 +139,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["戸越駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "14",
@@ -135,6 +148,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["等々力駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "15",
@@ -143,6 +157,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["川口駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "16",
@@ -151,6 +166,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["成城駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "17",
@@ -159,6 +175,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["四谷駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "18",
@@ -167,6 +184,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["早稲田駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "19",
@@ -175,6 +193,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["晴海駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "20",
@@ -183,6 +202,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["赤羽駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "21",
@@ -191,6 +211,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["池袋駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "22",
@@ -199,6 +220,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["鷺宮駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "23",
@@ -207,6 +229,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["三鷹駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "24",
@@ -215,6 +238,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["南町田グランベリーパーク駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "25",
@@ -224,6 +248,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["武蔵新城駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "26",
@@ -232,6 +257,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["武蔵小杉駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "27",
@@ -240,6 +266,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["溝の口駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "28",
@@ -248,6 +275,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["新川崎駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "29",
@@ -256,6 +284,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["矢向駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "30",
@@ -264,6 +293,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["天王町駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "31",
@@ -272,6 +302,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["二俣川駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "32",
@@ -280,6 +311,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["ソコラ南行徳駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "33",
@@ -288,6 +320,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["大田区", "品川区"],
     nearbyStations: ["新浦安駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "41",
@@ -296,6 +329,7 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["横浜市港北区", "鶴見区"],
     nearbyStations: ["大倉山駅", "菊名駅"],
+    setsumeikais: createTestEvents(),
   },
   {
     id: "43",
@@ -304,5 +338,6 @@ const schools: school[] = [
     phone: "0120-378-056",
     busAreas: ["川口駅近くの小学校", "保育園など"],
     nearbyStations: ["川口駅"],
+    setsumeikais: createTestEvents(),
   },
 ];

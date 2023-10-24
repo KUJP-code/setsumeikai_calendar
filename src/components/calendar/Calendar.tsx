@@ -10,14 +10,14 @@ function responsiveView() {
 }
 
 export default function Calendar() {
-  const { setsumeikais, selections, setSelections } = useSelectionContext();
+  const { schools, selections, setSelections } = useSelectionContext();
   const navigate = useNavigate();
 
   return (
     <FullCalendar
       contentHeight={"auto"}
       firstDay={1}
-      events={setsumeikais}
+      events={schools.find((s) => s.id === selections.schoolId)?.setsumeikais}
       eventBackgroundColor="#ef8200"
       eventBorderColor="#ef8200"
       eventClassNames={["cursor-pointer"]}
