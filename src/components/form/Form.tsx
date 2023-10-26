@@ -8,7 +8,7 @@ import RadioField from "./RadioField";
 export default function Form() {
   const { schools, selections } = useSelectionContext();
   const schoolOptions: formOption[] = schools.map((s) => {
-    return { name: s.name, value: s.id.toString() };
+    return { name: s.name, value: s.name };
   });
 
   return (
