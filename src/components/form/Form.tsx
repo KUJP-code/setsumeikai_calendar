@@ -78,7 +78,7 @@ export default function Form() {
         />
         <InputField
           type="text"
-          label="保護者のお名前"
+          label="小学校名と在学状況"
           name="ele_school"
           placeholder="例)  ○○小学校に来年4月から"
           required={true}
