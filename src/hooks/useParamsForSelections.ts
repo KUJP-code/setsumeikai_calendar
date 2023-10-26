@@ -32,8 +32,6 @@ export default function useParamsForSelections({
             return s.id === paramSetsumeikaiId;
           });
 
-        console.log(paramSetsumeikai);
-
         if (paramSetsumeikai) {
           setSelections({
             ...selections,

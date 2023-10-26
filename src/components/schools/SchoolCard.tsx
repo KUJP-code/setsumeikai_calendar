@@ -14,7 +14,7 @@ export default function SchoolCard({ school, selected, setSchool }: props) {
 
   return (
     <NavLink
-      to={`/calendar/${school.id}/0`}
+      to={`/calendar/${school.id}/undefined`}
       type="button"
       className={
         selected ? className.concat(" outline outline-ku-orange") : className

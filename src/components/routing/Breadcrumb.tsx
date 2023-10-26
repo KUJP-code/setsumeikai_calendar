@@ -16,11 +16,9 @@ export default function Breadcrumb({ currentSelection, text, to }: props) {
     return (
       <NavLink
         to={to}
-        className={({ isActive, isPending }) =>
+        className={({ isActive }) =>
           isActive
             ? `bg-ku-orange border border-ku-secondary ${className}`
-            : isPending
-            ? `bg-yellow-300 ${className}`
             : `bg-ku-secondary ${className}`
         }
       >
