@@ -6,16 +6,23 @@ interface formOption {
 type inputType = "date" | "email" | "number" | "tel" | "text" | "textarea";
 
 interface inquiry {
-  setsumeikaiID: string;
-  parentName: string;
+  schoolId: string;
+  setsumeikai_id: string;
+  parent_name: string;
   phone: string;
   email: string;
-  childName: string;
-  childBirthday: string;
+  child_name: string;
+  child_birthday: string;
   kindy: string;
-  eleSchool: string;
-  plannedSchool: string;
-  startDate: string;
+  ele_school: string;
+  planned_school: string;
+  start_date: string;
+  referrer: string;
+}
+
+interface inquiryApiResponse {
+  response: { status: number };
+  inquiryObject: inquiry;
 }
 
 interface school {
