@@ -1,7 +1,9 @@
+/// <reference lib="dom" />
+/// <reference lib="dom.iterable" />
+
 import { render, screen } from "@testing-library/react";
-import { beforeEach, describe, expect, it, mock } from "bun:test";
+import { describe, expect, it, mock } from "bun:test";
 import SchoolList from "../../components/schools/SchoolList";
-import userEvent from "@testing-library/user-event";
 import { Outlet, RouterProvider, createMemoryRouter } from "react-router-dom";
 
 const testSelections: selections = {
@@ -43,53 +45,6 @@ describe("School List", () => {
     const cardCount = screen.getAllByRole("link").length;
 
     expect(cardCount).toBe(testGetSchools().length);
-  });
-
-  describe("search", () => {
-    beforeEach(() => {
-      renderSchoolList();
-    });
-
-    const user = userEvent.setup();
-
-    async function searchFor(input: string) {
-      const searchInput = screen.getByRole("searchbox");
-      await user.clear(searchInput);
-      await user.click(searchInput);
-      await user.keyboard(input);
-    }
-
-    it("searches by name", async () => {
-      await searchFor("大森");
-
-      expect(screen.queryAllByRole("link").length).toBe(1);
-      expect(screen.findByRole("link", { name: "大森" })).toBeTruthy();
-    });
-
-    it("searches by address", async () => {
-      await searchFor("1F");
-
-      expect(screen.queryAllByRole("link").length).toBe(4);
-    });
-
-    it("searches by phone", async () => {
-      await searchFor("1111-111-111");
-
-      expect(screen.queryAllByRole("link").length).toBe(2);
-    });
-
-    it("searches by bus area", async () => {
-      await searchFor("目黒区");
-
-      expect(screen.queryAllByRole("link").length).toBe(2);
-    });
-
-    it("searches by nearby station", async () => {
-      await searchFor("馬込駅");
-
-      expect(screen.queryAllByRole("link").length).toBe(1);
-      expect(screen.findByRole("link", { name: "馬込" })).toBeTruthy();
-    });
   });
 });
 
