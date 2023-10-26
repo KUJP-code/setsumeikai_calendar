@@ -11,7 +11,7 @@ export default async function createInquiry(
     "Content-Type": "application/json",
   });
 
-  const response = await fetch("http://kids-up.app/create_inquiry.json", {
+  const response = await fetch("https://kids-up.app/create_inquiry.json", {
     method: "POST",
     headers: headers,
     body: JSON.stringify({ inquiry: inquiryObject }),
