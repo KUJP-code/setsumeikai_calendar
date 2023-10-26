@@ -9,6 +9,7 @@ const testSchool: school = {
   name: "大倉山",
   address: "〒222-0032 神奈川県横浜市港北区大豆戸町80",
   phone: "0120-378-056",
+  hiragana: [""],
   busAreas: ["横浜市港北区", "鶴見区"],
   nearbyStations: ["大倉山駅", "菊名駅"],
   setsumeikais: [],
