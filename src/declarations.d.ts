@@ -12,6 +12,7 @@ interface school {
   phone: string;
   busAreas: string[];
   nearbyStations: string[];
+  hiragana: string[];
   setsumeikais: setsumeikai[];
 }
 

@@ -22,6 +22,8 @@ export default function SchoolCard({ school, selected, setSchool }: props) {
       onClick={() => setSchool(school.name)}
     >
       <h5 className="font-bold text-lg">{school.name}</h5>
+      <h5 className="font-bold text-lg">{school.hiragana}</h5>
+
       <p>{school.address}</p>
       <p>{school.phone}</p>
       {school.busAreas.length > 0 ? (

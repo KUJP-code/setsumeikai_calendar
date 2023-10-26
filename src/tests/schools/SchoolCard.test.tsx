@@ -11,6 +11,7 @@ const testSchool: school = {
   phone: "0120-378-056",
   busAreas: ["横浜市港北区", "鶴見区"],
   nearbyStations: ["大倉山駅", "菊名駅"],
+  setsumeikais: [],
 };
 
 describe("School Card", () => {

@@ -15,7 +15,8 @@ export default function SchoolList() {
             school.address.includes(query) ||
             school.phone.includes(query) ||
             school.busAreas.some((area) => area.includes(query)) ||
-            school.nearbyStations.some((station) => station.includes(query))
+            school.nearbyStations.some((station) => station.includes(query)) ||
+            school.hiragana.some((hiragana) => hiragana.includes(query))
         );
 
   return (

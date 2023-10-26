@@ -6,7 +6,7 @@ interface props {
 }
 
 export default function SearchBox({ setQuery, query }: props) {
-  function handleChange(e: ChangeEvent) {
+  function updateQuery(e: ChangeEvent) {
     if (e.currentTarget instanceof HTMLInputElement) {
       setQuery(e.currentTarget.value);
     }
@@ -19,7 +19,7 @@ export default function SearchBox({ setQuery, query }: props) {
       id="schoolSearch"
       className="w-full bg-slate-100 outline outline-2 rounded outline-ku-orange p-2"
       placeholder="Search schools by name, address, phone, station or area"
-      onChange={handleChange}
+      onChange={updateQuery}
       value={query}
     />
   );
