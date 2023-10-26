@@ -20,7 +20,7 @@ export default function Form() {
       <InputField
         type="text"
         label="保護者のお名前"
-        name="parentName"
+        name="parent_name"
         placeholder="保護者のお名前を入力してください"
         required={true}
       />
@@ -41,14 +41,14 @@ export default function Form() {
       <InputField
         type="text"
         label="お子様のお名前"
-        name="childName"
+        name="child_name"
         placeholder="カタカナでお子様のお名前を入力してください"
         required={true}
       />
       <InputField
         type="date"
         label="お子様の生年月日"
-        name="childBirthday"
+        name="child_birthday"
         placeholder=""
         required={true}
       />
@@ -62,21 +62,21 @@ export default function Form() {
       <InputField
         type="text"
         label="保護者のお名前"
-        name="eleSchool"
+        name="ele_school"
         placeholder="例)  ○○小学校に来年4月から"
         required={true}
       />
       {/* TODO: group schools by prefecture */}
       <SelectField
         label="通学をご検討中のスクール"
-        name="plannedSchool"
+        name="planned_school"
         options={schoolOptions}
         required={true}
       />
       <InputField
         type="date"
         label="ご希望の利用開始時期"
-        name="startDate"
+        name="start_date"
         placeholder="保護者のお名前を入力してください"
         required={false}
       />
@@ -84,12 +84,12 @@ export default function Form() {
         label="お申し込みのきっかけ"
         name="referrer"
         options={[
-          { name: "チラシ", value: "flyer" },
-          { name: "口コミ", value: "recommendation" },
-          { name: "ホームページ", value: "homepage" },
-          { name: "看板", value: "billboard" },
-          { name: "資料", value: "document" },
-          { name: "その他", value: "other" },
+          { name: "チラシ", value: "チラシ" },
+          { name: "口コミ", value: "口コミ" },
+          { name: "ホームページ", value: "ホームページ" },
+          { name: "看板", value: "看板" },
+          { name: "資料", value: "資料" },
+          { name: "その他", value: "その他" },
         ]}
       />
       <button

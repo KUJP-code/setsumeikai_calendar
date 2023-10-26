@@ -1,13 +1,21 @@
-import { Params, redirect } from "react-router-dom";
+import { Params } from "react-router-dom";
 
 export default async function createInquiry(
-  params: Params<string>,
+  _params: Params<string>,
   request: Request
 ) {
-  console.log(request, params);
   const data = await request.formData();
-  console.log(data);
   const inquiryObject = Object.fromEntries(data);
-  console.log(inquiryObject);
-  return redirect("/form/8/6");
+  delete inquiryObject.schoolId;
+  const headers = new Headers({
+    "Content-Type": "application/json",
+  });
+
+  const response = await fetch("http://localhost:3000/create_inquiry", {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify({ inquiry: inquiryObject }),
+  });
+
+  return response;
 }

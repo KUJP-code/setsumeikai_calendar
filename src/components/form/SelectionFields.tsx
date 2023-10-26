@@ -11,6 +11,7 @@ export default function SelectionFields(selections: selections) {
           disabled
           className="text-center"
         />
+        <input type="hidden" name="schoolId" value={selections.schoolId} />
       </div>
       <div className="flex flex-col gap-2">
         <label htmlFor="setsumeikaiId" className="font-bold text-lg">
@@ -30,7 +31,7 @@ export default function SelectionFields(selections: selections) {
         />
         <input
           type="hidden"
-          name="setsumeikaiId"
+          name="setsumeikai_id"
           value={selections.setsumeikaiId}
         />
       </div>
