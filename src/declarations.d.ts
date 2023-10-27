@@ -37,7 +37,6 @@ interface school {
 }
 
 interface setsumeikai {
-  end: string;
   id: string;
   start: string;
   title: string;
