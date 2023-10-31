@@ -15,7 +15,7 @@ export default function InputField({
 }: InputFieldProps) {
   if (type === "textarea") {
     return (
-      <div className="flex flex-col basis-2/5 gap-2">
+      <div className="flex flex-col w-full gap-2">
         <label htmlFor={name} className="font-semibold text-lg">
           {label}
         </label>
@@ -23,6 +23,7 @@ export default function InputField({
           name={name}
           placeholder={placeholder}
           required={required}
+          rows={4}
           className="border border-ku-secondary rounded p-1 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
         />
       </div>

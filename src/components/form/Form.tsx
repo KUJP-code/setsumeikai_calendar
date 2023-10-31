@@ -25,7 +25,7 @@ export default function Form() {
     return (
       <RRForm
         method="post"
-        className="flex flex-col md:flex-row md:flex-wrap items-center justify-evenly gap-5 p-3 text-center"
+        className="flex flex-col md:flex-row md:flex-wrap md:items-center justify-evenly gap-5 p-3 text-center"
       >
         {inquiryResponse && inquiryResponse.response.status === 500 ? (
           <div className="rounded text-xl bg-red-600 text-white p-3">
@@ -108,6 +108,13 @@ export default function Form() {
             { name: "資料", value: "資料" },
             { name: "その他", value: "その他" },
           ]}
+        />
+        <InputField
+          type="textarea"
+          label="説明会で聞きたい内容・ご要望"
+          name="requests"
+          placeholder="スクール、サービス、お子様について気になる点があれば記入ください。例）送迎について詳しく聞きたい２歳の弟も一緒に参加したい"
+          required={false}
         />
         <button
           type="submit"
