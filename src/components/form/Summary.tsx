@@ -79,6 +79,15 @@ export default function Summary({ selections, inquiry }: SummaryProps) {
           <p>{inquiry.referrer}</p>
         </div>
       ) : null}
+
+      {inquiry.requests ? (
+        <div className="flex flex-col w-full gap-2">
+          <h3 className="font-semibold text-lg">
+            説明会で聞きたい内容・ご要望
+          </h3>
+          <p>{inquiry.requests}</p>
+        </div>
+      ) : null}
     </main>
   );
 }

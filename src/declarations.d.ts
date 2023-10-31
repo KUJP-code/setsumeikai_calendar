@@ -18,6 +18,7 @@ interface inquiry {
   planned_school: string;
   start_date: string;
   referrer: string;
+  requests: string;
 }
 
 interface inquiryApiResponse {
