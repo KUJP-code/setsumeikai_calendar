@@ -1,6 +1,7 @@
 export default function SelectionFields(selections: selections) {
   return (
     <div className="w-full flex flex-col md:flex-row justify-center items-center gap-3 p-3 border-2 rounded border-ku-orange">
+      <input type="hidden" name="category" value="R" />
       <div className="flex flex-col gap-2">
         <label htmlFor="schoolId" className="font-bold text-lg">
           School
