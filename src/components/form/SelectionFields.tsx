@@ -12,7 +12,7 @@ export default function SelectionFields(selections: selections) {
           disabled
           className="text-center"
         />
-        <input type="hidden" name="schoolId" value={selections.schoolId} />
+        <input type="hidden" name="school_id" value={selections.schoolId} />
       </div>
       <div className="flex flex-col gap-2">
         <label htmlFor="setsumeikaiId" className="font-bold text-lg">

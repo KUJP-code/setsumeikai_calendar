@@ -6,7 +6,6 @@ export default async function createInquiry(
 ) {
   const data = await request.formData();
   const inquiryObject = Object.fromEntries(data);
-  delete inquiryObject.schoolId;
   const headers = new Headers({
     "Content-Type": "application/json",
   });
