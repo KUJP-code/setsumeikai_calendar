@@ -2,10 +2,12 @@ import SearchBox from "./SearchBox";
 import SchoolCard from "./SchoolCard";
 import { useState } from "react";
 import useSelectionContext from "../../hooks/useSelectionContext";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function SchoolList() {
   const { schools, selections, setSelections } = useSelectionContext();
   const [query, setQuery] = useState("");
+  const [parent] = useAutoAnimate();
   const displayedSchools =
     query === ""
       ? schools
@@ -22,23 +24,25 @@ export default function SchoolList() {
   return (
     <main className="flex flex-wrap justify-evenly gap-3 p-3">
       <SearchBox setQuery={setQuery} query={query} />
-      {displayedSchools.map((school) => {
-        return (
-          <SchoolCard
-            school={school}
-            key={school.id}
-            selected={school.name === selections.schoolName}
-            setSchool={() =>
-              setSelections({
-                setsumeikaiDate: undefined,
-                setsumeikaiId: undefined,
-                schoolName: school.name,
-                schoolId: school.id,
-              })
-            }
-          />
-        );
-      })}
+      <div className="flex flex-wrap justify-evenly gap-3" ref={parent}>
+        {displayedSchools.map((school) => {
+          return (
+            <SchoolCard
+              school={school}
+              key={school.id}
+              selected={school.name === selections.schoolName}
+              setSchool={() =>
+                setSelections({
+                  setsumeikaiDate: undefined,
+                  setsumeikaiId: undefined,
+                  schoolName: school.name,
+                  schoolId: school.id,
+                })
+              }
+            />
+          );
+        })}
+      </div>
     </main>
   );
 }
