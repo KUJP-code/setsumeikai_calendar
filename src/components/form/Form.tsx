@@ -10,7 +10,7 @@ import Summary from "./Summary";
 export default function Form() {
   const { schools, selections } = useSelectionContext();
   const schoolOptions: formOption[] = schools.map((s) => {
-    return { name: s.name, value: s.name };
+    return { name: s.name, value: s.id };
   });
   const inquiryResponse = useInquiryResponse();
 
@@ -86,7 +86,7 @@ export default function Form() {
         {/* TODO: group schools by prefecture */}
         <SelectField
           label="通学をご検討中のスクール"
-          name="planned_school"
+          name="school_id"
           options={schoolOptions}
           required={true}
         />
