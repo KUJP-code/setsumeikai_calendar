@@ -1,6 +1,4 @@
 import { NavLink } from "react-router-dom";
-import BusAreaList from "./BusAreaList";
-import NearbyStationList from "./NearbyStationList";
 
 interface props {
   school: school;
@@ -10,7 +8,7 @@ interface props {
 
 export default function SchoolCard({ school, selected, setSchool }: props) {
   const className =
-    "p-3 border border-ku-secondary rounded shadow-lg basis-full shrink-0 md:basis-[23vw]";
+    "flex flex-col gap-2 p-3 border-4 border-ku-blue rounded-3xl shadow-lg basis-full shrink-0 md:basis-[23vw]";
 
   return (
     <NavLink
@@ -21,20 +19,18 @@ export default function SchoolCard({ school, selected, setSchool }: props) {
       }
       onClick={() => setSchool(school.name)}
     >
-      <h5 className="font-bold text-lg">{school.name}</h5>
-      <h5 className="font-bold text-lg">{school.hiragana}</h5>
-
+      <h5 className="font-extrabold text-2xl text-ku-orange text-center">
+        {school.name}
+      </h5>
       <p>{school.address}</p>
-      <p>{school.phone}</p>
-      {school.busAreas.length > 0 ? (
-        <BusAreaList areas={school.busAreas} schoolId={school.id} />
-      ) : null}
-      {school.nearbyStations.length > 0 ? (
-        <NearbyStationList
-          stations={school.nearbyStations}
-          schoolId={school.id}
-        />
-      ) : null}
+      <p>
+        <span className="font-semibold">送迎対象地域:</span>{" "}
+        {school.busAreas.join("、 ")}
+      </p>
+      <p>
+        <span className="font-semibold">最寄駅:</span>{" "}
+        {school.nearbyStations.join("、 ")}
+      </p>
     </NavLink>
   );
 }
