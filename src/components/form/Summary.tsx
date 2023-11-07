@@ -1,11 +1,18 @@
 import jaFormat from "../../helpers/jaFormat";
 
 interface SummaryProps {
+  schools: school[];
   selections: selections;
   inquiry: inquiry;
 }
 
-export default function Summary({ selections, inquiry }: SummaryProps) {
+export default function Summary({
+  schools,
+  selections,
+  inquiry,
+}: SummaryProps) {
+  const school = schools.find((s) => s.id === inquiry.school_id)?.name || "";
+
   return (
     <main className="flex flex-col md:flex-row md:flex-wrap items-center justify-evenly gap-5 p-3 text-center">
       <div className="w-full rounded text-xl bg-green-700 text-white p-3">
@@ -63,7 +70,7 @@ export default function Summary({ selections, inquiry }: SummaryProps) {
 
       <div className="flex flex-col basis-2/5 gap-2">
         <h3 className="font-semibold text-lg">通学をご検討中のスクール</h3>
-        <p>{inquiry.planned_school}</p>
+        <p>{school}</p>
       </div>
 
       {inquiry.start_date ? (

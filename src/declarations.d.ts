@@ -6,7 +6,6 @@ interface formOption {
 type inputType = "date" | "email" | "number" | "tel" | "text" | "textarea";
 
 interface inquiry {
-  schoolId: string;
   setsumeikai_id: string;
   parent_name: string;
   phone: string;
@@ -15,7 +14,7 @@ interface inquiry {
   child_birthday: string;
   kindy: string;
   ele_school: string;
-  planned_school: string;
+  school_id: string;
   start_date: string;
   referrer: string;
   requests: string;

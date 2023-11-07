@@ -17,6 +17,7 @@ export default function Form() {
   if (inquiryResponse && inquiryResponse.response.status === 200) {
     return (
       <Summary
+        schools={schools}
         selections={selections}
         inquiry={inquiryResponse.inquiryObject}
       />
