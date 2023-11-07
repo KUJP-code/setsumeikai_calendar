@@ -3,18 +3,18 @@ export default function SelectionFields(selections: selections) {
     <div className="w-full flex flex-col md:flex-row justify-center items-center gap-3 p-3 border-2 rounded border-ku-orange">
       <input type="hidden" name="category" value="R" />
       <div className="flex flex-col gap-2">
-        <label htmlFor="schoolId" className="font-bold text-lg">
-          School
+        <label htmlFor="schoolId" className="font-bold text-xl">
+          スクール
         </label>
         <input
           type="text"
           value={selections.schoolName}
           disabled
-          className="text-center"
+          className="text-center text-lg"
         />
       </div>
       <div className="flex flex-col gap-2">
-        <label htmlFor="setsumeikaiId" className="font-bold text-lg">
+        <label htmlFor="setsumeikaiId" className="font-bold text-xl">
           Setsumeikai Date
         </label>
         <input
@@ -27,7 +27,7 @@ export default function SelectionFields(selections: selections) {
               : ""
           }
           disabled
-          className="text-center"
+          className="text-center text-lg"
         />
         <input
           type="hidden"

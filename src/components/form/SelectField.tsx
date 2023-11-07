@@ -19,7 +19,7 @@ export default function SelectField({
       <select
         name={name}
         required={required}
-        className="border border-ku-secondary rounded p-1 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
+        className="border border-ku-secondary rounded p-3 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
       >
         {options.map((o) => {
           return (

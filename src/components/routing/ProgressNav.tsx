@@ -7,7 +7,7 @@ export default function ProgressNav(selections: selections) {
   return (
     <nav className="flex flex-col md:flex-row p-3 gap-1 justify-evenly">
       <Breadcrumb
-        text="School"
+        text="スクール"
         to="/school_list"
         currentSelection={schoolName}
       />

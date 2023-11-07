@@ -24,7 +24,7 @@ export default function InputField({
           placeholder={placeholder}
           required={required}
           rows={4}
-          className="border border-ku-secondary rounded p-1 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
+          className="border border-ku-secondary rounded p-3 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
         />
       </div>
     );
@@ -39,7 +39,7 @@ export default function InputField({
           name={name}
           placeholder={placeholder}
           required={required}
-          className="border border-ku-secondary rounded p-1 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
+          className="border border-ku-secondary rounded p-3 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
         />
       </div>
     );
