@@ -5,7 +5,7 @@ import useSelectionContext from "../../hooks/useSelectionContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 export default function SchoolList() {
-  const { schools, selections, setSelections } = useSelectionContext();
+  const { schools, setSelections } = useSelectionContext();
   const [query, setQuery] = useState("");
   const [parent] = useAutoAnimate();
   const displayedSchools =
@@ -30,7 +30,6 @@ export default function SchoolList() {
             <SchoolCard
               school={school}
               key={school.id}
-              selected={school.name === selections.schoolName}
               setSchool={() =>
                 setSelections({
                   setsumeikaiDate: undefined,

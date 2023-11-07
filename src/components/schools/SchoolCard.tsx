@@ -2,24 +2,18 @@ import { NavLink } from "react-router-dom";
 
 interface props {
   school: school;
-  selected: boolean;
   setSchool: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function SchoolCard({ school, selected, setSchool }: props) {
-  const className =
-    "flex flex-col gap-2 p-3 border-4 border-ku-blue rounded-3xl shadow-lg basis-full shrink-0 md:basis-[23vw]";
-
+export default function SchoolCard({ school, setSchool }: props) {
   return (
     <NavLink
       to={`/calendar/${school.id}/undefined`}
       type="button"
-      className={
-        selected ? className.concat(" outline outline-ku-orange") : className
-      }
+      className="flex flex-col items-start gap-2 p-3 rounded-3xl shadow-lg basis-full shrink-0 md:basis-[23.5vw] school-card text-start"
       onClick={() => setSchool(school.name)}
     >
-      <h5 className="font-extrabold text-2xl text-ku-orange text-center">
+      <h5 className="font-bold text-2xl text-ku-orange text-center w-full">
         {school.name}
       </h5>
       <p>{school.address}</p>

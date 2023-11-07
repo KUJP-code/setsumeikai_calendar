@@ -20,11 +20,7 @@ describe("School Card", () => {
     beforeAll(() => {
       render(
         <MemoryRouter>
-          <SchoolCard
-            school={testSchool}
-            selected={false}
-            setSchool={mock(() => {})}
-          />
+          <SchoolCard school={testSchool} setSchool={mock(() => {})} />
         </MemoryRouter>
       );
     });
@@ -45,35 +41,14 @@ describe("School Card", () => {
         screen.queryByRole("listitem", { name: `${station}` });
       });
     });
-
-    it.todo("shows loading state if no school", () => {});
   });
 
   describe("interactivity", () => {
-    it("is outlined when selected", () => {
-      render(
-        <MemoryRouter>
-          <SchoolCard
-            school={testSchool}
-            selected={true}
-            setSchool={mock(() => {})}
-          />
-        </MemoryRouter>
-      );
-
-      const card = screen.getByRole("link");
-      expect(card.classList.contains("outline outline-ku-orange"));
-    });
-
     it("sets itself as selected school on click", async () => {
       const setSchoolMock = mock(() => {});
       render(
         <MemoryRouter>
-          <SchoolCard
-            school={testSchool}
-            selected={true}
-            setSchool={setSchoolMock}
-          />
+          <SchoolCard school={testSchool} setSchool={setSchoolMock} />
         </MemoryRouter>
       );
       const user = userEvent.setup();
@@ -93,11 +68,7 @@ describe("School Card", () => {
     it("doesn't render bus areas if none", () => {
       render(
         <MemoryRouter>
-          <SchoolCard
-            school={noDetails}
-            selected={false}
-            setSchool={mock(() => {})}
-          />
+          <SchoolCard school={noDetails} setSchool={mock(() => {})} />
         </MemoryRouter>
       );
 
@@ -107,11 +78,7 @@ describe("School Card", () => {
     it("doesn't render nearby stations if none", () => {
       render(
         <MemoryRouter>
-          <SchoolCard
-            school={noDetails}
-            selected={false}
-            setSchool={mock(() => {})}
-          />
+          <SchoolCard school={noDetails} setSchool={mock(() => {})} />
         </MemoryRouter>
       );
 

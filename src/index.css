@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Overrides for FullCalendar styles */
 :root {
   --ku-orange: #ef8200;
   --ku-orange-hover: #f08e18;
@@ -12,4 +13,10 @@
   --fc-button-hover-border-color: var(--ku-orange-hover);
   --fc-button-active-bg-color: var(--ku-secondary);
   --fc-button-active-border-color: var(--ku-orange-hover);
+}
+
+@layer components {
+  .school-card {
+    border: 4px solid rgb(131 192 218) !important;
+  }
 }
