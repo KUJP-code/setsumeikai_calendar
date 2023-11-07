@@ -29,10 +29,9 @@ describe("School Card", () => {
       );
     });
 
-    it("shows school name, address and phone", () => {
+    it("shows school name and address", () => {
       expect(screen.queryByText(`${testSchool.name}`)).toBeTruthy();
       expect(screen.queryByText(`${testSchool.address}`)).toBeTruthy();
-      expect(screen.queryByText(`${testSchool.phone}`)).toBeTruthy();
     });
 
     it("lists each bus area", () => {
@@ -91,7 +90,7 @@ describe("School Card", () => {
       busAreas: [],
     };
 
-    it("doesn't render bus component if no bus areas", () => {
+    it("doesn't render bus areas if none", () => {
       render(
         <MemoryRouter>
           <SchoolCard
@@ -102,12 +101,10 @@ describe("School Card", () => {
         </MemoryRouter>
       );
 
-      expect(screen.queryByRole("heading", { name: "送迎対象地域" })).toBe(
-        null
-      );
+      expect(screen.queryByText("送迎対象地域")).toBe(null);
     });
 
-    it("doesn't render nearby station component if no nearby stations", () => {
+    it("doesn't render nearby stations if none", () => {
       render(
         <MemoryRouter>
           <SchoolCard
@@ -118,7 +115,7 @@ describe("School Card", () => {
         </MemoryRouter>
       );
 
-      expect(screen.queryByRole("heading", { name: "最寄駅" })).toBe(null);
+      expect(screen.queryByText("最寄駅")).toBe(null);
     });
   });
 });

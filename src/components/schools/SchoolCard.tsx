@@ -23,14 +23,18 @@ export default function SchoolCard({ school, selected, setSchool }: props) {
         {school.name}
       </h5>
       <p>{school.address}</p>
-      <p>
-        <span className="font-semibold">送迎対象地域:</span>{" "}
-        {school.busAreas.join("、 ")}
-      </p>
-      <p>
-        <span className="font-semibold">最寄駅:</span>{" "}
-        {school.nearbyStations.join("、 ")}
-      </p>
+      {school.busAreas.length ? (
+        <p>
+          <span className="font-semibold">送迎対象地域:</span>{" "}
+          {school.busAreas.join("、 ")}
+        </p>
+      ) : null}
+      {school.nearbyStations.length ? (
+        <p>
+          <span className="font-semibold">最寄駅:</span>{" "}
+          {school.nearbyStations.join("、 ")}
+        </p>
+      ) : null}
     </NavLink>
   );
 }
