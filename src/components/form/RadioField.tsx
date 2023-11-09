@@ -7,7 +7,10 @@ interface RadioFieldProps {
 export default function RadioField({ label, name, options }: RadioFieldProps) {
   return (
     <fieldset className="flex flex-row flex-wrap justify-center gap-3 p-3 fieldset-border">
-      <legend className="font-semibold text-lg">{label}</legend>
+      <legend className="font-semibold text-lg">
+        <span className="label label-premium">必須</span>
+        {label}
+      </legend>
       {options.map((o) => {
         return (
           <div key={o.name} className="flex gap-1">

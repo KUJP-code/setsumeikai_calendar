@@ -14,6 +14,11 @@ export default function SelectField({
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={name} className="font-semibold text-lg">
+        <span
+          className={required ? "label label-required" : "label label-premium"}
+        >
+          必須
+        </span>
         {label}
       </label>
       <select

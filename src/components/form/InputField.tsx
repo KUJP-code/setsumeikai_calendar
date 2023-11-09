@@ -17,6 +17,13 @@ export default function InputField({
     return (
       <div className="flex flex-col w-full gap-2">
         <label htmlFor={name} className="font-semibold text-lg">
+          <span
+            className={
+              required ? "label label-required" : "label label-premium"
+            }
+          >
+            必須
+          </span>
           {label}
         </label>
         <textarea
@@ -32,6 +39,13 @@ export default function InputField({
     return (
       <div className="flex flex-col basis-2/5 gap-2">
         <label htmlFor={name} className="font-semibold text-lg">
+          <span
+            className={
+              required ? "label label-required" : "label label-premium"
+            }
+          >
+            必須
+          </span>{" "}
           {label}
         </label>
         <input
