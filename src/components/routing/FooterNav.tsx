@@ -8,7 +8,7 @@ interface props {
 
 export default function FooterNav({ currentStep, selections }: props) {
   return (
-    <nav className="z-50 sticky bottom-0 flex justify-between gap-3 p-3 bg-white border rounded">
+    <nav className="z-50 sticky bottom-[50px] md:bottom-0 flex justify-between gap-3 p-3 bg-white border rounded">
       <BackLink currentStep={currentStep} selections={selections} />
       <div className="flex-grow"></div>
       <ForwardLink currentStep={currentStep} selections={selections} />
