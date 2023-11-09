@@ -21,9 +21,7 @@ describe("ForwardLink", () => {
         setsumeikaiDate: undefined,
       });
 
-      const link = screen.getByRole("link", {
-        name: "Select school to continue",
-      });
+      const link = screen.getByRole("link", { name: "次へ" });
       expect(link.classList.contains("cursor-not-allowed")).toBe(true);
     });
     it("renders active link if school selected", () => {
@@ -48,9 +46,7 @@ describe("ForwardLink", () => {
         setsumeikaiId: "0",
       });
 
-      const link = screen.getByRole("link", {
-        name: "Select setsumeikai to continue",
-      });
+      const link = screen.getByRole("link", { name: "次へ" });
       expect(link.classList.contains("cursor-not-allowed")).toBe(true);
     });
     it("renders active link if setsumeikai selected", () => {

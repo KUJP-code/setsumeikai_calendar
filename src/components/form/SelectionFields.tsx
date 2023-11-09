@@ -15,7 +15,7 @@ export default function SelectionFields(selections: selections) {
       </div>
       <div className="flex flex-col gap-2">
         <label htmlFor="setsumeikaiId" className="font-bold text-xl">
-          Setsumeikai Date
+          説明会実施日
         </label>
         <input
           type="datetime-local"

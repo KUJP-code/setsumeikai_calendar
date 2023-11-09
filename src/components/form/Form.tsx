@@ -30,7 +30,7 @@ export default function Form() {
       >
         {inquiryResponse && inquiryResponse.response.status === 500 ? (
           <div className="rounded text-xl bg-red-600 text-white p-3">
-            Inquiry couldn't be made
+            問い合わせができなかった
           </div>
         ) : null}
 

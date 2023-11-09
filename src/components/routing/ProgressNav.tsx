@@ -12,12 +12,12 @@ export default function ProgressNav(selections: selections) {
         currentSelection={schoolName}
       />
       <Breadcrumb
-        text="Date"
+        text="説明会日付"
         to={schoolId ? `/calendar/${schoolId}/${setsumeikaiId}` : undefined}
         currentSelection={setsumeikaiDate ? jaFormat(setsumeikaiDate) : ""}
       />
       <Breadcrumb
-        text="Enter Details"
+        text="お申し込み"
         to={setsumeikaiId ? `/form/${schoolId}/${setsumeikaiId}` : undefined}
       />
     </nav>

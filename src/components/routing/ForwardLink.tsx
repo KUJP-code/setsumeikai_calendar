@@ -12,7 +12,7 @@ export default function ForwardLink({
 }: ForwardLinkProps) {
   const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
   const className =
-    "bg-ku-orange flex justify-center items-center text-neutral-100 font-semibold p-3  basis-1/3 md:basis-1/4 rounded";
+    "bg-ku-orange flex justify-center items-center text-neutral-100 font-semibold p-1 md:p-2 md:basis-1/4 rounded text-center";
   const noSchool = currentStep.includes("/school_list") && schoolName === "";
   const noSetsumeikai =
     currentStep.includes("/calendar") && setsumeikaiDate === undefined;
@@ -26,28 +26,26 @@ export default function ForwardLink({
       to={`/calendar/${schoolId}/${setsumeikaiId}`}
       className={
         noSchool
-          ? className.concat(" cursor-not-allowed opacity-80")
+          ? className.concat(" cursor-not-allowed opacity-80 basis-full")
           : className
       }
       onClick={(e) => handleClick(e)}
     >
-      {schoolName
-        ? `View calendar for ${schoolName}`
-        : "Select school to continue"}
+      {schoolName ? `${schoolName}の説明会カレンダー` : "次へ"}
     </NavLink>
   ) : currentStep.includes("/calendar") ? (
     <NavLink
       to={`/form/${schoolId}/${setsumeikaiId}`}
       className={
         noSetsumeikai
-          ? className.concat(" cursor-not-allowed opacity-80")
+          ? className.concat(" cursor-not-allowed opacity-80 basis-2/5")
           : className
       }
       onClick={(e) => handleClick(e)}
     >
       {setsumeikaiDate
-        ? `Register for setsumeikai on ${jaFormat(setsumeikaiDate)}`
-        : "Select setsumeikai to continue"}
+        ? `説明会申し込み: ${jaFormat(setsumeikaiDate)}`
+        : "次へ"}
     </NavLink>
   ) : null;
 }

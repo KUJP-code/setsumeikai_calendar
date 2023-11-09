@@ -16,16 +16,16 @@ export default function Summary({
   return (
     <main className="flex flex-col md:flex-row md:flex-wrap items-center justify-evenly gap-5 p-3 text-center">
       <div className="w-full rounded text-xl bg-green-700 text-white p-3">
-        Inquiry successfully made!
+        問い合わせ成功
       </div>
 
       <div className="flex flex-col basis-2/5 gap-2">
-        <h3 className="font-semibold text-lg">School</h3>
+        <h3 className="font-semibold text-lg">スクール</h3>
         <p>{selections.schoolName}</p>
       </div>
 
       <div className="flex flex-col basis-2/5 gap-2">
-        <h3 className="font-semibold text-lg">Setsumeikai</h3>
+        <h3 className="font-semibold text-lg">説明会日</h3>
         <p>
           {selections.setsumeikaiDate
             ? jaFormat(selections.setsumeikaiDate)

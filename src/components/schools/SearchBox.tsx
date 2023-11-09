@@ -18,7 +18,7 @@ export default function SearchBox({ setQuery, query }: props) {
       name="schoolSearch"
       id="schoolSearch"
       className="w-full bg-slate-100 outline outline-2 rounded outline-ku-orange p-2"
-      placeholder="Search schools by name, address, phone, station or area"
+      placeholder="スクール名検索、住所検索、電話番号検索、エリア検索"
       onChange={updateQuery}
       value={query}
     />
