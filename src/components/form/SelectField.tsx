@@ -17,7 +17,7 @@ export default function SelectField({
         <span
           className={required ? "label label-required" : "label label-premium"}
         >
-          必須
+          {required ? "必須" : "任意"}
         </span>
         {label}
       </label>

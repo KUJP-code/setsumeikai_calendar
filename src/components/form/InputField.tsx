@@ -22,7 +22,7 @@ export default function InputField({
               required ? "label label-required" : "label label-premium"
             }
           >
-            必須
+            {required ? "必須" : "任意"}
           </span>
           {label}
         </label>
@@ -44,7 +44,7 @@ export default function InputField({
               required ? "label label-required" : "label label-premium"
             }
           >
-            必須
+            {required ? "必須" : "任意"}
           </span>{" "}
           {label}
         </label>

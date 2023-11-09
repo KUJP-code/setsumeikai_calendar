@@ -34,7 +34,6 @@
   }
 
   .label-required {
-    display: inline-block;
     margin-left: 0.5em;
     border: 2px solid #f4564e;
     color: #f4564e;
