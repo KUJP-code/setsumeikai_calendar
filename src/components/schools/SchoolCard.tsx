@@ -10,7 +10,7 @@ export default function SchoolCard({ school, setSchool }: props) {
     <NavLink
       to={`/calendar/${school.id}/undefined`}
       type="button"
-      className="flex flex-col items-start gap-2 p-3 rounded-3xl shadow-lg basis-full shrink-0 md:basis-[23.5vw] school-card text-start bg-white"
+      className="flex flex-col items-start gap-2 p-3 rounded-3xl shadow-lg basis-full shrink-0 md:basis-[17vw] school-card text-start bg-white"
       onClick={() => setSchool(school.name)}
     >
       <h5 className="font-bold text-2xl text-ku-orange text-center w-full">
