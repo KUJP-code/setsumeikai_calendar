@@ -13,6 +13,7 @@
   --fc-button-hover-border-color: var(--ku-orange-hover);
   --fc-button-active-bg-color: var(--ku-secondary);
   --fc-button-active-border-color: var(--ku-orange-hover);
+  --fc-list-event-hover-bg-color: var(--ku-orange-hover);
 }
 
 @layer components {
