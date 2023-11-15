@@ -1,3 +1,5 @@
+import { formOption } from "../../declarations";
+
 interface RadioFieldProps {
   label: string;
   name: string;

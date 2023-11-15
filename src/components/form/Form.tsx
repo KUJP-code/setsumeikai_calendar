@@ -6,10 +6,11 @@ import SelectField from "./SelectField";
 import RadioField from "./RadioField";
 import useInquiryResponse from "../../hooks/useInquiryResponse";
 import Summary from "./Summary";
+import { formOption, school } from "../../declarations";
 
 export default function Form() {
   const { schools, selections } = useSelectionContext();
-  const schoolOptions: formOption[] = schools.map((s) => {
+  const schoolOptions: formOption[] = schools.map((s: school) => {
     return { name: s.name, value: s.id };
   });
   const inquiryResponse = useInquiryResponse();

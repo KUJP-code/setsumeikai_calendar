@@ -3,6 +3,7 @@ import SchoolCard from "./SchoolCard";
 import { useState } from "react";
 import useSelectionContext from "../../hooks/useSelectionContext";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { school } from "../../declarations";
 
 export default function SchoolList() {
   const { schools, setSelections } = useSelectionContext();
@@ -12,7 +13,7 @@ export default function SchoolList() {
     query === ""
       ? schools
       : schools.filter(
-          (school) =>
+          (school: school) =>
             school.name.includes(query) ||
             school.address.includes(query) ||
             school.phone.includes(query) ||
@@ -25,7 +26,7 @@ export default function SchoolList() {
     <main className="flex flex-wrap justify-evenly gap-3 p-3">
       <SearchBox setQuery={setQuery} query={query} />
       <div className="flex flex-wrap justify-evenly gap-4" ref={parent}>
-        {displayedSchools.map((school) => {
+        {displayedSchools.map((school: school) => {
           return (
             <SchoolCard
               school={school}

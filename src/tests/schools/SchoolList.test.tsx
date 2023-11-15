@@ -5,6 +5,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it, mock } from "bun:test";
 import SchoolList from "../../components/schools/SchoolList";
 import { Outlet, RouterProvider, createMemoryRouter } from "react-router-dom";
+import { selections } from "../../declarations";
 
 const testSelections: selections = {
   schoolName: "",

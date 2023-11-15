@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { selections, school, setsumeikai } from "../declarations";
 
 interface props {
   selections: selections;

@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "bun:test";
 import { MemoryRouter } from "react-router-dom";
 import ForwardLink from "../../components/routing/ForwardLink";
+import { selections } from "../../declarations";
 
 describe("ForwardLink", () => {
   function renderForwardLink(currentStep: string, selections: selections) {

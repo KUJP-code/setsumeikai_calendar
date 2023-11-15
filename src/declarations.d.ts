@@ -1,11 +1,11 @@
-interface formOption {
+export interface formOption {
   value: string;
   name: string;
 }
 
 type inputType = "date" | "email" | "number" | "tel" | "text" | "textarea";
 
-interface inquiry {
+export interface inquiry {
   setsumeikai_id: string;
   parent_name: string;
   phone: string;
@@ -20,12 +20,12 @@ interface inquiry {
   requests: string;
 }
 
-interface inquiryApiResponse {
+export interface inquiryApiResponse {
   response: { status: number };
   inquiryObject: inquiry;
 }
 
-interface school {
+export interface school {
   id: string;
   name: string;
   address: string;
@@ -36,22 +36,26 @@ interface school {
   setsumeikais: setsumeikai[];
 }
 
-interface setsumeikai {
+export interface setsumeikai {
   id: string;
   full: boolean;
   start: string;
   title: string;
 }
 
-interface selections {
+export interface selections {
   schoolName: string;
   schoolId: string | undefined;
   setsumeikaiDate: Date | undefined;
   setsumeikaiId: string | undefined;
 }
 
-interface selectionsContext {
+export interface selectionsContext {
   schools: school[];
   selections: selections;
   setSelections: React.Dispatch<React.SetStateAction<selections>>;
+}
+
+export interface GTMWindow extends Window {
+  dataLayer: Object[];
 }

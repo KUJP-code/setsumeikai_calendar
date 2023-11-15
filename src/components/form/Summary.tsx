@@ -1,4 +1,7 @@
+import { useEffect } from "react";
 import jaFormat from "../../helpers/jaFormat";
+import { GTMWindow, inquiry, selections, school } from "../../declarations";
+declare const window: GTMWindow;
 
 interface SummaryProps {
   schools: school[];
@@ -12,6 +15,13 @@ export default function Summary({
   inquiry,
 }: SummaryProps) {
   const school = schools.find((s) => s.id === inquiry.school_id)?.name || "";
+  useEffect(() => {
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        event: "setsu_inquiry_success",
+      });
+    }
+  }, []);
 
   return (
     <main className="flex flex-col md:flex-row md:flex-wrap items-center justify-evenly gap-5 p-3 text-center">

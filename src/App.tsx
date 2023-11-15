@@ -3,6 +3,7 @@ import ProgressNav from "./components/routing/ProgressNav";
 import FooterNav from "./components/routing/FooterNav";
 import { useState } from "react";
 import useParamsForSelections from "./hooks/useParamsForSelections";
+import { school, selections, selectionsContext } from "./declarations";
 
 export default function App() {
   const schools: school[] = useLoaderData() as school[];

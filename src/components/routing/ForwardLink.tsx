@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import jaFormat from "../../helpers/jaFormat";
+import { selections } from "../../declarations";
 
 interface ForwardLinkProps {
   currentStep: string;

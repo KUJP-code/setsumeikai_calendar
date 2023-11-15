@@ -1,3 +1,5 @@
+import { selections } from "../../declarations";
+
 export default function SelectionFields(selections: selections) {
   return (
     <div className="w-full flex flex-col md:flex-row justify-center items-center gap-3 p-3 rounded selections-border">

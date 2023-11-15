@@ -3,6 +3,7 @@ import SchoolCard from "../../components/schools/SchoolCard";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
+import { school } from "../../declarations";
 
 const testSchool: school = {
   id: "41",

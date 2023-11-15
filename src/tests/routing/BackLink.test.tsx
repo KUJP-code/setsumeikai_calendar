@@ -2,6 +2,7 @@ import { describe, expect, it } from "bun:test";
 import { MemoryRouter } from "react-router-dom";
 import BackLink from "../../components/routing/BackLink";
 import { render, screen } from "@testing-library/react";
+import { selections } from "../../declarations";
 
 describe("BackLink", () => {
   function renderBackLink(currentStep: string, schoolId: string | undefined) {

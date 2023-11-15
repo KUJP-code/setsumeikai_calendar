@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "bun:test";
 import InputField from "../../components/form/InputField";
+import { inputType } from "../../declarations";
 
 describe("InputField", () => {
   function renderInputField(type: inputType) {

@@ -1,3 +1,5 @@
+import { formOption } from "../../declarations";
+
 interface SelectFieldProps {
   label: string;
   name: string;

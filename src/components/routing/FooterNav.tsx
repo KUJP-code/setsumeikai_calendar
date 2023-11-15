@@ -1,5 +1,6 @@
 import BackLink from "./BackLink";
 import ForwardLink from "./ForwardLink";
+import { selections } from "../../declarations";
 
 interface props {
   currentStep: string;

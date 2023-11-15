@@ -1,3 +1,5 @@
+import { inputType } from "../../declarations";
+
 interface InputFieldProps {
   type: inputType;
   label: string;

@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { selections } from "../../declarations";
 
 interface BackLinkProps {
   currentStep: string;

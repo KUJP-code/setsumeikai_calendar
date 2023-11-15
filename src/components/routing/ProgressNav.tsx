@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import jaFormat from "../../helpers/jaFormat";
 import Breadcrumb from "./Breadcrumb";
 import { useLocation } from "react-router-dom";
+import { selections } from "../../declarations";
 
 export default function ProgressNav(selections: selections) {
   const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
