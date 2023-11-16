@@ -13,7 +13,7 @@ export default function ForwardLink({
 }: ForwardLinkProps) {
   const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
   const className =
-    "bg-ku-orange flex justify-center items-center text-neutral-100 font-semibold p-1 md:p-2 md:basis-1/4 rounded text-center";
+    "bg-ku-orange flex justify-center items-center text-neutral-100 font-semibold p-1 md:basis-1/4 rounded text-center hover:opacity-90";
   const noSchool = currentStep.includes("/school_list") && schoolName === "";
   const noSetsumeikai =
     currentStep.includes("/calendar") && setsumeikaiDate === undefined;

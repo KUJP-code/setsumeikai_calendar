@@ -11,7 +11,7 @@ export default function SchoolCard({ school, setSchool }: props) {
     <NavLink
       to={`/calendar/${school.id}/undefined`}
       type="button"
-      className="flex flex-col justify-start md:basis-[19vw] gap-2 text-start bg-white p-2 rounded border-secondary text-sm text-ku-secondary"
+      className="flex flex-col justify-start basis-full md:basis-[19vw] gap-2 text-start bg-white p-2 rounded border-secondary text-sm text-ku-secondary"
       onClick={() => setSchool(school.name)}
     >
 	  <div className="h-[20vh] bg-cover bg-center" style={{backgroundImage:`url(${school.image})`}}></div>

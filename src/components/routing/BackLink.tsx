@@ -9,7 +9,7 @@ interface BackLinkProps {
 export default function BackLink({ currentStep, selections }: BackLinkProps) {
   const { schoolId, setsumeikaiId } = selections;
   const className =
-    "bg-ku-secondary flex justify-center items-center text-neutral-100 font-semibold p-2 md:p-3 basis-2/5 md:basis-1/4 rounded text-center";
+    "border-secondary flex justify-center items-center text-ku-secondary font-semibold basis-2/5 md:basis-1/4 rounded text-center p-1 hover:bg-ku-secondary hover:text-white";
 
   return currentStep.includes("/school_list") ? null : currentStep.includes(
       "/calendar"
