@@ -13,14 +13,19 @@ export default function SearchBox({ setQuery, query }: props) {
   }
 
   return (
-    <input
-      type="search"
-      name="schoolSearch"
-      id="schoolSearch"
-      className="w-full bg-slate-100 outline outline-2 rounded outline-ku-orange p-2"
-      placeholder="スクール名検索、住所検索、電話番号検索、エリア検索"
-      onChange={updateQuery}
-      value={query}
-    />
-  );
+	<div className="flex items-center gap-2 w-full border-secondary rounded pl-2 bg-transparent text-ku-secondary">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+			<path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
+		</svg>
+
+		<input
+		  type="search"
+		  name="schoolSearch"
+		  className="w-full bg-transparent focus-visible:outline-ku-secondary focus-visible:outline p-1 rounded border-l border-l-ku-secondary"
+		  id="schoolSearch"
+		  placeholder="スクール名検索、住所検索、電話番号検索、エリア検索"
+		  onChange={updateQuery}
+		  value={query}
+		/>
+	</div>  );
 }
