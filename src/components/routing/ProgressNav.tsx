@@ -20,19 +20,19 @@ export default function ProgressNav(selections: selections) {
       ref={progressNavRef}
     >
       <Breadcrumb
-		specificClasses="before:inset-y-0 before:-left-1 before:w-[50px] before:block before:absolute before:skew-x-12"
+        specificClasses="before:inset-y-0 before:-left-1 before:w-[50px] before:block before:absolute before:skew-x-12"
         text="スクール"
         to="/school_list"
         currentSelection={schoolName}
       />
       <Breadcrumb
-		specificClasses=""
+        specificClasses=""
         text="説明会日付"
         to={schoolId ? `/calendar/${schoolId}/${setsumeikaiId}` : undefined}
         currentSelection={setsumeikaiDate ? jaFormat(setsumeikaiDate) : ""}
       />
       <Breadcrumb
-		specificClasses="before:inset-y-0 before:-right-1 before:w-[50px] before:block before:absolute before:skew-x-12"
+        specificClasses="before:inset-y-0 before:-right-1 before:w-[50px] before:block before:absolute before:skew-x-12"
         text="お申し込み"
         to={setsumeikaiId ? `/form/${schoolId}/${setsumeikaiId}` : undefined}
       />

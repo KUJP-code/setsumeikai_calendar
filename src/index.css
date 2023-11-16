@@ -59,4 +59,8 @@
   .selections-border {
     border: 2px solid var(--ku-orange) !important;
   }
+
+  .breadcrumb-inactive {
+    border: 1px solid var(--ku-secondary) !important;
+  }
 }
