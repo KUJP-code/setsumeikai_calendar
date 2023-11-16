@@ -52,15 +52,11 @@
     margin-bottom: 0.5em;
   }
 
-  .school-card {
-    border: 4px solid rgb(131 192 218) !important;
-  }
-
   .selections-border {
     border: 2px solid var(--ku-orange) !important;
   }
 
-  .breadcrumb-inactive {
+  .border-secondary {
     border: 1px solid var(--ku-secondary) !important;
   }
 }

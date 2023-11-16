@@ -11,25 +11,28 @@ export default function SchoolCard({ school, setSchool }: props) {
     <NavLink
       to={`/calendar/${school.id}/undefined`}
       type="button"
-      className="flex flex-col items-start gap-2 p-3 rounded-3xl shadow-lg basis-full shrink-0 md:basis-[17vw] school-card text-start bg-white"
+      className="flex flex-col justify-start md:basis-[19vw] gap-2 text-start bg-white p-2 rounded border-secondary text-sm text-ku-secondary"
       onClick={() => setSchool(school.name)}
     >
-      <h5 className="font-bold text-2xl text-ku-orange text-center w-full">
-        {school.name}
-      </h5>
-      <p>{school.address}</p>
-      {school.busAreas.length ? (
-        <p>
-          <span className="font-semibold">送迎対象地域:</span>{" "}
-          {school.busAreas.join("、 ")}
-        </p>
-      ) : null}
-      {school.nearbyStations.length ? (
-        <p>
-          <span className="font-semibold">最寄駅:</span>{" "}
-          {school.nearbyStations.join("、 ")}
-        </p>
-      ) : null}
-    </NavLink>
+	  <div className="h-[20vh] bg-cover bg-center" style={{backgroundImage:`url(${school.image})`}}></div>
+	  <div className="flex flex-col justify-between gap-1">
+		<h5 className="font-bold text-2xl text-ku-orange text-center w-full">
+			{school.name}
+		</h5>
+		<p>{school.address}</p>
+		{school.busAreas.length ? (
+			<p>
+			  <span className="font-semibold">送迎対象地域:</span>{" "}
+			  {school.busAreas.join("、 ")}
+			</p>
+		) : null}
+		{school.nearbyStations.length ? (
+			  <p>
+				<span className="font-semibold">最寄駅:</span>{" "}
+				{school.nearbyStations.join("、 ")}
+			  </p>
+		) : null}
+	  </div>    
+	</NavLink>
   );
 }

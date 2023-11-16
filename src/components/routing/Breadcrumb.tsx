@@ -21,7 +21,7 @@ export default function Breadcrumb({
   if (to === undefined) {
     return (
       <h5
-        className={className.concat(" breadcrumb-inactive text-ku-secondary")}
+        className={className.concat(" border-secondary text-ku-secondary")}
       >
         <span className="skew-x-12">
           {text}
@@ -36,7 +36,7 @@ export default function Breadcrumb({
         className={({ isActive }) =>
           isActive
             ? `bg-ku-orange before:bg-ku-orange text-white ${className}`
-            : `breadcrumb-inactive text-ku-secondary before:bg-main-background before:border-t ${
+            : `border-secondary text-ku-secondary before:bg-main-background before:border-t ${
                 text === "スクール"
                   ? "before:border-l"
                   : "before:border-r before:border-b before:translate-x-[1px] before:translate-y-[1px] before:mt-[-0.125rem]"

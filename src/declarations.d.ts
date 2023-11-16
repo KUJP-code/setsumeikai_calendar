@@ -29,6 +29,7 @@ export interface school {
   id: string;
   name: string;
   address: string;
+  image: string;
   phone: string;
   busAreas: string[];
   nearbyStations: string[];
