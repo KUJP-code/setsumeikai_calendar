@@ -12,7 +12,7 @@ export default function Breadcrumb({ currentSelection, specificClasses, text, to
     "flex justify-center items-center gap-1 text-center p-1 basis-1/3 -skew-x-12 ".concat(specificClasses);
 
 if (to === undefined) {
-    return <h5 className={className.concat(" border font-bold text-ku-secondary border-ku-secondary")}><span className="skew-x-12">{text}</span></h5>;
+    return <h5 className={className.concat(" border font-bold text-ku-secondary border-ku-secondary")}><span className="skew-x-12">{text}{currentSelection ? `：${currentSelection}` : null }</span></h5>;
   } else {
     return (
       <NavLink

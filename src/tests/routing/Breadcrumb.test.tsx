@@ -10,7 +10,7 @@ function renderBreadcrumb(
 ) {
   render(
     <MemoryRouter>
-      <Breadcrumb text={text} to={to} currentSelection={currentSelection} />
+      <Breadcrumb text={text} to={to} currentSelection={currentSelection} specificClasses="" />
     </MemoryRouter>
   );
 }
@@ -33,7 +33,7 @@ describe("Breadcrumb", () => {
   it("shows current selection if present", () => {
     renderBreadcrumb("test", "/", "pizza");
 
-    const currentSelectionExists = screen.queryByText("pizza");
+    const currentSelectionExists = screen.queryByText(/pizza/);
     expect(currentSelectionExists).toBeTruthy();
   });
 
