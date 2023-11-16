@@ -19,7 +19,7 @@ export default function App() {
   useParamsForSelections({ selections, setSelections, schools });
 
   return (
-    <>
+    <div className="bg-main-background">
       <ProgressNav {...selections} />
       <Outlet
         context={
@@ -31,6 +31,6 @@ export default function App() {
         }
       />
       <FooterNav currentStep={location.pathname} selections={selections} />
-    </>
+    </div>
   );
 }

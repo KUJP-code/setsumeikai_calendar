@@ -6,8 +6,10 @@ export default {
     extend: {
       colors: {
         "ku-orange": "#ef8200",
-        "ku-secondary": "#5a534a",
+		"ku-orange-hover": "#fo8e18:",
+        "ku-secondary": "#918779",
         "ku-blue": "#83c0da",
+		"main-background": "#faf2e8",
       },
     },
   },
