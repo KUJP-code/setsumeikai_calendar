@@ -6,7 +6,8 @@
 :root {
   --ku-orange: #ef8200;
   --ku-orange-hover: #f08e18;
-  --ku-secondary: #5a534a;
+  --ku-secondary: #918779;
+  --main-background: #faf2e8;
   --fc-button-bg-color: var(--ku-orange);
   --fc-button-border-color: var(--ku-orange);
   --fc-button-hover-bg-color: var(--ku-orange-hover);

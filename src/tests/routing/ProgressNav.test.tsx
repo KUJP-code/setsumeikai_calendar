@@ -2,7 +2,7 @@
 /// <reference lib="dom.iterable" />
 
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "bun:test";
+import { describe, expect, it, mock } from "bun:test";
 import { MemoryRouter } from "react-router-dom";
 import ProgressNav from "../../components/routing/ProgressNav";
 import userEvent from "@testing-library/user-event";
@@ -27,6 +27,8 @@ function renderProgressNav(
 }
 
 describe("ProgressNav", () => {
+  window.HTMLElement.prototype.scrollIntoView = mock(() => {})
+
   it("renders 3 breadcrumbs", () => {
     renderProgressNav("/");
 
