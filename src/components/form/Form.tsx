@@ -29,7 +29,7 @@ export default function Form() {
         <SelectionFields {...selections} />
         <RRForm
           method="post"
-          className="w-full md:w-4/5 flex flex-col md:flex-row md:flex-wrap md:items-center justify-evenly gap-5 pt-3 text-center"
+          className="w-full md:w-4/5 flex flex-col md:flex-row md:flex-wrap md:items-center justify-evenly md:justify-between gap-y-5 pt-3 text-center"
         >
           {inquiryResponse && inquiryResponse.response.status === 500 ? (
             <div className="rounded text-xl bg-red-600 text-white p-3">

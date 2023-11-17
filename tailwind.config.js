@@ -10,6 +10,7 @@ export default {
         "ku-secondary": "#918779",
         "ku-blue": "#83c0da",
 		"main-background": "#faf2e8",
+		"ku-faded": "#d1c2ad",
       },
     },
   },

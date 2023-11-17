@@ -7,7 +7,7 @@ export default function SelectionFields(selections: selections) {
   const pClasses = "text-ku-secondary font-bold"
 
   return (
-    <div className="w-full flex flex-col md:flex-row justify-evenly items-center p-4 rounded selections-border">
+    <div className="w-full flex flex-col md:flex-row justify-evenly items-center p-4 rounded-md selections-border">
       <input type="hidden" name="category" value="R" />
       <div className={fieldClasses}>
         <label htmlFor="schoolId" className={labelClasses}>

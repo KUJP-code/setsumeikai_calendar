@@ -18,44 +18,36 @@ export default function InputField({
   if (type === "textarea") {
     return (
       <div className="flex flex-col w-full gap-2">
-        <label htmlFor={name} className="font-semibold text-lg">
-          <span
-            className={
-              required ? "label label-required" : "label label-premium"
-            }
-          >
+        <label htmlFor={name} className="self-start font-semibold text-lg">
+		  <span className="text-ku-secondary text-base">{label}</span>
+		  <span className={`label text-xs ${required ? "label-required" : "label-premium"}`}>
             {required ? "必須" : "任意"}
           </span>
-          {label}
         </label>
         <textarea
           name={name}
           placeholder={placeholder}
           required={required}
           rows={4}
-          className="border border-ku-secondary rounded p-3 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
+          className="border border-secondary rounded-md p-3 focus-visible:outline-none focus-visible:border-ku-orange focus-visible:border-2 bg-transparent placeholder:text-ku-faded placeholder:font-semibold"
         />
       </div>
     );
   } else {
     return (
-      <div className="flex flex-col basis-2/5 gap-2">
-        <label htmlFor={name} className="font-semibold text-lg">
-          <span
-            className={
-              required ? "label label-required" : "label label-premium"
-            }
-          >
-            {required ? "必須" : "任意"}
-          </span>{" "}
-          {label}
+      <div className="flex flex-col basis-[45%] gap-2">
+        <label htmlFor={name} className="self-start font-semibold text-lg">
+			<span className="text-ku-secondary text-base font-bold">{label}</span>
+			<span className={`label text-xs ${required ? "label-required" : "label-premium"}`}>
+				{required ? "必須" : "任意"}
+			</span>
         </label>
         <input
           type={type}
           name={name}
           placeholder={placeholder}
           required={required}
-          className="border border-ku-secondary rounded p-3 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
+          className="border border-secondary rounded-md p-2 bg-transparent placeholder:text-ku-faded placeholder:font-semibold"
         />
       </div>
     );
