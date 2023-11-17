@@ -15,7 +15,7 @@ export default function Breadcrumb({
   text,
   to,
 }: props) {
-  const className = `flex justify-center items-center gap-1 text-center p-1 basis-1/3 -skew-x-12 before:inset-y-0 before:w-[50px] before:block before:absolute before:skew-x-12`;
+  const className = `flex justify-center items-center gap-1 text-center p-1 basis-1/3 -skew-x-12 before:inset-y-0 before:w-[50px] before:block before:absolute before:skew-x-12 rounded before:rounded`;
 
   if (to === undefined) {
     return (

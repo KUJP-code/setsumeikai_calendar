@@ -165,3 +165,7 @@
 .fc .fc-day-other {
 	opacity: 0.3;
 }
+
+.fc .fc-daygrid-day-bottom {
+	display: none;
+}
