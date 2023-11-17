@@ -9,7 +9,7 @@ export default function ProgressNav(selections: selections) {
   const { pathname } = useLocation();
   const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
   const sharedInactiveClasses =
-    "before:border-[3px] before:border-ku-secondary before:-m-[0.125rem] rounded";
+    "before:border-[2px] before:border-ku-secondary before:h-full rounded";
   useEffect(() => {
     if (progressNavRef.current)
       progressNavRef.current.scrollIntoView({ behavior: "smooth" });
@@ -37,7 +37,7 @@ export default function ProgressNav(selections: selections) {
       />
       <Breadcrumb
         activeClasses="before:-right-1.5 before:rounded-s-none"
-        inactiveClasses={`before:-right-1 before:border-l-0 before:rounded-s-none ${sharedInactiveClasses}`}
+        inactiveClasses={`before:-right-1.5 before:border-l-0 before:rounded-s-none ${sharedInactiveClasses}`}
         text="お申し込み"
         to={setsumeikaiId ? `/form/${schoolId}/${setsumeikaiId}` : undefined}
       />

@@ -60,10 +60,8 @@
   }
 
   .border-secondary {
-    border: 3px solid var(--ku-secondary) !important;
+	box-shadow: inset 0 0 0 2px var(--ku-secondary);
   }
-
-  
 }
 
 /* Overrides for individual FC components */
@@ -131,7 +129,9 @@
 .fc-daygrid-event-harness::before,
 .fc-daygrid-event-harness::after,
 .fc-daygrid-day-events::before,
-.fc-daygrid-day-events::after {
+.fc-daygrid-day-events::after,
+.fc-daygrid-day-frame::before,
+.fc-daygrid-day-frame::after {
 	display: none;
 }
 
@@ -141,9 +141,6 @@
 	gap: 0.25rem;
 }
 
-.fc-daygrid-event-harness {
-	margin: 0 -2px;
-}
 
 .fc-daygrid-event {
 	border-radius: 0;
@@ -152,10 +149,11 @@
 .fc-daygrid-day-top {
 	font-weight: bold;
 	font-size: var(--fc-small-font-size);
+	margin-right: 0.5rem;
 }
 
 .fc .fc-day.fc-day-today {
-	border: 4px solid var(--ku-orange) !important;
+	border: 3px solid var(--ku-orange) !important;
 }
 
 .fc .fc-day-other .fc-daygrid-day-top {
