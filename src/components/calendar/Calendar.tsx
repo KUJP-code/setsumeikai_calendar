@@ -27,7 +27,7 @@ export default function Calendar() {
     <main className="p-3">
       <FullCalendar
         contentHeight={"auto"}
-        dayCellClassNames={"font-semibold text-ku-secondary rounded"}
+        dayCellClassNames={"font-semibold text-ku-secondary rounded border-secondary"}
         dayHeaderClassNames={"bg-ku-orange rounded border-none text-white text-lg"}
         events={events}
         eventColor="#ef8200"

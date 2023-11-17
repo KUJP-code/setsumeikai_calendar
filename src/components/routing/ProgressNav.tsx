@@ -9,7 +9,7 @@ export default function ProgressNav(selections: selections) {
   const { pathname } = useLocation();
   const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
   const sharedInactiveClasses =
-    "before:border-2 before:border-ku-secondary before:-m-[0.125rem]";
+    "before:border-[3px] before:border-ku-secondary before:-m-[0.125rem]";
   useEffect(() => {
     if (progressNavRef.current)
       progressNavRef.current.scrollIntoView({ behavior: "smooth" });
@@ -29,8 +29,8 @@ export default function ProgressNav(selections: selections) {
         to="/school_list"
       />
       <Breadcrumb
-        activeClasses=""
-        inactiveClasses=""
+        activeClasses="before:hidden"
+        inactiveClasses="before:hidden"
         currentSelection={setsumeikaiDate ? jaFormat(setsumeikaiDate) : ""}
         text="説明会日付"
         to={schoolId ? `/calendar/${schoolId}/${setsumeikaiId}` : undefined}

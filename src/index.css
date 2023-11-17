@@ -16,7 +16,7 @@
   --fc-button-active-bg-color: var(--ku-orange-hover);
   --fc-button-active-border-color: var(--ku-orange-hover);
   --fc-list-event-hover-bg-color: var(--ku-orange-hover);
-  --fc-small-font-size: 0.95rem;
+  --fc-small-font-size: 1.1rem;
   --fc-today-bg-color: var(--main-background);
 }
 
@@ -60,7 +60,7 @@
   }
 
   .border-secondary {
-    border: 2px solid var(--ku-secondary) !important;
+    border: 3px solid var(--ku-secondary) !important;
   }
 
   
@@ -85,6 +85,10 @@
 	}
 }
 
+.fc .fc-header-toolbar.fc-toolbar {
+	margin-bottom: 0;
+}
+
 .fc-header-toolbar .fc-toolbar-chunk:last-child {
 	display: flex;
 }
@@ -106,3 +110,58 @@
 	border-bottom-left-radius: 0.25rem;
 }
 
+.fc table.fc-scrollgrid {
+	border: none;
+}
+
+.fc tr.fc-scrollgrid-section.fc-scrollgrid-section-body > td[role="presentation"] {
+	border: none;
+}
+
+.fc-theme-standard th {
+	border: none;
+}
+
+.fc table.fc-col-header,
+.fc table.fc-scrollgrid-sync-table {
+	border-collapse: separate;
+	border-spacing: 0.5rem;
+}
+
+.fc-daygrid-event-harness::before,
+.fc-daygrid-event-harness::after,
+.fc-daygrid-day-events::before,
+.fc-daygrid-day-events::after {
+	display: none;
+}
+
+.fc-daygrid-day-events {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.fc-daygrid-event-harness {
+	margin: 0 -2px;
+}
+
+.fc-daygrid-event {
+	border-radius: 0;
+}
+
+.fc-daygrid-day-top {
+	font-weight: bold;
+	font-size: var(--fc-small-font-size);
+}
+
+.fc .fc-day.fc-day-today {
+	border: 4px solid var(--ku-orange) !important;
+}
+
+.fc .fc-day-other .fc-daygrid-day-top {
+	opacity: 1;
+}
+
+.fc .fc-day-other {
+	opacity: 0.3;
+}
