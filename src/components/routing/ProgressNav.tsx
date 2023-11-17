@@ -22,7 +22,7 @@ export default function ProgressNav(selections: selections) {
       ref={progressNavRef}
     >
       <Breadcrumb
-        activeClasses="before:-left-1.5 before:rounded-e-none"
+        activeClasses="before:-left-1.5 before:rounded-e-none before:h-full"
         currentSelection={schoolName}
         inactiveClasses={`before:-left-1.5 before:border-r-0 before:rounded-e-none ${sharedInactiveClasses}`}
         text="スクール"
@@ -36,7 +36,7 @@ export default function ProgressNav(selections: selections) {
         to={schoolId ? `/calendar/${schoolId}/${setsumeikaiId}` : undefined}
       />
       <Breadcrumb
-        activeClasses="before:-right-1.5 before:rounded-s-none"
+        activeClasses="before:-right-1.5 before:rounded-s-none before:h-full"
         inactiveClasses={`before:-right-1.5 before:border-l-0 before:rounded-s-none ${sharedInactiveClasses}`}
         text="お申し込み"
         to={setsumeikaiId ? `/form/${schoolId}/${setsumeikaiId}` : undefined}

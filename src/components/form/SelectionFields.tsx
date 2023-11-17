@@ -1,41 +1,32 @@
 import { selections } from "../../declarations";
 
 export default function SelectionFields(selections: selections) {
+
+  const fieldClasses = "flex flex-col items-center gap-2"
+  const labelClasses = "font-bold text-2xl text-ku-orange";
+  const pClasses = "text-ku-secondary font-bold"
+
   return (
-    <div className="w-full flex flex-col md:flex-row justify-center items-center gap-3 p-3 rounded selections-border">
+    <div className="w-full flex flex-col md:flex-row justify-evenly items-center p-4 rounded selections-border">
       <input type="hidden" name="category" value="R" />
-      <div className="flex flex-col gap-2">
-        <label htmlFor="schoolId" className="font-bold text-xl">
+      <div className={fieldClasses}>
+        <label htmlFor="schoolId" className={labelClasses}>
           スクール
         </label>
-        <input
-          type="text"
-          value={selections.schoolName}
-          disabled
-          className="text-center text-lg"
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <label htmlFor="setsumeikaiId" className="font-bold text-xl">
+	  <p className={pClasses}>{selections.schoolName}</p>	  	
+	</div>
+      <div className={fieldClasses}>
+        <label htmlFor="setsumeikaiId" className={labelClasses}>
           説明会実施日
         </label>
-        <input
-          type="datetime-local"
-          value={
-            selections.setsumeikaiDate
-              ? selections.setsumeikaiDate
-                  .toISOString()
-                  .replace(/:\d{2}\.\d{3}.*/, "")
-              : ""
-          }
-          disabled
-          className="text-center text-lg"
-        />
         <input
           type="hidden"
           name="setsumeikai_id"
           value={selections.setsumeikaiId}
         />
+		<p className={pClasses}>{selections.setsumeikaiDate ? selections.setsumeikaiDate
+                  .toISOString()
+                  .replace(/T.*/, "") : ""}</p>	  	
       </div>
     </div>
   );
