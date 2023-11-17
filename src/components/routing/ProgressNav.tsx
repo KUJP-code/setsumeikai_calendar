@@ -5,9 +5,11 @@ import { useLocation } from "react-router-dom";
 import { selections } from "../../declarations";
 
 export default function ProgressNav(selections: selections) {
-  const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
   const progressNavRef = useRef<null | HTMLElement>(null);
   const { pathname } = useLocation();
+  const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
+  const sharedInactiveClasses =
+    "before:border-2 before:border-ku-secondary before:-m-[0.125rem]";
   useEffect(() => {
     if (progressNavRef.current)
       progressNavRef.current.scrollIntoView({ behavior: "smooth" });
@@ -16,23 +18,26 @@ export default function ProgressNav(selections: selections) {
   return (
     <nav
       id="progressNav"
-      className="flex flex-col md:flex-row p-3 gap-1 justify-evenly"
+      className="flex flex-col md:flex-row p-3 gap-1 justify-evenly before:bg-main-background"
       ref={progressNavRef}
     >
       <Breadcrumb
-        specificClasses="before:inset-y-0 before:-left-1 before:w-[50px] before:block before:absolute before:skew-x-12"
+        activeClasses="before:-left-1.5"
+        currentSelection={schoolName}
+        inactiveClasses={`before:-left-1.5 before:border-r-0 ${sharedInactiveClasses}`}
         text="スクール"
         to="/school_list"
-        currentSelection={schoolName}
       />
       <Breadcrumb
-        specificClasses=""
+        activeClasses=""
+        inactiveClasses=""
+        currentSelection={setsumeikaiDate ? jaFormat(setsumeikaiDate) : ""}
         text="説明会日付"
         to={schoolId ? `/calendar/${schoolId}/${setsumeikaiId}` : undefined}
-        currentSelection={setsumeikaiDate ? jaFormat(setsumeikaiDate) : ""}
       />
       <Breadcrumb
-        specificClasses="before:inset-y-0 before:-right-1 before:w-[50px] before:block before:absolute before:skew-x-12"
+        activeClasses="before:-right-1.5"
+        inactiveClasses={`before:-right-1 before:border-l-0 ${sharedInactiveClasses}`}
         text="お申し込み"
         to={setsumeikaiId ? `/form/${schoolId}/${setsumeikaiId}` : undefined}
       />

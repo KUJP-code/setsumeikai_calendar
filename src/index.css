@@ -8,6 +8,7 @@
   --ku-orange-hover: #f08e18;
   --ku-secondary: #918779;
   --main-background: #faf2e8;
+  --fc-border-color: var(--ku-secondary);
   --fc-button-bg-color: var(--ku-orange);
   --fc-button-border-color: var(--ku-orange);
   --fc-button-hover-bg-color: var(--ku-orange-hover);
@@ -15,6 +16,8 @@
   --fc-button-active-bg-color: var(--ku-secondary);
   --fc-button-active-border-color: var(--ku-orange-hover);
   --fc-list-event-hover-bg-color: var(--ku-orange-hover);
+  --fc-small-font-size: 1rem;
+  --fc-today-bg-color: var(--main-background);
 }
 
 @layer components {
@@ -57,6 +60,6 @@
   }
 
   .border-secondary {
-    border: 1px solid var(--ku-secondary) !important;
+    border: 2px solid var(--ku-secondary) !important;
   }
 }

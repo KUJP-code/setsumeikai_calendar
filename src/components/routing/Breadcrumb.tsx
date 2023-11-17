@@ -1,27 +1,26 @@
 import { NavLink } from "react-router-dom";
 
 interface props {
+  activeClasses: string;
+  inactiveClasses: string;
   text: string;
   to: string | undefined;
-  specificClasses: string;
   currentSelection?: string;
 }
 
 export default function Breadcrumb({
+  activeClasses,
   currentSelection,
-  specificClasses,
+  inactiveClasses,
   text,
   to,
 }: props) {
-  const className =
-    "flex justify-center items-center gap-1 text-center p-1 basis-1/3 -skew-x-12 ".concat(
-      specificClasses
-    );
+  const className = `flex justify-center items-center gap-1 text-center p-1 basis-1/3 -skew-x-12 before:inset-y-0 before:w-[50px] before:block before:absolute before:skew-x-12`;
 
   if (to === undefined) {
     return (
       <h5
-        className={className.concat(" border-secondary text-ku-secondary")}
+        className={`${className} border-secondary text-ku-secondary before:bg-main-background ${inactiveClasses}`}
       >
         <span className="skew-x-12">
           {text}
@@ -35,12 +34,8 @@ export default function Breadcrumb({
         to={to}
         className={({ isActive }) =>
           isActive
-            ? `bg-ku-orange before:bg-ku-orange text-white ${className}`
-            : `border-secondary text-ku-secondary before:bg-main-background before:border-t ${
-                text === "スクール"
-                  ? "before:border-l"
-                  : "before:border-r before:border-b before:translate-x-[1px] before:translate-y-[1px] before:mt-[-0.125rem]"
-              } before:border-ku-secondary before:translate-x-[-0.5px] before:translate-y-[-1px] ${className}`
+            ? `bg-ku-orange before:bg-ku-orange text-white ${className} ${activeClasses}`
+            : `border-secondary text-ku-secondary before:bg-main-background ${className} ${inactiveClasses}`
         }
       >
         <h5 className="skew-x-12">
