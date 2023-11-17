@@ -20,7 +20,7 @@ export default function Breadcrumb({
   if (to === undefined) {
     return (
       <h5
-        className={`${className} border-secondary text-ku-secondary before:bg-main-background ${inactiveClasses}`}
+        className={`${className} border-secondary text-ku-secondary before:bg-main-background font-bold ${inactiveClasses}`}
       >
         <span className="skew-x-12">
           {text}

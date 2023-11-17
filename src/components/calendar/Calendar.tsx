@@ -27,10 +27,10 @@ export default function Calendar() {
     <main className="p-3">
       <FullCalendar
         contentHeight={"auto"}
-        firstDay={1}
+        dayCellClassNames={"font-semibold text-ku-secondary rounded"}
+        dayHeaderClassNames={"bg-ku-orange rounded border-none text-white text-lg"}
         events={events}
-        eventBackgroundColor="#ef8200"
-        eventBorderColor="#ef8200"
+        eventColor="#ef8200"
         eventClassNames={function name(arg) {
           if (arg.event._def.extendedProps.full) {
             return [
@@ -56,10 +56,10 @@ export default function Calendar() {
           }
         }}
         eventDisplay="block"
+        firstDay={1}
         initialView={responsiveView()}
         locale={jaLocale}
         plugins={[dayGridPlugin, listPlugin]}
-        viewClassNames={["p-3"]}
         windowResize={(viewAPI) =>
           viewAPI.view.calendar.changeView(responsiveView())
         }

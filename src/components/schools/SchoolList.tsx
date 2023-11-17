@@ -23,9 +23,9 @@ export default function SchoolList() {
         );
 
   return (
-    <main className="flex flex-wrap justify-evenly gap-2 p-3">
+    <main className="flex flex-wrap justify-evenly gap-2 px-2">
       <SearchBox setQuery={setQuery} query={query} />
-      <div className="flex flex-wrap justify-evenly rounded gap-2" ref={parent}>
+      <div className="flex flex-wrap justify-between rounded gap-2" ref={parent}>
         {displayedSchools.map((school: school) => {
           return (
             <SchoolCard

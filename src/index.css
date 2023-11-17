@@ -13,10 +13,10 @@
   --fc-button-border-color: var(--ku-orange);
   --fc-button-hover-bg-color: var(--ku-orange-hover);
   --fc-button-hover-border-color: var(--ku-orange-hover);
-  --fc-button-active-bg-color: var(--ku-secondary);
+  --fc-button-active-bg-color: var(--ku-orange-hover);
   --fc-button-active-border-color: var(--ku-orange-hover);
   --fc-list-event-hover-bg-color: var(--ku-orange-hover);
-  --fc-small-font-size: 1rem;
+  --fc-small-font-size: 0.95rem;
   --fc-today-bg-color: var(--main-background);
 }
 
@@ -62,4 +62,47 @@
   .border-secondary {
     border: 2px solid var(--ku-secondary) !important;
   }
+
+  
 }
+
+/* Overrides for individual FC components */
+
+.fc .fc-toolbar-title {
+	color: var(--ku-orange);
+	font-weight: bold;
+}
+
+.fc .fc-today-button {
+	background: var(--ku-orange);
+	color: white;
+	padding: 0.125rem 2vw;
+	font-weight: bold;
+
+	&:disabled {
+		background-color: var(--main-background);
+		color: var(--ku-orange);
+	}
+}
+
+.fc-header-toolbar .fc-toolbar-chunk:last-child {
+	display: flex;
+}
+
+.fc-header-toolbar .fc-button-group {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-prev-button:not(:last-child),
+.fc-direction-ltr .fc-button-group > .fc-next-button:last-child {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.125rem 0.5rem;
+	border-top-right-radius: 0.25rem;
+	border-top-left-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
+	border-bottom-left-radius: 0.25rem;
+}
+
