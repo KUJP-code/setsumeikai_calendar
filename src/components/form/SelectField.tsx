@@ -24,11 +24,11 @@ export default function SelectField({
       <select
         name={name}
         required={required}
-        className="border border-secondary rounded-md p-2 bg-transparent text-ku-secondary border-secondary focus-visible:shadow-input-orange focus-visible:outline-none"
+        className="border border-secondary rounded-md p-2 bg-transparent text-ku-secondary border-secondary focus-visible:shadow-input-orange focus-visible:outline-none font-semibold focus:shadow-input-orange focus:text-ku-orange"
       >
         {options.map((o) => {
           return (
-            <option value={o.value} key={o.value} className="bg-transparent">
+            <option value={o.value} key={o.value}>
               {o.name}
             </option>
           );

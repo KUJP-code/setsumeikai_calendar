@@ -37,7 +37,7 @@ export default function InputField({
     return (
       <div className="flex flex-col basis-[45%] gap-2">
         <label htmlFor={name} className="self-start font-semibold text-lg">
-			<span className="text-ku-secondary text-base font-bold">{label}</span>
+			<span className="text-ku-secondary text-base">{label}</span>
 			<span className={`label text-xs ${required ? "label-required" : "label-premium"}`}>
 				{required ? "必須" : "任意"}
 			</span>
