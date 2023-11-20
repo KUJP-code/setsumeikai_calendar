@@ -29,7 +29,7 @@ export default function InputField({
           placeholder={placeholder}
           required={required}
           rows={4}
-          className="border border-secondary rounded-md p-3 focus-visible:outline-none focus-visible:border-ku-orange focus-visible:border-2 bg-transparent placeholder:text-ku-faded placeholder:font-semibold"
+          className="border border-secondary rounded-md p-3 focus-visible:shadow-input-orange focus-visible:outline-none bg-transparent placeholder:text-ku-faded placeholder:font-semibold text-ku-secondary"
         />
       </div>
     );
@@ -47,7 +47,7 @@ export default function InputField({
           name={name}
           placeholder={placeholder}
           required={required}
-          className="border border-secondary rounded-md p-2 bg-transparent placeholder:text-ku-faded placeholder:font-semibold"
+          className="border border-secondary rounded-md p-2 bg-transparent placeholder:text-ku-faded placeholder:font-semibold text-ku-secondary focus-visible:outline-none focus-visible:shadow-input-orange"
         />
       </div>
     );

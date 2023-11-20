@@ -4,6 +4,9 @@ export default {
   important: true,
   theme: {
     extend: {
+	  boxShadow: {
+		"input-orange": "inset 0 0 0 2px #ef8200",
+	  },
       colors: {
         "ku-orange": "#ef8200",
 		"ku-orange-hover": "#fo8e18:",

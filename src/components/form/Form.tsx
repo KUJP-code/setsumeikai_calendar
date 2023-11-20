@@ -84,14 +84,7 @@ export default function Form() {
             name="ele_school"
             placeholder="例)  ○○小学校に来年4月から"
             required={true}
-          />
-          {/* TODO: group schools by prefecture */}
-          <SelectField
-            label="通学をご検討中のスクール"
-            name="school_id"
-            options={schoolOptions}
-            required={true}
-          />
+          /> 
           <InputField
             type="date"
             label="ご希望の利用開始時期"
@@ -99,6 +92,14 @@ export default function Form() {
             placeholder="保護者のお名前を入力してください"
             required={false}
           />
+		  {/* TODO: group schools by prefecture */}
+          <SelectField
+            label="通学をご検討中のスクール"
+            name="school_id"
+            options={schoolOptions}
+            required={true}
+          />
+		  <div className="hidden md:block md:basis-[45%]"></div>
           <RadioField
             label="お申し込みのきっかけ"
             name="referrer"
@@ -120,7 +121,7 @@ export default function Form() {
           />
           <button
             type="submit"
-            className="w-full rounded p-2 bg-ku-orange font-semibold text-white text-lg hover:opacity-90"
+            className="w-full rounded p-1 bg-ku-orange font-semibold text-white text-base hover:opacity-90"
           >
             内容の確認へ
           </button>
