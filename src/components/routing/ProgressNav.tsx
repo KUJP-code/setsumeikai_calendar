@@ -11,8 +11,16 @@ export default function ProgressNav(selections: selections) {
   const sharedInactiveClasses =
     "before:border-[2px] before:border-ku-secondary before:h-full rounded";
   useEffect(() => {
-    if (progressNavRef.current)
-      progressNavRef.current.scrollIntoView({ behavior: "smooth" });
+    if (progressNavRef.current) {
+      const position = progressNavRef.current.getBoundingClientRect().top;
+      const headerHeight = 100;
+      const currentPosition = window.scrollY;
+      const offset = position + currentPosition - headerHeight;
+      window.scrollTo({
+        top: offset,
+        behavior: "smooth",
+      });
+    }
   }, [pathname]);
 
   return (
