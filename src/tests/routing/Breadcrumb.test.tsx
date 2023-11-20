@@ -10,7 +10,7 @@ function renderBreadcrumb(
 ) {
   render(
     <MemoryRouter>
-      <Breadcrumb text={text} to={to} currentSelection={currentSelection} specificClasses="" />
+      <Breadcrumb text={text} to={to} currentSelection={currentSelection} activeClasses="" inactiveClasses="" />
     </MemoryRouter>
   );
 }

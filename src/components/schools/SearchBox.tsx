@@ -13,7 +13,7 @@ export default function SearchBox({ setQuery, query }: props) {
   }
 
   return (
-    <div className="flex items-center gap-2 w-full border-secondary rounded pl-2 bg-transparent text-ku-secondary">
+    <div className="flex items-center gap-2 w-full rounded pl-2 text-ku-secondary bg-white border border-ku-secondary focus-within:border-ku-orange focus-within:border-2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
@@ -30,7 +30,7 @@ export default function SearchBox({ setQuery, query }: props) {
       <input
         type="search"
         name="schoolSearch"
-        className="w-full bg-transparent focus-visible:outline-ku-secondary focus-visible:outline p-1 rounded border-l border-l-ku-secondary"
+        className="w-full p-1 rounded border-l border-l-ku-secondary placeholder:text-ku-secondary focus-visible:outline-none"
         id="schoolSearch"
         placeholder="スクール名検索、住所検索、電話番号検索、エリア検索"
         onChange={updateQuery}

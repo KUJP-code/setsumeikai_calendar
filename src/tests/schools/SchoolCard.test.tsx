@@ -14,6 +14,7 @@ const testSchool: school = {
   busAreas: ["横浜市港北区", "鶴見区"],
   nearbyStations: ["大倉山駅", "菊名駅"],
   setsumeikais: [],
+  image: ""
 };
 
 describe("School Card", () => {
