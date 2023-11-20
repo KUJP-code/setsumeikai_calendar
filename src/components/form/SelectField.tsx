@@ -14,23 +14,21 @@ export default function SelectField({
   required,
 }: SelectFieldProps) {
   return (
-    <div className="flex flex-col gap-2">
-      <label htmlFor={name} className="font-semibold text-lg">
-        <span
-          className={required ? "label label-required" : "label label-premium"}
-        >
+    <div className="flex flex-col basis-[45%] gap-2 text-lg">
+      <label htmlFor={name} className="self-start font-semibold">
+        <span className="text-ku-secondary text-base">{label}</span>
+        <span className={`label text-xs ${required ? "label-required" : "label-premium"}`}>
           {required ? "必須" : "任意"}
         </span>
-        {label}
       </label>
       <select
         name={name}
         required={required}
-        className="border border-ku-secondary rounded p-3 hover:outline hover:outline-ku-secondary focus-visible:outline outline-ku-orange"
+        className="border border-secondary rounded-md p-2 bg-transparent text-ku-secondary border-secondary focus-visible:shadow-input-orange focus-visible:outline-none"
       >
         {options.map((o) => {
           return (
-            <option value={o.value} key={o.value}>
+            <option value={o.value} key={o.value} className="bg-transparent">
               {o.name}
             </option>
           );
