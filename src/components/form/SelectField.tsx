@@ -17,7 +17,11 @@ export default function SelectField({
     <div className="flex flex-col basis-[45%] gap-2 text-lg">
       <label htmlFor={name} className="self-start font-semibold">
         <span className="text-ku-secondary text-base">{label}</span>
-        <span className={`label text-xs ${required ? "label-required" : "label-premium"}`}>
+        <span
+          className={`label text-xs ${
+            required ? "label-required" : "label-premium"
+          }`}
+        >
           {required ? "必須" : "任意"}
         </span>
       </label>
@@ -28,7 +32,7 @@ export default function SelectField({
       >
         {options.map((o) => {
           return (
-            <option value={o.value} key={o.value}>
+            <option value={o.value} key={o.value} className="text-black">
               {o.name}
             </option>
           );
