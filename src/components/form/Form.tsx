@@ -27,7 +27,7 @@ export default function Form() {
     return (
       <div className="flex flex-col justify-between items-center gap-2 p-3">
         <SelectionFields selections={selections} />
-		{selections.setsumeikaiDate?.getHours() === 16 ? <div className="w-4/5 fieldset-border border-ku-orange rounded p-2 text-center text-ku-orange font-semibold">
+		{selections.setsumeikaiDate?.getHours() === 16 ? <div className="w-full md:w-4/5 fieldset-border border-ku-orange rounded p-2 text-center text-ku-orange font-semibold">
 			<p>※事前にご確認ください！※</p>
 			<p>平日16時台の説明会は、通常レッスン内での体験となるため、大人数に不慣れなお子様は教室に入れないケースが御座います。</p>
 			<p>人見知りのお子様、特に幼児のお子様の体験は、少人数で行う「平日18時以降」及び「土曜日」の参加を強く推奨いたします。</p>

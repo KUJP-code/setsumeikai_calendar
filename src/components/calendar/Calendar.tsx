@@ -17,7 +17,7 @@ export default function Calendar() {
     .find((s: school) => s.id === selections.schoolId)
     ?.setsumeikais.map((setsumeikai: setsumeikai) => {
       if (setsumeikai.full) {
-        return { ...setsumeikai, title: "満席" };
+        return { ...setsumeikai, title: "満席", borderColor: "#918779" };
       } else {
         return setsumeikai;
       }
@@ -28,15 +28,15 @@ export default function Calendar() {
       <FullCalendar
         contentHeight={"auto"}
         dayCellClassNames={"font-semibold text-ku-secondary rounded border-secondary"}
-        dayHeaderClassNames={"bg-ku-orange rounded border-none text-white text-lg"}
+        dayHeaderClassNames={"md:bg-ku-orange md:rounded md:border-none md:text-white md:text-lg"}
         events={events}
         eventColor="#ef8200"
         eventClassNames={function name(arg) {
           if (arg.event._def.extendedProps.full) {
             return [
               "cursor-not-allowed",
-              "bg-ku-secondary",
-              "border-ku-secondary",
+              "md:bg-ku-secondary",
+              "md:border-ku-secondary",
             ];
           } else {
             return ["cursor-pointer"];

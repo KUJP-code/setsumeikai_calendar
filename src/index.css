@@ -9,6 +9,8 @@
   --ku-secondary: #918779;
   --ku-faded: #d1c2ad;
   --main-background: #faf2e8;
+  --border-secondary: box-shadow: inset 0 0 0 2px;
+  --fieldset-border: 2px dashed var(--ku-faded) !important;
   --fc-border-color: var(--ku-secondary);
   --fc-button-bg-color: var(--ku-orange);
   --fc-button-border-color: var(--ku-orange);
@@ -19,6 +21,9 @@
   --fc-list-event-hover-bg-color: var(--ku-orange-hover);
   --fc-small-font-size: 1.1rem;
   --fc-today-bg-color: var(--main-background);
+  --fc-page-bg-color: var(--main-background);
+  --fc-neutral-bg-color: var(--main-background);
+  --fc-neutral-text-color: var(--ku-secondary);
 }
 
 @layer components {
@@ -88,6 +93,9 @@
 .fc-header-toolbar .fc-button-group {
 	display: flex;
 	gap: 0.75rem;
+	@media (max-width: 700px) {
+		gap: 0;
+	}
 }
 
 .fc-direction-ltr .fc-button-group > .fc-prev-button:not(:last-child),
@@ -100,6 +108,20 @@
 	border-top-left-radius: 0.25rem;
 	border-bottom-right-radius: 0.25rem;
 	border-bottom-left-radius: 0.25rem;
+}
+
+@media (max-width: 700px) {
+	.fc-direction-ltr .fc-button-group .fc-prev-button:not(:last-child) {
+		border-radius: 0;
+		border-top-left-radius: 0.25rem;
+		border-bottom-left-radius: 0.25rem;
+	}
+
+	.fc-direction-ltr .fc-button-group .fc-next-button:last-child {
+		border-radius: 0;
+		border-top-right-radius: 0.25rem;
+		border-bottom-right-radius: 0.25rem;
+	}
 }
 
 .fc table.fc-scrollgrid {
@@ -158,6 +180,51 @@
 	opacity: 0.3;
 }
 
+/* Mobile calendar styles */
+
+table.fc-list-table {
+	border-collapse: separate;
+	border-spacing: 0 0.5rem;
+	color: var(--ku-secondary);
+}
+
 .fc .fc-daygrid-day-bottom {
 	display: none;
+}
+
+.fc-listMonth-view.fc-view.fc-list-sticky {
+	border: none;
+}
+
+.fc-list-day-cushion.fc-cell-shaded {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 2px solid var(--ku-secondary);
+	border-radius: 0.25rem;
+	&::after {
+		display: none;
+	}
+	a.fc-list-day-side-text {
+		text-align: end;
+	}
+}
+
+.fc-list-table td {
+	border: none;
+	border: var(--fieldset-border);
+}
+
+.fc .fc-list-table tr td:first-child {
+	border-left: var(--fieldset-border);
+	border-radius: 0.25rem;
+}
+
+.fc .fc-list-table tr td:last-child {
+	border-right: var(--fieldset-border);
+	border-radius: 0.25rem;
+}
+
+.fc .fc-list-event-dot {
+	border: calc(var(--fc-list-event-dot-width)/2) solid var(--ku-secondary);
 }
