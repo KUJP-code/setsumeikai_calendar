@@ -1,4 +1,5 @@
 import { selections } from "../../declarations";
+import jaFormat from "../../helpers/jaFormat";
 
 interface selectionsProps {
 	selections: selections;
@@ -29,9 +30,7 @@ export default function SelectionFields({selections, plannedSchool}: selectionsP
         <h3 className={headingClasses}>
           参加日程
         </h3>
-		<p className={pClasses}>{selections.setsumeikaiDate ? selections.setsumeikaiDate
-                  .toISOString()
-                  .replace(/T.*/, "") : ""}</p>	  	
+		<p className={pClasses}>{selections.setsumeikaiDate ? jaFormat(selections.setsumeikaiDate) : ""}</p>
       </div>
     </div>
   );
