@@ -75,6 +75,7 @@
 	color: white;
 	padding: 0.125rem 2vw;
 	font-weight: bold;
+	border: 2px solid var(--ku-orange);
 
 	&:disabled {
 		background-color: var(--main-background);

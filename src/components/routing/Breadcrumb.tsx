@@ -15,14 +15,14 @@ export default function Breadcrumb({
   text,
   to,
 }: props) {
-  const className = `flex justify-center items-center gap-1 text-center p-1 basis-1/3 -skew-x-12 before:w-[50px] before:absolute before:skew-x-12 rounded before:rounded relative`;
+  const className = `flex justify-center items-center gap-1 text-center p-1 basis-1/3 md:-skew-x-12 md:before:w-[50px] before:hidden md:before:absolute md:before:skew-x-12 rounded before:rounded relative`;
 
   if (to === undefined) {
     return (
       <h5
         className={`${className} border-secondary text-ku-secondary before:bg-main-background font-bold ${inactiveClasses}`}
       >
-        <span className="skew-x-12">
+        <span className="md:skew-x-12">
           {text}
           {currentSelection ? `：${currentSelection}` : null}
         </span>
@@ -38,7 +38,7 @@ export default function Breadcrumb({
             : `border-secondary text-ku-secondary before:bg-main-background ${className} ${inactiveClasses}`
         }
       >
-        <h5 className="skew-x-12">
+        <h5 className="md:skew-x-12">
           <span className="font-bold">{text}</span>
           {currentSelection ? `： ${currentSelection}` : null}
         </h5>
