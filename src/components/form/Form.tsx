@@ -26,7 +26,7 @@ export default function Form() {
   } else {
     return (
       <div className="flex flex-col justify-between items-center gap-2 p-3">
-        <SelectionFields {...selections} />
+        <SelectionFields selections={selections} />
         <RRForm
           method="post"
           className="w-full md:w-4/5 flex flex-col md:flex-row md:flex-wrap md:items-center justify-evenly md:justify-between gap-y-5 pt-3 text-center"
@@ -36,8 +36,9 @@ export default function Form() {
             name="setsumeikai_id"
             value={selections.setsumeikaiId}
           />
+		  <input type="hidden" name="category" value="R" />
           {inquiryResponse && inquiryResponse.response.status === 500 ? (
-            <div className="rounded text-xl bg-red-600 text-white p-3">
+            <div className="w-full rounded text-xl bg-red-600 text-white p-3">
               問い合わせができなかった
             </div>
           ) : null}

@@ -1,24 +1,34 @@
 import { selections } from "../../declarations";
 
-export default function SelectionFields(selections: selections) {
+interface selectionsProps {
+	selections: selections;
+	plannedSchool?: string;
+}
 
-  const fieldClasses = "flex flex-col items-center gap-2"
-  const labelClasses = "font-bold text-2xl text-ku-orange";
+export default function SelectionFields({selections, plannedSchool}: selectionsProps) {
+
+  const fieldClasses = "flex flex-col items-center basis-1/3 gap-3"
+  const headingClasses = "font-bold text-2xl text-ku-orange";
   const pClasses = "text-ku-secondary font-bold"
 
   return (
-    <div className="w-full flex flex-col md:flex-row justify-evenly items-center p-4 rounded-md selections-border">
-      <input type="hidden" name="category" value="R" />
+    <div className="w-full flex flex-col md:flex-row justify-evenly items-center p-2 rounded-md selections-border gap-5">
+	  {plannedSchool ? <div className={fieldClasses}>
+		<h3 className={headingClasses}>
+		  通学をご検討中のスクール
+		</h3>
+		<p className={pClasses}>{plannedSchool}</p>
+	  </div> : null }
       <div className={fieldClasses}>
-        <label htmlFor="schoolId" className={labelClasses}>
-          スクール
-        </label>
-	  <p className={pClasses}>{selections.schoolName}</p>	  	
-	</div>
+        <h3 className={headingClasses}>
+          説明会場
+        </h3>
+		<p className={pClasses}>{selections.schoolName}</p>	  	
+	  </div>
       <div className={fieldClasses}>
-        <label htmlFor="setsumeikaiId" className={labelClasses}>
-          説明会実施日
-        </label>
+        <h3 className={headingClasses}>
+          参加日程
+        </h3>
 		<p className={pClasses}>{selections.setsumeikaiDate ? selections.setsumeikaiDate
                   .toISOString()
                   .replace(/T.*/, "") : ""}</p>	  	
