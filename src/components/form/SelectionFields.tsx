@@ -19,11 +19,6 @@ export default function SelectionFields(selections: selections) {
         <label htmlFor="setsumeikaiId" className={labelClasses}>
           説明会実施日
         </label>
-        <input
-          type="hidden"
-          name="setsumeikai_id"
-          value={selections.setsumeikaiId}
-        />
 		<p className={pClasses}>{selections.setsumeikaiDate ? selections.setsumeikaiDate
                   .toISOString()
                   .replace(/T.*/, "") : ""}</p>	  	

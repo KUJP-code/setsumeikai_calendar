@@ -31,6 +31,11 @@ export default function Form() {
           method="post"
           className="w-full md:w-4/5 flex flex-col md:flex-row md:flex-wrap md:items-center justify-evenly md:justify-between gap-y-5 pt-3 text-center"
         >
+          <input
+            type="hidden"
+            name="setsumeikai_id"
+            value={selections.setsumeikaiId}
+          />
           {inquiryResponse && inquiryResponse.response.status === 500 ? (
             <div className="rounded text-xl bg-red-600 text-white p-3">
               問い合わせができなかった
