@@ -19,13 +19,16 @@ export default function SchoolList() {
             school.phone.includes(query) ||
             school.busAreas.some((area) => area.includes(query)) ||
             school.nearbyStations.some((station) => station.includes(query)) ||
-            school.hiragana.some((hiragana) => hiragana.includes(query))
+            school.hiragana.some((hiragana) => hiragana.includes(query)),
         );
 
   return (
-    <main className="flex flex-wrap justify-evenly gap-2 px-2">
+    <main className="flex flex-wrap justify-evenly gap-2 px-3 md:px-2">
       <SearchBox setQuery={setQuery} query={query} />
-      <div className="flex flex-wrap justify-between rounded gap-2" ref={parent}>
+      <div
+        className="flex flex-wrap justify-between rounded gap-2"
+        ref={parent}
+      >
         {displayedSchools.map((school: school) => {
           return (
             <SchoolCard
