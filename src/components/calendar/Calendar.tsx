@@ -24,11 +24,15 @@ export default function Calendar() {
     });
 
   return (
-    <main className="p-3">
+    <main>
       <FullCalendar
         contentHeight={"auto"}
-        dayCellClassNames={"font-semibold text-ku-secondary rounded border-secondary"}
-        dayHeaderClassNames={"md:bg-ku-orange md:rounded md:border-none md:text-white md:text-lg"}
+        dayCellClassNames={
+          "font-semibold text-ku-secondary rounded border-secondary"
+        }
+        dayHeaderClassNames={
+          "md:bg-ku-orange md:rounded md:border-none md:text-white md:text-lg"
+        }
         events={events}
         eventColor="#ef8200"
         eventClassNames={function name(arg) {
