@@ -28,7 +28,7 @@ export default function SelectField({
       <select
         name={name}
         required={required}
-        className="border border-secondary rounded-md p-2 bg-white text-ku-secondary border-secondary focus-visible:shadow-input-orange focus-visible:outline-none font-semibold focus:shadow-input-orange focus:text-ku-orange"
+        className="border border-secondary rounded-md p-2 bg-white text-ku-secondary border-secondary focus-visible:shadow-input-orange focus-visible:outline-none focus:shadow-input-orange focus:text-ku-orange"
       >
         {options.map((o) => {
           return (
