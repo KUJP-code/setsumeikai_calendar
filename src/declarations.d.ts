@@ -33,6 +33,7 @@ export interface school {
   phone: string;
   busAreas: string[];
   nearbyStations: string[];
+  nearbySchools: string[];
   hiragana: string[];
   setsumeikais: setsumeikai[];
 }
