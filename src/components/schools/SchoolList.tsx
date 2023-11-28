@@ -14,7 +14,7 @@ export default function SchoolList() {
       ? schools
       : schools.filter(
           (school: school) =>
-            school.name.includes(query) ||
+            school.name.toUpperCase().includes(query.toUpperCase()) ||
             school.address.includes(query) ||
             school.phone.includes(query) ||
             school.busAreas.some((area) => area.includes(query)) ||
