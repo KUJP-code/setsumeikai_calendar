@@ -18,7 +18,7 @@ export default function SearchBox({ setQuery, query }: props) {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="w-5 h-5"
+        className="w-5 h-5 opacity-50"
       >
         <path
           fillRule="evenodd"
@@ -30,7 +30,7 @@ export default function SearchBox({ setQuery, query }: props) {
       <input
         type="search"
         name="schoolSearch"
-        className="w-full p-1 rounded border-l border-secondary placeholder:text-ku-secondary focus-visible:outline-none focus-visible:shadow-input-orange"
+        className="w-full p-1 rounded border-secondary placeholder:text-ku-faded focus-visible:outline-none focus-visible:shadow-input-orange"
         id="schoolSearch"
         placeholder="スクール名検索、住所検索、電話番号検索、エリア検索"
         onChange={updateQuery}
