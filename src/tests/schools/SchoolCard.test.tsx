@@ -14,7 +14,8 @@ const testSchool: school = {
   busAreas: ["横浜市港北区", "鶴見区"],
   nearbyStations: ["大倉山駅", "菊名駅"],
   setsumeikais: [],
-  image: ""
+  nearbySchools: [],
+  image: "",
 };
 
 describe("School Card", () => {
@@ -23,7 +24,7 @@ describe("School Card", () => {
       render(
         <MemoryRouter>
           <SchoolCard school={testSchool} setSchool={mock(() => {})} />
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -51,7 +52,7 @@ describe("School Card", () => {
       render(
         <MemoryRouter>
           <SchoolCard school={testSchool} setSchool={setSchoolMock} />
-        </MemoryRouter>
+        </MemoryRouter>,
       );
       const user = userEvent.setup();
       await user.click(screen.getByRole("link"));
@@ -71,7 +72,7 @@ describe("School Card", () => {
       render(
         <MemoryRouter>
           <SchoolCard school={noDetails} setSchool={mock(() => {})} />
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       expect(screen.queryByText("送迎対象地域")).toBe(null);
@@ -81,7 +82,7 @@ describe("School Card", () => {
       render(
         <MemoryRouter>
           <SchoolCard school={noDetails} setSchool={mock(() => {})} />
-        </MemoryRouter>
+        </MemoryRouter>,
       );
 
       expect(screen.queryByText("最寄駅")).toBe(null);
