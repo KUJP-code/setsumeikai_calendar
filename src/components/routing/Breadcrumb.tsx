@@ -20,7 +20,7 @@ export default function Breadcrumb({
   if (to === undefined) {
     return (
       <h5
-        className={`${className} border-secondary text-ku-secondary before:bg-main-background font-bold ${inactiveClasses}`}
+        className={`${className} border-button text-ku-button before:bg-main-background font-bold ${inactiveClasses}`}
       >
         <span className="md:skew-x-12">
           {text}
@@ -35,7 +35,7 @@ export default function Breadcrumb({
         className={({ isActive }) =>
           isActive
             ? `bg-ku-orange before:bg-ku-orange text-white ${className} ${activeClasses}`
-            : `border-secondary text-ku-secondary before:bg-main-background ${className} ${inactiveClasses}`
+            : `border-button text-ku-secondary before:bg-main-background ${className} ${inactiveClasses}`
         }
       >
         <h5 className="md:skew-x-12">

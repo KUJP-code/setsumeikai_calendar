@@ -9,7 +9,7 @@ export default function ProgressNav(selections: selections) {
   const { pathname } = useLocation();
   const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
   const sharedInactiveClasses =
-    "before:border-[2px] before:border-ku-secondary before:h-full rounded";
+    "before:border-[2px] before:border-ku-button before:h-full rounded";
   useEffect(() => {
     if (progressNavRef.current) {
       const position = progressNavRef.current.getBoundingClientRect().top;

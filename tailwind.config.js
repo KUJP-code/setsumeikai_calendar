@@ -4,16 +4,17 @@ export default {
   important: true,
   theme: {
     extend: {
-	  boxShadow: {
-		"input-orange": "inset 0 0 0 2px #ef8200",
-	  },
+      boxShadow: {
+        "input-orange": "inset 0 0 0 2px #ef8200",
+      },
       colors: {
         "ku-orange": "#ef8200",
-		"ku-orange-hover": "#fo8e18:",
-        "ku-secondary": "#918779",
+        "ku-orange-hover": "#fo8e18:",
+        "ku-secondary": "#0f172a",
+        "ku-button": "#918779",
         "ku-blue": "#83c0da",
-		"main-background": "#faf2e8",
-		"ku-faded": "#d1c2ad",
+        "main-background": "#faf2e8",
+        "ku-faded": "#707086",
       },
     },
   },
