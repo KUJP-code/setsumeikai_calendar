@@ -30,7 +30,7 @@ export default function SearchBox({ setQuery, query }: props) {
       <input
         type="search"
         name="schoolSearch"
-        className="w-full p-1 rounded border-secondary placeholder:text-ku-faded focus-visible:outline-none focus-visible:shadow-input-orange"
+        className="w-full p-1 rounded border-secondary placeholder:text-ku-faded focus-visible:outline-none focus-visible:shadow-input-orange font-normal"
         id="schoolSearch"
         placeholder="スクール名検索、住所検索、電話番号検索、エリア検索"
         onChange={updateQuery}
