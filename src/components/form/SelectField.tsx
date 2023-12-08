@@ -30,6 +30,9 @@ export default function SelectField({
         required={required}
         className="border border-secondary rounded-md p-2 bg-white text-ku-secondary border-secondary focus-visible:shadow-input-orange focus-visible:outline-none focus:shadow-input-orange focus:text-ku-orange"
       >
+        <option value="" className="text-black">
+          選択してください
+        </option>
         {options.map((o) => {
           return (
             <option value={o.value} key={o.value} className="text-black">
