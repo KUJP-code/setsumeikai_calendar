@@ -19,7 +19,7 @@ export default function App() {
   useParamsForSelections({ selections, setSelections, schools });
 
   return (
-    <div className="bg-main-background">
+    <div className="bg-main-background mt-4 md:mx-[5vw]">
       <ProgressNav {...selections} />
       <Outlet
         context={

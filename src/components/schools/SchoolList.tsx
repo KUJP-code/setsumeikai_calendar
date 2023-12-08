@@ -27,7 +27,7 @@ export default function SchoolList() {
     <main className="flex flex-wrap justify-evenly gap-2 px-3 md:px-2">
       <SearchBox setQuery={setQuery} query={query} />
       <div
-        className="flex flex-wrap justify-between rounded gap-2"
+        className="flex flex-wrap justify-evenly rounded gap-[1.5vw] after:flex-grow"
         ref={parent}
       >
         {displayedSchools.map((school: school) => {
