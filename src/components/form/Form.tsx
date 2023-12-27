@@ -25,23 +25,29 @@ export default function Form() {
     );
   } else {
     return (
-      <div className="flex flex-col justify-between items-center gap-2 p-3">
+      <div className="flex flex-col justify-between items-center gap-y-5 p-3">
         <SelectionFields selections={selections} />
-		{selections.setsumeikaiDate?.getHours() === 16 ? <div className="w-full md:w-4/5 fieldset-border border-ku-orange rounded p-2 text-center text-ku-orange font-semibold">
-			<p>※事前にご確認ください！※</p>
-			<p>平日16時台の説明会は、通常レッスン内での体験となるため、大人数に不慣れなお子様は教室に入れないケースが御座います。</p>
-			<p>人見知りのお子様、特に幼児のお子様の体験は、少人数で行う「平日18時以降」及び「土曜日」の参加を強く推奨いたします。</p>
-		</div> : null}
+        {selections.setsumeikaiDate?.getHours() === 16 ? (
+          <div className="w-full md:w-4/5 fieldset-border border-ku-orange rounded p-2 text-center text-ku-orange font-semibold">
+            <p>※事前にご確認ください！※</p>
+            <p>
+              平日16時台の説明会は、通常レッスン内での体験となるため、大人数に不慣れなお子様は教室に入れないケースが御座います。
+            </p>
+            <p>
+              人見知りのお子様、特に幼児のお子様の体験は、少人数で行う「平日18時以降」及び「土曜日」の参加を強く推奨いたします。
+            </p>
+          </div>
+        ) : null}
         <RRForm
           method="post"
-          className="w-full md:w-4/5 flex flex-col md:flex-row md:flex-wrap md:items-center justify-evenly md:justify-between gap-y-5 pt-3 text-center"
+          className="w-full md:w-4/5 flex flex-col justify-evenly gap-y-5 pt-3 text-center"
         >
           <input
             type="hidden"
             name="setsumeikai_id"
             value={selections.setsumeikaiId}
           />
-		  <input type="hidden" name="category" value="R" />
+          <input type="hidden" name="category" value="R" />
           {inquiryResponse && inquiryResponse.response.status === 500 ? (
             <div className="w-full rounded text-xl bg-red-600 text-white p-3">
               問い合わせができなかった
@@ -95,7 +101,7 @@ export default function Form() {
             name="ele_school"
             placeholder="例)  ○○小学校に来年4月から"
             required={true}
-          /> 
+          />
           <InputField
             type="date"
             label="ご希望の利用開始時期"
@@ -103,14 +109,14 @@ export default function Form() {
             placeholder="保護者のお名前を入力してください"
             required={false}
           />
-		  {/* TODO: group schools by prefecture */}
+          {/* TODO: group schools by prefecture */}
           <SelectField
             label="通学をご検討中のスクール"
             name="school_id"
             options={schoolOptions}
             required={true}
           />
-		  <div className="hidden md:block md:basis-[45%]"></div>
+          <div className="hidden md:block md:basis-[45%]"></div>
           <RadioField
             label="お申し込みのきっかけ"
             name="referrer"
