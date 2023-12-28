@@ -7,6 +7,8 @@ import RadioField from "./RadioField";
 import useInquiryResponse from "../../hooks/useInquiryResponse";
 import Summary from "./Summary";
 import { formOption, school } from "../../declarations";
+import { useState } from "react";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 export default function Form() {
   const { schools, selections } = useSelectionContext();
@@ -14,6 +16,7 @@ export default function Form() {
     return { name: s.name, value: s.id };
   });
   const inquiryResponse = useInquiryResponse();
+  const [policyAccepted, setPolicyAccepted] = useState(false);
 
   if (inquiryResponse && inquiryResponse.response.status === 200) {
     return (
@@ -136,11 +139,20 @@ export default function Form() {
             placeholder="スクール、サービス、お子様について気になる点があれば記入ください。例）送迎について詳しく聞きたい２歳の弟も一緒に参加したい"
             required={false}
           />
+          <PrivacyPolicy
+            policyAccepted={policyAccepted}
+            setPolicyAccepted={setPolicyAccepted}
+          />
           <button
             type="submit"
-            className="w-full rounded p-1 bg-ku-orange font-semibold text-white text-base hover:opacity-90"
+            className={`w-full rounded p-1 bg-ku-orange font-semibold text-white text-base ${
+              !policyAccepted ? "opacity-50" : "hover:opacity-90"
+            }`}
+            disabled={!policyAccepted}
           >
-            内容の確認へ
+            {policyAccepted
+              ? "内容の確認へ"
+              : "個人情報保護方針に同意の上、次へお進みください"}
           </button>
         </RRForm>
       </div>
