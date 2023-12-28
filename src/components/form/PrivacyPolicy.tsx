@@ -50,7 +50,7 @@ export default function PrivacyPolicy({
       <dialog
         ref={modalRef}
         onClose={() => setDisplayModal(false)}
-        className="z-50 fixed inset-0 h-screen w-screen p-10 rounded text-start bg-main-background backdrop:bg-black backdrop:opacity-75"
+        className="z-50 fixed inset-0 h-screen w-screen p-10 rounded text-start bg-main-background backdrop:bg-black backdrop:opacity-75 m-auto"
       >
         <div className="modal">
           <div className="modal-header flex justify-between items-center text-xl">
