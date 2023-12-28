@@ -57,6 +57,11 @@ export default function InputField({
           required={required}
           className="border border-secondary rounded-md p-2 bg-white placeholder:text-ku-placeholder placeholder:font-medium text-ku-secondary focus-visible:outline-none focus-visible:shadow-input-orange"
         />
+        {label === "電話番号" ? (
+          <p className="text-start text-sm">
+            ※お電話での回答を希望される方は、以下の「お問い合わせ内容」に通話可能な日時をご記載ください。
+          </p>
+        ) : null}
       </div>
     );
   }
