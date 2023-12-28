@@ -27,6 +27,7 @@ export default function PrivacyPolicy({
           name="privacy_policy"
           id="privacy_policy"
           checked={policyAccepted}
+          required
           onChange={() => setPolicyAccepted(!policyAccepted)}
           className="appearance-none rounded border-2 border-ku-faded w-[14px] h-[14px] checked:border-ku-orange checked:before:bg-ku-orange checked:before:w-[10px] checked:before:h-[10px] flex items-center justify-center"
         />
