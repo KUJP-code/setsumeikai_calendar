@@ -23,9 +23,9 @@ export default function Summary({
       });
     }
   }, []);
-  const groupClasses = "flex flex-col md:flex-row md:justify-between md:w-1/2"
-  const headingClasses = "font-semibold text-lg"
-  const pClasses = "text-ku-faded font-semibold"
+  const groupClasses = "flex flex-col md:flex-row md:justify-between md:w-1/2";
+  const headingClasses = "font-semibold text-lg";
+  const pClasses = "text-ku-faded font-semibold";
 
   return (
     <main className="flex flex-col md:items-center justify-evenly gap-5 p-3 text-start text-ku-secondary">
@@ -33,7 +33,7 @@ export default function Summary({
         問い合わせ成功
       </div>
 
-	  <SelectionFields selections={selections} plannedSchool={school} />
+      <SelectionFields selections={selections} plannedSchool={school} />
 
       <div className={groupClasses}>
         <h3 className={headingClasses}>説明会場</h3>
@@ -104,10 +104,8 @@ export default function Summary({
       ) : null}
 
       {inquiry.requests ? (
-        <div className="flex flex-col w-full gap-2">
-          <h3 className={headingClasses}>
-            説明会で聞きたい内容・ご要望
-          </h3>
+        <div className={groupClasses}>
+          <h3 className={headingClasses}>説明会で聞きたい内容・ご要望</h3>
           <p className={pClasses}>{inquiry.requests}</p>
         </div>
       ) : null}
