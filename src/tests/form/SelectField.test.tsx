@@ -13,7 +13,7 @@ describe("SelectField", () => {
           { name: "test2", value: "2" },
         ]}
         required={true}
-      />
+      />,
     );
   });
 
@@ -21,7 +21,7 @@ describe("SelectField", () => {
     expect(screen.findByRole("combobox")).toBeTruthy();
   });
 
-  it("renders an option for each passed option", () => {
-    expect(screen.getAllByRole("option").length).toBe(2);
+  it("renders an option for each passed option plus placeholder", () => {
+    expect(screen.getAllByRole("option").length).toBe(3);
   });
 });
