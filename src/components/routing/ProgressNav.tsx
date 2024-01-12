@@ -6,7 +6,7 @@ import { selections } from "../../declarations";
 
 export default function ProgressNav(selections: selections) {
   const progressNavRef = useRef<null | HTMLElement>(null);
-  const { pathname } = useLocation();
+  const location = useLocation();
   const { schoolId, schoolName, setsumeikaiDate, setsumeikaiId } = selections;
   const sharedInactiveClasses =
     "before:border-[2px] before:border-ku-button before:h-full rounded";
@@ -21,7 +21,7 @@ export default function ProgressNav(selections: selections) {
         behavior: "smooth",
       });
     }
-  }, [pathname]);
+  }, [location]);
 
   return (
     <nav
