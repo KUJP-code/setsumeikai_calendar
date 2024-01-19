@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import useSelectionContext from "../../hooks/useSelectionContext";
 import { school, setsumeikai } from "../../declarations";
 import fcValidRange from "../../helpers/fcValidRange";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 function responsiveView() {
   return window.innerWidth < 700 ? "listMonth" : "dayGridMonth";
