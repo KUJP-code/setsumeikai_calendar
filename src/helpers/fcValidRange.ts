@@ -1,28 +1,18 @@
+// Show setsu for current month & end 2
+
 export default function fcValidRange(date: Date) {
-  const start = new Date(prevYear(date), prevMonth(date.getMonth()), 1);
-  const endMonth = nextMonth(date.getMonth());
-  const end = new Date(nextYear(date), endMonth, 1);
+  const start = new Date(date.getFullYear(), date.getMonth(), 1);
+  const end = new Date(endYear(date), endMonth(date.getMonth()), 1);
   return { start, end };
 }
 
-function nextMonth(month: number) {
-  return month === 11 ? 1 : month + 2;
+function endMonth(month: number) {
+  return month === 10 ? 1 : month + 3;
 }
 
-function nextYear(date: Date) {
-  if (date.getMonth() === 11) {
+function endYear(date: Date) {
+  if (date.getMonth() === 10) {
     return date.getFullYear() + 1;
-  }
-  return date.getFullYear();
-}
-
-function prevMonth(month: number) {
-  return month === 0 ? 11 : month - 1;
-}
-
-function prevYear(date: Date) {
-  if (date.getMonth() === 0) {
-    return date.getFullYear() - 1;
   }
   return date.getFullYear();
 }
