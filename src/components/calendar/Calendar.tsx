@@ -5,6 +5,7 @@ import jaLocale from "@fullcalendar/core/locales/ja";
 import { useNavigate } from "react-router-dom";
 import useSelectionContext from "../../hooks/useSelectionContext";
 import { school, setsumeikai } from "../../declarations";
+import fcValidRange from "../../helpers/fcValidRange";
 
 function responsiveView() {
   return window.innerWidth < 700 ? "listMonth" : "dayGridMonth";
@@ -22,6 +23,7 @@ export default function Calendar() {
         return setsumeikai;
       }
     });
+  const { start, end } = fcValidRange(new Date());
 
   return (
     <main>
@@ -65,6 +67,7 @@ export default function Calendar() {
         initialView={responsiveView()}
         locale={jaLocale}
         plugins={[dayGridPlugin, listPlugin]}
+        validRange={{ start, end }}
         windowResize={(viewAPI) =>
           viewAPI.view.calendar.changeView(responsiveView())
         }
