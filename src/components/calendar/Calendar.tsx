@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import useSelectionContext from "../../hooks/useSelectionContext";
 import { school, setsumeikai } from "../../declarations";
 import fcValidRange from "../../helpers/fcValidRange";
+import { useEffect, useRef } from "react";
 
 function responsiveView() {
   return window.innerWidth < 700 ? "listMonth" : "dayGridMonth";
@@ -24,11 +25,24 @@ export default function Calendar() {
       }
     });
   const { start, end } = fcValidRange(new Date());
+  const mainRef = useRef<null | HTMLElement>(null);
 
   return (
-    <main>
+    <main ref={mainRef}>
       <FullCalendar
         contentHeight={"auto"}
+        datesSet={() => {
+          if (mainRef.current) {
+            const position = mainRef.current.getBoundingClientRect().top;
+            const headerHeight = 100;
+            const currentPosition = window.scrollY;
+            const offset = position + currentPosition - headerHeight;
+            window.scrollTo({
+              top: offset,
+              behavior: "smooth",
+            });
+          }
+        }}
         dayCellClassNames={
           "font-semibold text-ku-button rounded border-secondary"
         }
