@@ -61,6 +61,7 @@ export default function Calendar() {
         }}
         eventDisplay="block"
         firstDay={1}
+        footerToolbar={{ start: "title", center: "", end: "today prev,next" }}
         initialView={responsiveView()}
         locale={jaLocale}
         plugins={[dayGridPlugin, listPlugin]}
