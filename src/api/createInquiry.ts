@@ -2,7 +2,7 @@ import { Params } from "react-router-dom";
 
 export default async function createInquiry(
   _params: Params<string>,
-  request: Request
+  request: Request,
 ) {
   const data = await request.formData();
   const inquiryObject = Object.fromEntries(data);

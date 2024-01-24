@@ -15,8 +15,13 @@ export default function Form() {
   const schoolOptions: formOption[] = schools.map((s: school) => {
     return { name: s.name, value: s.id };
   });
-  const inquiryResponse = useInquiryResponse();
   const [policyAccepted, setPolicyAccepted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const inquiryResponse = useInquiryResponse();
+
+  if (inquiryResponse && inquiryResponse.response.status !== 200) {
+    setSubmitted(false);
+  }
 
   if (inquiryResponse && inquiryResponse.response.status === 200) {
     return (
@@ -44,6 +49,14 @@ export default function Form() {
         <RRForm
           method="post"
           className="w-full md:w-4/5 flex flex-col justify-evenly gap-y-5 pt-3 text-center"
+          onSubmit={(event) => {
+            if (submitted) {
+              event.preventDefault();
+            } else {
+              setSubmitted(true);
+              setPolicyAccepted(false);
+            }
+          }}
         >
           <input
             type="hidden"
@@ -51,9 +64,14 @@ export default function Form() {
             value={selections.setsumeikaiId}
           />
           <input type="hidden" name="category" value="R" />
-          {inquiryResponse && inquiryResponse.response.status === 500 ? (
+          {inquiryResponse && inquiryResponse.response.status !== 200 ? (
             <div className="w-full rounded text-xl bg-red-600 text-white p-3">
               問い合わせができなかった
+              <ul>
+                {inquiryResponse.response.errors?.map((error) => {
+                  return <li key={error}>{error}</li>;
+                })}
+              </ul>
             </div>
           ) : null}
           <InputField

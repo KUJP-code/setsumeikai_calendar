@@ -21,7 +21,7 @@ export interface inquiry {
 }
 
 export interface inquiryApiResponse {
-  response: { status: number };
+  response: { status: number; errors: string[] };
   inquiryObject: inquiry;
 }
 
