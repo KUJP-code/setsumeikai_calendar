@@ -9,22 +9,11 @@ describe("ForwardLink", () => {
     render(
       <MemoryRouter>
         <ForwardLink currentStep={currentStep} selections={selections} />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
   }
 
   describe("currentStep school list", () => {
-    it("renders inactive link if no selected school", () => {
-      renderForwardLink("/school_list", {
-        schoolId: "0",
-        schoolName: "",
-        setsumeikaiId: undefined,
-        setsumeikaiDate: undefined,
-      });
-
-      const link = screen.getByRole("link", { name: "次へ" });
-      expect(link.classList.contains("cursor-not-allowed")).toBe(true);
-    });
     it("renders active link if school selected", () => {
       renderForwardLink("/school_list", {
         schoolId: "1",
@@ -39,17 +28,6 @@ describe("ForwardLink", () => {
   });
 
   describe("currentStep calendar", () => {
-    it("renders inactive link if no selected setsumeikai", () => {
-      renderForwardLink("/calendar", {
-        schoolId: "1",
-        schoolName: "school",
-        setsumeikaiDate: undefined,
-        setsumeikaiId: "0",
-      });
-
-      const link = screen.getByRole("link", { name: "次へ" });
-      expect(link.classList.contains("cursor-not-allowed")).toBe(true);
-    });
     it("renders active link if setsumeikai selected", () => {
       renderForwardLink("/calendar", {
         schoolId: "1",

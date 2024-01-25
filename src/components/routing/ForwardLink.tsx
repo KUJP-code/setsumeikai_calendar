@@ -47,9 +47,7 @@ export default function ForwardLink({
         }
         onClick={(e) => handleClick(e)}
       >
-        {setsumeikaiDate
-          ? `説明会申し込み: ${jaFormat(setsumeikaiDate)}`
-          : "次へ"}
+        {`説明会申し込み: ${jaFormat(setsumeikaiDate)}`}
       </NavLink>
     ) : null
   ) : null;

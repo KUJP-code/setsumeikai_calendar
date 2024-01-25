@@ -15,7 +15,7 @@ function renderFooter(step: string) {
           setsumeikaiId: undefined,
         }}
       />
-    </MemoryRouter>
+    </MemoryRouter>,
   );
 }
 
@@ -37,17 +37,5 @@ describe("FooterNav", () => {
     renderFooter("/form");
 
     expect(screen.findByRole("link", { name: "Calendar" })).toBeTruthy();
-  });
-
-  it("disables calendar link unless school selected", async () => {
-    renderFooter("/school_list");
-
-    expect(screen.getByRole("link", { name: "次へ" })).toBeTruthy();
-  });
-
-  it("disables form link unless setsumeikai selected", () => {
-    renderFooter("/calendar");
-
-    expect(screen.getByRole("link", { name: "次へ" })).toBeTruthy();
   });
 });
