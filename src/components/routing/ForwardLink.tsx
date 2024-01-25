@@ -23,30 +23,34 @@ export default function ForwardLink({
   }
 
   return currentStep.includes("/school_list") ? (
-    <NavLink
-      to={`/calendar/${schoolId}/${setsumeikaiId}`}
-      className={
-        noSchool
-          ? className.concat(" cursor-not-allowed opacity-80 basis-full")
-          : className
-      }
-      onClick={(e) => handleClick(e)}
-    >
-      {schoolName ? `${schoolName}の説明会カレンダー` : "次へ"}
-    </NavLink>
+    schoolName ? (
+      <NavLink
+        to={`/calendar/${schoolId}/${setsumeikaiId}`}
+        className={
+          noSchool
+            ? className.concat(" cursor-not-allowed opacity-80 basis-full")
+            : className
+        }
+        onClick={(e) => handleClick(e)}
+      >
+        {`${schoolName}の説明会カレンダー`}
+      </NavLink>
+    ) : null
   ) : currentStep.includes("/calendar") ? (
-    <NavLink
-      to={`/form/${schoolId}/${setsumeikaiId}`}
-      className={
-        noSetsumeikai
-          ? className.concat(" cursor-not-allowed opacity-80 basis-2/5")
-          : className
-      }
-      onClick={(e) => handleClick(e)}
-    >
-      {setsumeikaiDate
-        ? `説明会申し込み: ${jaFormat(setsumeikaiDate)}`
-        : "次へ"}
-    </NavLink>
+    setsumeikaiDate ? (
+      <NavLink
+        to={`/form/${schoolId}/${setsumeikaiId}`}
+        className={
+          noSetsumeikai
+            ? className.concat(" cursor-not-allowed opacity-80 basis-2/5")
+            : className
+        }
+        onClick={(e) => handleClick(e)}
+      >
+        {setsumeikaiDate
+          ? `説明会申し込み: ${jaFormat(setsumeikaiDate)}`
+          : "次へ"}
+      </NavLink>
+    ) : null
   ) : null;
 }
