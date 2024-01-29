@@ -1,5 +1,5 @@
 import dayGridPlugin from "@fullcalendar/daygrid";
-import listPlugin from "@fullcalendar/list";
+import listPlugin, { NoEventsMountArg } from "@fullcalendar/list";
 import FullCalendar from "@fullcalendar/react";
 import jaLocale from "@fullcalendar/core/locales/ja";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,14 @@ import { useRef } from "react";
 
 function responsiveView() {
   return window.innerWidth < 700 ? "listMonth" : "dayGridMonth";
+}
+
+function nextIfBlank(el: NoEventsMountArg) {
+  const nextMonth = el.view.currentEnd.getMonth();
+  const fourMonthsAhead = new Date().getMonth() + 4;
+  if (nextMonth < fourMonthsAhead) {
+    el.view.calendar.next();
+  }
 }
 
 export default function Calendar() {
@@ -80,6 +88,8 @@ export default function Calendar() {
         footerToolbar={{ start: "title", center: "", end: "today prev,next" }}
         initialView={responsiveView()}
         locale={jaLocale}
+        noEventsDidMount={(el) => nextIfBlank(el)}
+        noEventsText="今月の説明会はありません"
         plugins={[dayGridPlugin, listPlugin]}
         validRange={{ start, end }}
         windowResize={(viewAPI) =>
