@@ -44,7 +44,7 @@ export default function Form() {
 	return (
 		<div className="flex flex-col justify-between items-center gap-y-5 p-3">
 			<SelectionFields selections={selections} venue={venue} />
-			{selections.setsumeikaiDate?.getHours() === 16 ? (
+			{selections.schoolId !== "2" && selections.setsumeikaiDate?.getHours() === 16 ? (
 				<div className="w-full md:w-4/5 fieldset-border border-ku-orange rounded p-2 text-center text-ku-orange font-semibold">
 					<p>※事前にご確認ください！※</p>
 					<p>
