@@ -195,6 +195,11 @@
   opacity: 0.3;
 }
 
+.fc .fc-event-main {
+	display: flex;
+	overflow: hidden;
+}
+
 /* Mobile calendar styles */
 
 table.fc-list-table {
