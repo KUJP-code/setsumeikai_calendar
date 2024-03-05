@@ -12,6 +12,7 @@ import PrivacyPolicy from "./PrivacyPolicy";
 
 export default function Form() {
 	const { schools, selections } = useSelectionContext();
+	const venue = selections.schoolName === "Kids UP オンラインコース" ? "自宅からオンラインで参加" : selections.schoolName
 	function filterSchoolOptions(schools: school[]) {
 		const onlineSchool = schools.find((s) => s.id === "2");
 		if (selections.setsumeikaiId && onlineSchool?.setsumeikais.map((s) => s.id).includes(selections.setsumeikaiId)) {
@@ -42,7 +43,7 @@ export default function Form() {
 	}
 	return (
 		<div className="flex flex-col justify-between items-center gap-y-5 p-3">
-			<SelectionFields selections={selections} />
+			<SelectionFields selections={selections} venue={venue} />
 			{selections.setsumeikaiDate?.getHours() === 16 ? (
 				<div className="w-full md:w-4/5 fieldset-border border-ku-orange rounded p-2 text-center text-ku-orange font-semibold">
 					<p>※事前にご確認ください！※</p>

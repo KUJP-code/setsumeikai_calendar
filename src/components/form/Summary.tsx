@@ -15,7 +15,8 @@ export default function Summary({
   selections,
   inquiry,
 }: SummaryProps) {
-  const school = schools.find((s) => s.id === inquiry.school_id)?.name || "";
+  const plannedSchool = schools.find((s) => s.id === inquiry.school_id)?.name || "";
+	const venue = selections.schoolName === "Kids UP オンラインコース" ? "自宅からオンラインで参加" : selections.schoolName
   useEffect(() => {
     if (window.dataLayer) {
       window.dataLayer.push({
@@ -33,11 +34,11 @@ export default function Summary({
         問い合わせ成功
       </div>
 
-      <SelectionFields selections={selections} plannedSchool={school} />
+      <SelectionFields selections={selections} plannedSchool={plannedSchool} venue={venue} />
 
       <div className={groupClasses}>
         <h3 className={headingClasses}>説明会場</h3>
-        <p className={pClasses}>{selections.schoolName}</p>
+        <p className={pClasses}>{venue}</p>
       </div>
 
       <div className={groupClasses}>
@@ -86,7 +87,7 @@ export default function Summary({
 
       <div className={groupClasses}>
         <h3 className={headingClasses}>通学をご検討中のスクール</h3>
-        <p className={pClasses}>{school}</p>
+        <p className={pClasses}>{plannedSchool}</p>
       </div>
 
       {inquiry.start_date ? (

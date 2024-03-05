@@ -4,9 +4,10 @@ import jaFormat from "../../helpers/jaFormat";
 interface selectionsProps {
 	selections: selections;
 	plannedSchool?: string;
+	venue: string;
 }
 
-export default function SelectionFields({selections, plannedSchool}: selectionsProps) {
+export default function SelectionFields({selections, plannedSchool, venue}: selectionsProps) {
 
   const fieldClasses = "flex flex-col items-center basis-1/3 gap-3"
   const headingClasses = "font-bold text-2xl text-ku-orange";
@@ -24,7 +25,7 @@ export default function SelectionFields({selections, plannedSchool}: selectionsP
         <h3 className={headingClasses}>
           説明会場
         </h3>
-		<p className={pClasses}>{selections.schoolName}</p>	  	
+		<p className={pClasses}>{venue}</p>
 	  </div>
       <div className={fieldClasses}>
         <h3 className={headingClasses}>
