@@ -8,26 +8,26 @@ import getSchoolsAndEvents from "../../api/getSchoolsAndEvents";
 import createInquiry from "../../api/createInquiry";
 
 export default function Router() {
-  return createHashRouter([
-    {
-      path: "/",
-      element: <App />,
-      errorElement: <ErrorPage />,
-      loader: getSchoolsAndEvents,
-      children: [
-        {
-          path: "*",
-          element: <Navigate to="/school_list" />,
-        },
-        { index: true, element: <Navigate to="/school_list" /> },
-        { path: "/school_list", element: <SchoolList /> },
-        { path: "/calendar/:schoolId/:setsumeikaiId", element: <Calendar /> },
-        {
-          path: "/form/:schoolId/:setsumeikaiId",
-          element: <Form />,
-          action: ({ params, request }) => createInquiry(params, request),
-        },
-      ],
-    },
-  ]);
+	return createHashRouter([
+		{
+			path: "/",
+			element: <App />,
+			errorElement: <ErrorPage />,
+			loader: getSchoolsAndEvents,
+			children: [
+				{
+					path: "*",
+					element: <Navigate to="/school_list" />,
+				},
+				{ index: true, element: <Navigate to="/school_list" /> },
+				{ path: "/school_list", element: <SchoolList /> },
+				{ path: "/calendar/:schoolId/:setsumeikaiId", element: <Calendar /> },
+				{
+					path: "/form/:schoolId/:setsumeikaiId",
+					element: <Form />,
+					action: ({ params, request }) => createInquiry(params, request),
+				},
+			],
+		},
+	]);
 }

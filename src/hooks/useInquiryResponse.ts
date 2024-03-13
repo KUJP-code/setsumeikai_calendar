@@ -1,8 +1,8 @@
 import { useActionData } from "react-router-dom";
-import { inquiryApiResponse } from "../declarations";
+import type { inquiryApiResponse } from "../declarations";
 
 export default function useInquiryResponse() {
-  const actionData = useActionData() as inquiryApiResponse | undefined;
+	const actionData = useActionData() as inquiryApiResponse | undefined;
 
-  return actionData ? actionData : undefined;
+	return actionData ? actionData : undefined;
 }

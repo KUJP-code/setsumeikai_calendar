@@ -29,6 +29,7 @@ export interface school {
   id: string;
   name: string;
   address: string;
+  prefecture: string;
   image: string;
   phone: string;
   busAreas: string[];
@@ -59,5 +60,5 @@ export interface selectionsContext {
 }
 
 export interface GTMWindow extends Window {
-  dataLayer: Object[];
+  dataLayer: object[];
 }

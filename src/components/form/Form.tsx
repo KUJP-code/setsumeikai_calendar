@@ -6,16 +6,24 @@ import SelectField from "./SelectField";
 import RadioField from "./RadioField";
 import useInquiryResponse from "../../hooks/useInquiryResponse";
 import Summary from "./Summary";
-import { formOption, school } from "../../declarations";
+import type { formOption, school } from "../../declarations";
 import { useState } from "react";
 import PrivacyPolicy from "./PrivacyPolicy";
 
 export default function Form() {
 	const { schools, selections } = useSelectionContext();
-	const venue = selections.schoolName === "Kids UP オンラインコース" ? "自宅からオンラインで参加" : selections.schoolName
+	const venue =
+		selections.schoolName === "Kids UP オンラインコース"
+			? "自宅からオンラインで参加"
+			: selections.schoolName;
 	function filterSchoolOptions(schools: school[]) {
 		const onlineSchool = schools.find((s) => s.id === "2");
-		if (selections.setsumeikaiId && onlineSchool?.setsumeikais.map((s) => s.id).includes(selections.setsumeikaiId)) {
+		if (
+			selections.setsumeikaiId &&
+			onlineSchool?.setsumeikais
+				.map((s) => s.id)
+				.includes(selections.setsumeikaiId)
+		) {
 			return [{ name: onlineSchool.name, value: onlineSchool.id }];
 		}
 
@@ -44,7 +52,8 @@ export default function Form() {
 	return (
 		<div className="flex flex-col justify-between items-center gap-y-5 p-3">
 			<SelectionFields selections={selections} venue={venue} />
-			{selections.schoolId !== "2" && selections.setsumeikaiDate?.getHours() === 16 ? (
+			{selections.schoolId !== "2" &&
+			selections.setsumeikaiDate?.getHours() === 16 ? (
 				<div className="w-full md:w-4/5 fieldset-border border-ku-orange rounded p-2 text-center text-ku-orange font-semibold">
 					<p>※事前にご確認ください！※</p>
 					<p>
