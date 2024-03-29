@@ -32,6 +32,27 @@ export default function Summary({
 				event: "setsu_inquiry_success",
 			});
 		}
+		const _CIDN = "cid";
+		const _PMTV = "65eaae026c31c";
+		let _TRKU = `https://s2.aspservice.jp/harch/track.php?p=${_PMTV}&t=65eaae02`;
+		const _cks = document.cookie.split("; ");
+		const localStoragePath = `CL_${_PMTV}`;
+		let _cidv = null;
+		for (let i = 0; i < _cks.length; i++) {
+			const _ckd = _cks[i].split("=");
+			if (_ckd[0] === localStoragePath && _ckd[1].length > 1) {
+				_cidv = _ckd[1];
+				break;
+			}
+		}
+		if (!_cidv && localStorage.getItem(localStoragePath)) {
+			_cidv = localStorage.getItem(localStoragePath);
+		}
+		if (_cidv) {
+			_TRKU += `&${_CIDN}=${_cidv}`;
+		}
+		const img = document.body.appendChild(document.createElement("img"));
+		img.src = _TRKU;
 	}, []);
 	const groupClasses = "flex flex-col md:flex-row md:justify-between md:w-1/2";
 	const headingClasses = "font-semibold text-lg";
