@@ -1,9 +1,15 @@
 import type { school } from "../declarations";
 
 export default async function getSchools(): Promise<school[]> {
-	const response = await fetch(
-		"http://event-site-env.eba-ixrh9q23.ap-northeast-1.elasticbeanstalk.com/schools",
+	const response = await fetch("https://kids-up.app/schools").then(
+		(res) => res,
+		(error) => console.log(error),
 	);
+
+	if (!response) {
+		return [];
+	}
+
 	const data: school[] = await response.json();
 
 	return data.map((school) => {

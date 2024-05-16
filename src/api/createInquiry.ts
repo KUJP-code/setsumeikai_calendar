@@ -10,14 +10,11 @@ export default async function createInquiry(
 		"Content-Type": "application/json",
 	});
 
-	const response = await fetch(
-		"http://event-site-env.eba-ixrh9q23.ap-northeast-1.elasticbeanstalk.com/create_inquiry.json",
-		{
-			method: "POST",
-			headers: headers,
-			body: JSON.stringify({ inquiry: inquiryObject }),
-		},
-	);
+	const response = await fetch("https://kids-up.app/create_inquiry.json", {
+		method: "POST",
+		headers: headers,
+		body: JSON.stringify({ inquiry: inquiryObject }),
+	});
 
 	return { response: response, inquiryObject: inquiryObject };
 }
