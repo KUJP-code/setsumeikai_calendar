@@ -11,12 +11,13 @@ export default function PrefectureFilter({
 }: PrefectureFilterProps) {
 	if (prefectures.size === 0) return null;
 	prefectures.delete("");
+	prefectures.delete("online");
 	const className =
-		"rounded-xl text-center p-2 border-button text-ku-button font-bold";
-	const activeClasses = "bg-ku-orange text-white border-ku-orange";
+		"border-button rounded-xl p-2 text-center font-bold text-ku-button";
+	const activeClasses = "border-ku-orange bg-ku-orange text-white";
 
 	return (
-		<nav className="flex flex-wrap gap-3 justify-center items-center">
+		<nav className="flex flex-wrap items-center justify-center gap-3">
 			<button
 				type="button"
 				key="all"
