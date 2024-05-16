@@ -50,11 +50,11 @@ export default function Form() {
 		);
 	}
 	return (
-		<div className="flex flex-col justify-between items-center gap-y-5 p-3">
+		<div className="flex flex-col items-center justify-between gap-y-5 p-3">
 			<SelectionFields selections={selections} venue={venue} />
 			{selections.schoolId !== "2" &&
 			selections.setsumeikaiDate?.getHours() === 16 ? (
-				<div className="w-full md:w-4/5 fieldset-border border-ku-orange rounded p-2 text-center text-ku-orange font-semibold">
+				<div className="fieldset-border w-full rounded border-ku-orange p-2 text-center font-semibold text-ku-orange md:w-4/5">
 					<p>※事前にご確認ください！※</p>
 					<p>
 						平日16時台の説明会は、通常レッスン内での体験となるため、大人数に不慣れなお子様は教室に入れないケースが御座います。
@@ -66,7 +66,7 @@ export default function Form() {
 			) : null}
 			<RRForm
 				method="post"
-				className="w-full md:w-4/5 flex flex-col justify-evenly gap-y-5 pt-3 text-center"
+				className="flex w-full flex-col justify-evenly gap-y-5 pt-3 text-center md:w-4/5"
 				onSubmit={(event) => {
 					if (submitted) {
 						event.preventDefault();
@@ -83,7 +83,7 @@ export default function Form() {
 				/>
 				<input type="hidden" name="category" value="R" />
 				{inquiryResponse && inquiryResponse.response.status !== 200 ? (
-					<div className="w-full rounded text-xl bg-red-600 text-white p-3">
+					<div className="w-full rounded bg-red-600 p-3 text-xl text-white">
 						問い合わせができなかった
 						<ul>
 							{inquiryResponse.response.errors?.map((error) => {
@@ -154,6 +154,7 @@ export default function Form() {
 					name="school_id"
 					options={schoolOptions}
 					required={true}
+					selected={selections.schoolName}
 				/>
 				<div className="hidden md:block md:basis-[45%]" />
 				<RadioField
@@ -181,7 +182,7 @@ export default function Form() {
 				/>
 				<button
 					type="submit"
-					className={`w-full rounded p-1 bg-ku-orange font-semibold text-white text-base ${
+					className={`w-full rounded bg-ku-orange p-1 text-base font-semibold text-white ${
 						!policyAccepted ? "opacity-50" : "hover:opacity-90"
 					}`}
 					disabled={!policyAccepted}

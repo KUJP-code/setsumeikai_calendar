@@ -5,6 +5,7 @@ interface SelectFieldProps {
 	name: string;
 	options: formOption[];
 	required: boolean;
+	selected?: string;
 }
 
 export default function SelectField({
@@ -12,11 +13,12 @@ export default function SelectField({
 	name,
 	options,
 	required,
+	selected,
 }: SelectFieldProps) {
 	return (
-		<div className="flex flex-col basis-[45%] gap-2 text-lg">
+		<div className="flex basis-[45%] flex-col gap-2 text-lg">
 			<label htmlFor={name} className="self-start font-semibold">
-				<span className="text-ku-secondary text-base">{label}</span>
+				<span className="text-base text-ku-secondary">{label}</span>
 				<span
 					className={`label text-xs ${
 						required ? "label-required" : "label-premium"
@@ -28,14 +30,19 @@ export default function SelectField({
 			<select
 				name={name}
 				required={required}
-				className="border border-secondary rounded-md p-2 bg-white text-ku-secondary border-secondary focus-visible:shadow-input-orange focus-visible:outline-none focus:shadow-input-orange focus:text-ku-orange"
+				className="border-secondary border-secondary rounded-md border bg-white p-2 text-ku-secondary focus:text-ku-orange focus:shadow-input-orange focus-visible:shadow-input-orange focus-visible:outline-none"
 			>
 				<option value="" className="text-black">
 					選択してください
 				</option>
 				{options.map((o) => {
 					return (
-						<option value={o.value} key={o.value} className="text-black">
+						<option
+							value={o.value}
+							key={o.value}
+							className="text-black"
+							selected={selected === o.name}
+						>
 							{o.name}
 						</option>
 					);
