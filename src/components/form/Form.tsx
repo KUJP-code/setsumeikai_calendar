@@ -188,7 +188,7 @@ export default function Form() {
 					disabled={!policyAccepted}
 				>
 					{policyAccepted
-						? "内容の確認へ"
+						? "無料体験レッスンを申し込む"
 						: "個人情報保護方針に同意の上、次へお進みください"}
 				</button>
 			</RRForm>
