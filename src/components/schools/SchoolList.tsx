@@ -27,7 +27,7 @@ export default function SchoolList() {
 	);
 	const schoolIdOrder = [
 		31, 11, 7, 5, 4, 3, 13, 16, 8, 6, 22, 26, 9, 15, 10, 24, 12, 23, 25, 36, 30,
-		17, 21, 33, 34, 27, 14, 32, 28, 20, 18, 29, 19, 35, 2,
+		17, 21, 33, 34, 27, 14, 32, 28, 20, 18, 29, 19, 35,
 	];
 
 	return (
@@ -39,7 +39,7 @@ export default function SchoolList() {
 				setPrefectureFitler={setPrefecture}
 			/>
 			<div
-				className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4"
+				className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5"
 				ref={parent}
 			>
 				{schoolIdOrder.map((i: number) => {
