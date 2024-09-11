@@ -42,25 +42,33 @@ export default function SchoolList() {
 				className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5"
 				ref={parent}
 			>
-				{schoolIdOrder.map((i: number) => {
-					const school = displayedSchools.find((s) => s.id === i.toString());
-					if (!school) return;
+				{displayedSchools
+					.sort((a, b) => {
+						const aIndex = schoolIdOrder.indexOf(Number.parseInt(a.id));
+						const bIndex = schoolIdOrder.indexOf(Number.parseInt(b.id));
+						// If it's not in the order list, put it at the end
+						if (aIndex === -1) return 1;
 
-					return (
-						<SchoolCard
-							school={school}
-							key={school.id}
-							setSchool={() =>
-								setSelections({
-									setsumeikaiDate: undefined,
-									setsumeikaiId: undefined,
-									schoolName: school.name,
-									schoolId: school.id,
-								})
-							}
-						/>
-					);
-				})}
+						return aIndex - bIndex;
+					})
+					.map((s: school) => {
+						if (!s) return;
+
+						return (
+							<SchoolCard
+								school={s}
+								key={s.id}
+								setSchool={() =>
+									setSelections({
+										setsumeikaiDate: undefined,
+										setsumeikaiId: undefined,
+										schoolName: s.name,
+										schoolId: s.id,
+									})
+								}
+							/>
+						);
+					})}
 			</div>
 		</main>
 	);
