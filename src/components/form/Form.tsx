@@ -4,8 +4,6 @@ import SelectionFields from "./SelectionFields";
 import InputField from "./InputField";
 import SelectField from "./SelectField";
 import RadioField from "./RadioField";
-import useInquiryResponse from "../../hooks/useInquiryResponse";
-import Summary from "./Summary";
 import type { formOption, school } from "../../declarations";
 import { useState } from "react";
 import PrivacyPolicy from "./PrivacyPolicy";
@@ -34,21 +32,23 @@ export default function Form() {
 	const schoolOptions: formOption[] = filterSchoolOptions(schools);
 	const [policyAccepted, setPolicyAccepted] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
-	const inquiryResponse = useInquiryResponse();
 
-	if (inquiryResponse && inquiryResponse.response.status !== 200) {
-		setSubmitted(false);
-	}
-
-	if (inquiryResponse && inquiryResponse.response.status === 200) {
-		return (
-			<Summary
-				schools={schools}
-				selections={selections}
-				inquiry={inquiryResponse.inquiryObject}
-			/>
-		);
-	}
+	// This used to show a nice summary page, but is no longer
+	// needed for VERY IMPORTANT BUSINESS REASONS
+	//const inquiryResponse = useInquiryResponse();
+	//if (inquiryResponse && inquiryResponse.response.status !== 200) {
+	//	setSubmitted(false);
+	//}
+	//
+	//if (inquiryResponse && inquiryResponse.response.status === 200) {
+	//	return (
+	//		<Summary
+	//			schools={schools}
+	//			selections={selections}
+	//			inquiry={inquiryResponse.inquiryObject}
+	//		/>
+	//	);
+	//}
 	return (
 		<div className="flex flex-col items-center justify-between gap-y-5 p-3">
 			<SelectionFields selections={selections} venue={venue} />
@@ -82,16 +82,6 @@ export default function Form() {
 					value={selections.setsumeikaiId}
 				/>
 				<input type="hidden" name="category" value="R" />
-				{inquiryResponse && inquiryResponse.response.status !== 200 ? (
-					<div className="w-full rounded bg-red-600 p-3 text-xl text-white">
-						問い合わせができなかった
-						<ul>
-							{inquiryResponse.response.errors?.map((error) => {
-								return <li key={error}>{error}</li>;
-							})}
-						</ul>
-					</div>
-				) : null}
 				<InputField
 					type="text"
 					label="保護者のお名前"

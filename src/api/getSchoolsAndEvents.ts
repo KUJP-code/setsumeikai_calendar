@@ -1,7 +1,7 @@
 import type { school } from "../declarations";
 
 export default async function getSchools(): Promise<school[]> {
-	const response = await fetch("https://kids-up.app/schools").then(
+	const response = await fetch("http://localhost:3000/schools").then(
 		(res) => res,
 		(error) => console.log(error),
 	);
