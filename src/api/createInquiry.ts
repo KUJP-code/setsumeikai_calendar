@@ -5,7 +5,6 @@ export default async function createInquiry(
 	_params: Params<string>,
 	request: Request,
 ) {
-	console.log("hi");
 	const data = await request.formData();
 	const inquiryObject = Object.fromEntries(data);
 	const headers = new Headers({
