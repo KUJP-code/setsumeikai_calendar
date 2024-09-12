@@ -25,10 +25,6 @@ export default function SchoolList() {
 				school.hiragana.some((hiragana) => hiragana.includes(query)) ||
 				school.nearbySchools.some((school) => school.includes(query))),
 	);
-	const schoolIdOrder = [
-		31, 11, 7, 5, 4, 3, 13, 16, 8, 6, 22, 26, 9, 15, 10, 24, 12, 23, 25, 36, 30,
-		17, 21, 33, 34, 27, 14, 32, 28, 20, 18, 29, 19, 35,
-	];
 
 	return (
 		<main className="flex flex-wrap justify-evenly gap-2 px-3 md:px-2">
@@ -43,14 +39,9 @@ export default function SchoolList() {
 				ref={parent}
 			>
 				{displayedSchools
-					.sort((a, b) => {
-						const aIndex = schoolIdOrder.indexOf(Number.parseInt(a.id));
-						const bIndex = schoolIdOrder.indexOf(Number.parseInt(b.id));
-						// If it's not in the order list, put it at the end
-						if (aIndex === -1) return 1;
-
-						return aIndex - bIndex;
-					})
+					.sort(
+						(a, b) => Number.parseInt(a.position) - Number.parseInt(b.position),
+					)
 					.map((s: school) => {
 						if (!s) return;
 

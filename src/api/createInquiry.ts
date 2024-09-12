@@ -17,7 +17,7 @@ export default async function createInquiry(
 	// I just commented out the component for the summary if they
 	// ever realise the error of their ways and bring it back.
 	// You can find it in the Form component
-	const response = await fetch("http://localhost:3000/create_inquiry.json", {
+	const response = await fetch("https://kids-up.app/create_inquiry.json", {
 		method: "POST",
 		headers: headers,
 		body: JSON.stringify({ inquiry: inquiryObject }),

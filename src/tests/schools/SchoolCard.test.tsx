@@ -17,6 +17,7 @@ const testSchool: school = {
 	setsumeikais: [],
 	nearbySchools: [],
 	image: "",
+	position: "1",
 };
 
 describe("School Card", () => {
