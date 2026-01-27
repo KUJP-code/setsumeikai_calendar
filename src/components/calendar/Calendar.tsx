@@ -35,27 +35,6 @@ export default function Calendar() {
   const { start, end } = fcValidRange(new Date());
   const mainRef = useRef<null | HTMLElement>(null);
 
-  //TODO: Fix for nakameguro --- remove code at a later date.
-
-  const selectedSchool = schools.find(
-    (s: school) => s.id === selections.schoolId,
-  );
-
-  let initialDate = new Date();
-
-  // If this is school 41 (nakameguro):
-  if (selectedSchool?.id === "41") {
-    const currentYear = new Date().getFullYear();
-    const january = new Date(currentYear, 0, 1);
-
-    // If today is before January 1 → force January
-    if (new Date() < january) {
-      initialDate = january;
-    }
-  }
-
-  // END OF JACK Fix
-
   return (
     <main ref={mainRef}>
       <FullCalendar
@@ -107,8 +86,6 @@ export default function Calendar() {
         eventDisplay="block"
         firstDay={1}
         footerToolbar={{ start: "title", center: "", end: "today prev,next" }}
-        //  TODO: Remove intialdate here as well when the aforementioned code is removed.
-        initialDate={initialDate}
         initialView={responsiveView()}
         locale={jaLocale}
         noEventsDidMount={(el) => nextIfBlank(el)}
