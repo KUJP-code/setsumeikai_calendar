@@ -7,42 +7,16 @@ interface props {
 }
 
 export default function SchoolCard({ school, setSchool }: props) {
-  if (school.name === "Kids UP オンラインコース") {
-    return (
-      <NavLink
-        to={`/calendar/${school.id}/undefined`}
-        type="button"
-        className="border-secondary flex basis-full flex-col justify-start gap-2 rounded bg-white p-2 text-start text-sm text-ku-secondary md:basis-[21vw]"
-        onClick={() => setSchool(school.name)}
-      >
-        <div
-          className="h-[25vh] bg-cover bg-center"
-          style={{ backgroundImage: `url(${school.image})` }}
-        />
-        <div className="flex flex-col justify-between gap-1">
-          <h5 className="w-full text-center text-2xl font-bold text-ku-orange">
-            Kids UP オンラインコース
-          </h5>
-          <p>楽しみながら学べるおうちで英会話！</p>
-          <br />
-          <p>KidsUPのレッスンをご家庭で！</p>
-          <br />
-          <p>お子様の学びをサポートするコンテンツを</p>
-          <br />
-          <p>豊富にご用意しております。</p>
-        </div>
-      </NavLink>
-    );
-  }
+
   return (
     <NavLink
       to={`/calendar/${school.id}/undefined`}
       type="button"
-      className="border-secondary flex basis-full flex-col justify-start gap-2 rounded bg-white p-2 text-start text-sm text-ku-secondary md:basis-[21vw]"
+      className="border-2 border-[rgba(200,190,180,0.4)] flex basis-full flex-col justify-start gap-2 rounded-xl bg-white p-3 text-start text-sm text-ku-secondary md:basis-[21vw]"
       onClick={() => setSchool(school.name)}
     >
       <div
-        className="h-[25vh] bg-cover bg-center"
+        className="h-[25vh] bg-cover bg-center rounded-xl"
         style={{ backgroundImage: `url(${school.image})` }}
       />
       <div className="flex flex-col justify-between gap-1">
