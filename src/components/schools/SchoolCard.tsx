@@ -26,7 +26,7 @@ export default function SchoolCard({ school, setSchool }: props) {
       to={`/calendar/${school.id}/undefined`}
       type="button"
       className="relative group cursor-pointer overflow-hidden
-                border-2 border-ku-border
+                !border-2 !border-solid border-[#e4d7c5]
                 rounded-xl bg-white p-3
                 text-start text-sm text-ku-secondary
                 flex basis-full flex-col justify-start gap-2
@@ -34,7 +34,7 @@ export default function SchoolCard({ school, setSchool }: props) {
                 transition-[transform,box-shadow,border-color] duration-200 ease-out
                 md:hover:scale-[1.02]
                 md:hover:shadow-md
-                md:hover:border-ku-border-hover"
+                md:hover:border-[#e4d7c5cc]"
       onClick={() => setSchool(school.name)}
     >
       <div className="relative">
@@ -83,7 +83,7 @@ export default function SchoolCard({ school, setSchool }: props) {
         <div
           className="
             group/button inline-flex items-center gap-2
-            rounded-full border-2 border-ku-orange-50
+            rounded-full !border-2 !border-solid border-ku-orange-50
             px-5 py-2
             text-sm font-bold tracking-wide
             text-ku-orange
