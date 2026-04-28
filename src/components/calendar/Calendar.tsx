@@ -88,6 +88,7 @@ export default function Calendar() {
         footerToolbar={{ start: "title", center: "", end: "today prev,next" }}
         initialView={responsiveView()}
         locale={jaLocale}
+        buttonText={{ prev: "前月", next: "次月" }}
         noEventsDidMount={(el) => nextIfBlank(el)}
         noEventsText="今月の説明会はありません"
         plugins={[dayGridPlugin, listPlugin]}

@@ -16,6 +16,7 @@ export default function SchoolList() {
 	const [prefecture, setPrefecture] = useState("");
 	const displayedSchools = schools.filter(
 		(school: school) =>
+			school.prefecture !== "online" &&
 			(prefecture === "" || school.prefecture === prefecture) &&
 			(school.name.toUpperCase().includes(query.toUpperCase()) ||
 				school.address.includes(query) ||
