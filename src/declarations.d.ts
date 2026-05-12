@@ -11,6 +11,7 @@ export interface inquiry {
   phone: string;
   email: string;
   child_name: string;
+  child_katakana_name: string;
   child_birthday: string;
   kindy: string;
   ele_school: string;

@@ -105,9 +105,16 @@ export default function Form() {
         />
         <InputField
           type="text"
-          label="お子様のお名前"
+          label="お子様のお名前(漢字)"
           name="child_name"
-          placeholder="お子様のお名前(フルネーム)必須　　例) 鈴木 太郎 (スズキ タロウ)"
+          placeholder="例) 鈴木 太郎"
+          required={true}
+        />
+        <InputField
+          type="text"
+          label="お子様のお名前(フリガナ)"
+          name="child_katakana_name"
+          placeholder="例) スズキ タロウ"
           required={true}
         />
         <InputField

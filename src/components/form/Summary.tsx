@@ -100,8 +100,13 @@ export default function Summary({
 			</div>
 
 			<div className={groupClasses}>
-				<h3 className={headingClasses}>お子様のお名前</h3>
+				<h3 className={headingClasses}>お子様のお名前(漢字)</h3>
 				<p className={pClasses}>{inquiry.child_name}</p>
+			</div>
+
+			<div className={groupClasses}>
+				<h3 className={headingClasses}>お子様のお名前(フリガナ)</h3>
+				<p className={pClasses}>{inquiry.child_katakana_name}</p>
 			</div>
 
 			<div className={groupClasses}>
