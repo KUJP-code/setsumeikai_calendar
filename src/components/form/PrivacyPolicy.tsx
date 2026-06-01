@@ -24,7 +24,7 @@ export default function PrivacyPolicy({
           htmlFor="privacy_policy"
           className="text-ku-secondary font-semibold text-base"
         >
-          個人情報保護方針に同意する
+          プライバシーポリシーに同意する
         </label>
       </div>
 
@@ -34,7 +34,7 @@ export default function PrivacyPolicy({
         rel="noopener noreferrer"
         className="border-button rounded px-2 py-1 font-semibold text-base text-center hover:bg-main-background hover:text-ku-secondary bg-ku-button text-white"
       >
-        個人情報保護方針を見る
+        プライバシーポリシーを見る
       </a>
     </div>
   );
